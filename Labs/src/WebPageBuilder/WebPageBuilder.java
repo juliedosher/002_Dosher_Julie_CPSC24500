@@ -9,7 +9,6 @@ public class WebPageBuilder {
 		// CHECKLIST:
 		// print header
 		// format header and instructions
-		// fix location input (not working for some reason)
 		// add comments!!!
 		
 		System.out.println("This application helps you build a basic web page by asking you a "
@@ -19,6 +18,7 @@ public class WebPageBuilder {
 		String name = input.nextLine();
 		System.out.print("How old are you? ");
 		int age = input.nextInt();
+		input.nextLine(); 														// clears end of line character
 		System.out.print("Where do you live? ");
 		String location = input.nextLine();
 		System.out.print("When you grow up, you want to be... ");
