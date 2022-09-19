@@ -6,19 +6,20 @@ public class WebPageBuilder {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		// CHECKLIST:
-		// print header
-		// format header and instructions
-		// add comments!!!
+		System.out.println("***************************************************");
+		System.out.println("               WEBPAGE BUILDER V1.0");
+		System.out.println("***************************************************\n");
 		
-		System.out.println("This application helps you build a basic web page by asking you a "
-				+ "series of questions. Just answer each question, and I'll populate your new "
-				+ "web page with your responses.\n");
-		System.out.print("What is your name? ");
+		System.out.println("This application helps you build a basic web page");					// prints instructions for user
+		System.out.println("by asking you a series of questions. Just answer");
+		System.out.println("each question, and I'll populate your new web page");
+		System.out.println("with your responses.\n");
+		
+		System.out.print("What is your name? ");													// asks user for data to plug into web page
 		String name = input.nextLine();
 		System.out.print("How old are you? ");
 		int age = input.nextInt();
-		input.nextLine(); 														// clears end of line character
+		input.nextLine(); 																			// clears end of line character
 		System.out.print("Where do you live? ");
 		String location = input.nextLine();
 		System.out.print("When you grow up, you want to be... ");
@@ -28,7 +29,7 @@ public class WebPageBuilder {
 		int favInt2 = input.nextInt();
 		
 		
-		System.out.println("Here is the code for your web page:");
+		System.out.println("Here is the code for your web page:");									// prints HTML for web page, using user data
 		System.out.println("<html>");
 		System.out.println("<head><title>" + name + "'s Web Page</title></head>");
 		System.out.println("<body>");
@@ -42,6 +43,6 @@ public class WebPageBuilder {
 		System.out.println("</body>");
 		System.out.println("</html>");
 		
-		input.close();
+		input.close();																				// closes scanner
 	}
 }
