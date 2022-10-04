@@ -36,8 +36,8 @@ public class CellPhoneOrderingSystem {
 	}
 	
 	private static double configurePhone(Scanner input, int phoneNum) {							// **** FINISH ****
-		String outputString = ""; 
-		double price;
+		String outputString = ""; 																// change return to String, and update function
+		double price;																			// to get price later, get substring starting 1 after $
 		double screenSize;
 		
 		System.out.println("Let's configure phone #" + phoneNum + " ...");
