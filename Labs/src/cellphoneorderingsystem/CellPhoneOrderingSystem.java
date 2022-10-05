@@ -69,14 +69,17 @@ public class CellPhoneOrderingSystem {
 		
 		System.out.print("How much storage? Enter 64, 128, or 256: ");
 		if (input.nextInt() == 64) {
-			outputString += " 64GB ";
+			outputString += "64GB ";
 		} else if (input.netInt() == 128) {
-			outputString += " 128GB ";
+			outputString += "128GB ";
 		} else if (input.nextInt() == 256) {
-			outputString += " 256GB ";
+			outputString += "256GB ";
 		} else {
 			// add checking system
 		}
+		
+		String addOnChoice = "";
+		// while not equal to F
 			
 		return outputString;
 	}
