@@ -10,6 +10,9 @@ public class CellPhoneOrderingSystem {
 		printHeading();
 		int numPhones = getNumPhones(input);
 		
+		String[] outputLines = new String[numPhones];
+		double[] prices = new double[numPhones];
+		
 		for (int i = 0; i < numPhones; i++) {
 			configurePhone(input, i + 1);
 		}
@@ -35,7 +38,7 @@ public class CellPhoneOrderingSystem {
 		return phones;																			// **** ADD CHECK FOR PROPER INPUT ****
 	}
 	
-	private static double configurePhone(Scanner input, int phoneNum) {							// **** FINISH ****
+	private static String configurePhone(Scanner input, int phoneNum) {							// **** FINISH ****
 		String outputString = ""; 																// change return to String, and update function
 		double price;																			// to get price later, get substring starting 1 after $
 		double screenSize;
@@ -65,9 +68,16 @@ public class CellPhoneOrderingSystem {
 		
 		
 		System.out.print("How much storage? Enter 64, 128, or 256: ");
-		
+		if (input.nextInt() == 64) {
+			outputString += " 64GB ";
+		} else if (input.netInt() == 128) {
+			outputString += " 128GB ";
+		} else if (input.nextInt() == 256) {
+			outputString += " 256GB ";
+		} else {
+			// add checking system
+		}
 			
-		System.out.println(outputString);
-		return 0;
+		return outputString;
 	}
 }
