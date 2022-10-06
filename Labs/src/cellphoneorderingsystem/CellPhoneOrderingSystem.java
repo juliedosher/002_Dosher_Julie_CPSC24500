@@ -78,8 +78,15 @@ public class CellPhoneOrderingSystem {
 			// add checking system
 		}
 		
-		String addOnChoice = "";
-		// while not equal to F
+		String addOnChoice = "";r
+		while (!addOnChoice.equals("f")) {
+			
+			
+			
+			addOnChoice = input.next();
+			addOnChoice = addOnChoice.toLowerCase();
+		}
+		
 			
 		return outputString;
 	}
