@@ -40,45 +40,38 @@ public class CellPhoneOrderingSystem {
 	
 	private static String configurePhone(Scanner input, int phoneNum) {							// **** FINISH ****
 		String outputString = ""; 																// change return to String, and update function
-		double price;																			// to get price later, get substring starting 1 after $
-		double screenSize;
+		double price = 0;																			// to get price later, get substring starting 1 after $
+		
 		
 		System.out.println("Let's configure phone #" + phoneNum + " ...");
-		
-		System.out.print("Enter A for Android or I for IPhone: ");							
-		String phoneType = input.next();
-		if (phoneType.equals("A")) {
-			price = 799;
-			outputString += "Android ";
+	
+		String phoneOS = choosePhoneOS(input);
+		if (phoneOS.equals("Android ")) {
+			price += 799;
 		} else {
-			price = 849;
-			outputString += "IPhone ";
+			price += 849;
 		}
 		
-		System.out.print("What size screen? Enter 1 for 5.6\", 2 for 6.2\", or 3 for 6.7\": ");
-		if (input.nextInt() == 1) {
-			outputString += "5.6\" ";
-		} else if (input.nextInt() == 2) {
-			price *= 0.2;
-			outputString += "6.2\" ";
+		String screenSize = chooseScreenSize(input);
+		if (screenSize.equals("5.6\" ")) {
+			price *= 1;
+		} else if (screenSize.equals("6.2\" ")) {
+			price *= 1.2;
 		} else {
-			price *= 0.4;
-			outputString += "6.7\" ";
+			price *= 1.4;
+		}
+		
+		String phoneStorage = chooseStorage(input);
+		if (phoneStorage.equals("64GB ")) {
+			price += 0;
+		} else if (phoneStorage.equals("128GB ")) {
+			price += 100;
+		} else {
+			price += 250;
 		}
 		
 		
-		System.out.print("How much storage? Enter 64, 128, or 256: ");
-		if (input.nextInt() == 64) {
-			outputString += "64GB ";
-		} else if (input.netInt() == 128) {
-			outputString += "128GB ";
-		} else if (input.nextInt() == 256) {
-			outputString += "256GB ";
-		} else {
-			// add checking system
-		}
-		
-		String addOnChoice = "";r
+		String addOnChoice = "";
 		while (!addOnChoice.equals("f")) {
 			
 			
@@ -89,5 +82,90 @@ public class CellPhoneOrderingSystem {
 		
 			
 		return outputString;
+	}
+	
+	
+	private static String choosePhoneOS(Scanner input) {
+		String phoneOS = "";
+		String userIn = input.nextLine().toLowerCase();
+		
+		System.out.print("Enter A for Android or I for IPhone: ");	
+		
+		boolean properInput = false;
+		do {
+			if (userIn.equals("a")) {
+				phoneOS = "Android ";
+				properInput = true;
+				
+			} else if (userIn.equals("i")) {
+				phoneOS = "IPhone ";
+				properInput = true;
+				
+			} else {
+				System.out.println("Invalid input. Please try again.");
+				System.out.print("Enter A for Android or I for IPhone: ");
+				userIn = input.nextLine();
+				userIn = userIn.toLowerCase();
+			}
+		} while (!properInput);
+		
+		return phoneOS;
+	}
+	
+	private static String chooseScreenSize(Scanner input) {
+		String screenSize = "";
+		int userIn = input.nextInt();
+		
+		
+		System.out.print("What size screen? Enter 1 for 5.6\", 2 for 6.2\", or 3 for 6.7\": ");
+		
+		boolean properInput = false;
+		do {
+			if (userIn == 1) {
+				screenSize = "5.6\" ";
+				properInput = true;
+			
+			} else if (userIn == 2) {
+				screenSize = "6.2\" ";
+				properInput = true;
+			
+			} else if (userIn == 3) {
+				screenSize = "6.7\" ";
+				properInput = true;
+			
+			} else {
+				System.out.println("Invalid input. Please try again.");
+				System.out.print("What size screen? Enter 1 for 5.6\", 2 for 6.2\", or 3 for 6.7\": ");
+				userIn = input.nextInt();
+			}
+		} while (!properInput);
+		
+		
+		return screenSize;
+	}
+	
+	private static String chooseStorage(Scanner input) {
+		String storage = "";
+		int userIn = input.nextInt();
+		
+		System.out.print("How much storage? Enter 64, 128, or 256: ");
+		
+		boolean properInput = false;
+		do {
+			if (userIn == 64) {
+				storage = "64GB ";
+			} else if (userIn == 128) {
+				storage = "128GB ";
+			} else if (userIn == 256) {
+				storage = "256GB ";
+			} else {
+				System.out.println("Invalid input. Please try again.");
+				System.out.print("How much storage? Enter 64, 128, or 256: ");
+				userIn = input.nextInt();
+			}
+		} while (!properInput);
+		
+		input.nextLine();
+		return storage;
 	}
 }
