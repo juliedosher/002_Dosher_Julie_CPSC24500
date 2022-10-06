@@ -21,7 +21,7 @@ public class CellPhoneOrderingSystem {
 	}
 	
 	
-	private static void printHeading() {
+	private static void printHeading() {														// prints nicely formatted heading
 		System.out.println("****************************************************");
 		System.out.println("        CORPORATE CELL PHONE ORDERING SYSTEM        ");
 		System.out.println("****************************************************\n");
@@ -167,5 +167,13 @@ public class CellPhoneOrderingSystem {
 		
 		input.nextLine();
 		return storage;
+	}
+	
+	private static String chooseAddOns(Scanner input) {
+		String addOns = "";
+		
+		
+		
+		return addOns;
 	}
 }
