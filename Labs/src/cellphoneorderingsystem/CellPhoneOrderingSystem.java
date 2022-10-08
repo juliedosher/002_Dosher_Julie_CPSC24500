@@ -16,10 +16,10 @@ public class CellPhoneOrderingSystem {
 		for (int i = 0; i < numPhones; i++) {
 			outputLines[i] = configurePhone(input, i+1);
 			prices[i] = getPriceFromString(outputLines[i]);
-			System.out.println(outputLines[i]);
+			
 		}
 		
-		printTotalPrice(prices);
+		printTotal(outputLines, prices);
 	}
 	
 	
@@ -86,7 +86,7 @@ public class CellPhoneOrderingSystem {
 			price += 59;
 		}
 		
-		outputString += " ($" + price + ")";								// **** ROUND TO 2 DECIMALS ****
+		outputString += phoneOS + screenSize + phoneStorage + addOns + " ($" + String.format("%.2f", price) + ")";
 		return outputString;
 	}
 	
@@ -207,6 +207,7 @@ public class CellPhoneOrderingSystem {
 				} else if (userIn.equals("f")) {
 					doneChoosing = true;
 					properInput = true;
+					System.out.println();
 				
 				} else {
 					System.out.println("Invalid input. Please try again.");
@@ -227,25 +228,31 @@ public class CellPhoneOrderingSystem {
 		System.out.println("[E]ar buds ($99)");
 		System.out.println("[W]ireless charger ($59)");
 		System.out.println("[F]inish order");
-		System.out.print("Enter the letter of your choice");
+		System.out.print("Enter the letter of your choice: ");
 	}
 	
 	private static double getPriceFromString(String string) {						// takes in string containing a phone's price
 																					// and returns just the price as a double
-		
-		
-		return 0;
+		String doubleFromString = string.substring(string.indexOf('$') + 1, string.length() - 1);
+		return Double.parseDouble(doubleFromString);
 	}
 	
-	private static String printTotalPrice(double[] prices) {
+	private static void printTotal(String[] outputLines, double[] prices) {
 		double totalPrice = 0;
 		for (double price : prices) {
 			totalPrice += price;
 		}
 		
-		String totalString = "Your total cost is $" + totalPrice + ".\n\n";					// **** ROUND TO 2 DECIMALS ****
-		totalString += "Thank you for your order.";
+		System.out.println("Here is a summary of your order:");
 		
-		return totalString;
+		for (int i = 0; i < outputLines.length; i++) {
+			System.out.println(outputLines[i]);
+		}
+		
+		System.out.println();
+		System.out.println("Your total cost is $" + String.format("%.2f", totalPrice) + ".");				
+		System.out.println();																						
+		System.out.println("Thank you for your order.");
+		
 	}
 }
