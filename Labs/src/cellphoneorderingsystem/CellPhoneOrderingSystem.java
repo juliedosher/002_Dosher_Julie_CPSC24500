@@ -86,17 +86,17 @@ public class CellPhoneOrderingSystem {
 			price += 59;
 		}
 		
-		outputString += phoneOS + screenSize + phoneStorage 						// nicely formatted string with all 
-				+ addOns + " ($" + String.format("%.2f", price) + ")";				// features and the price
+		outputString += phoneOS + screenSize + phoneStorage 									// nicely formatted string with all 
+				+ addOns + " ($" + String.format("%.2f", price) + ")";							// features and the price
 		return outputString;
 	}
 	
 	
-	private static String choosePhoneOS(Scanner input) {							// has user to choose phone OS type
-		String phoneOS = "";														// and returns choice as a string
+	private static String choosePhoneOS(Scanner input) {										// has user to choose phone OS type
+		String phoneOS = "";																	// and returns choice as a string
 		
 		System.out.print("Enter A for Android or I for IPhone: ");
-		String userIn = input.nextLine().toLowerCase();								// allows both upper case and lower case
+		String userIn = input.nextLine().toLowerCase();											// allows both upper case and lower case
 		
 		boolean properInput = false;
 		do {
@@ -109,7 +109,7 @@ public class CellPhoneOrderingSystem {
 				properInput = true;
 				
 			} else {
-				System.out.println("Invalid input. Please try again.");				// checks for invalid input (i.e., not I or A)
+				System.out.println("Invalid input. Please try again.");							// checks for invalid input (i.e., not I or A)
 				System.out.print("Enter A for Android or I for IPhone: ");
 				userIn = input.nextLine();
 				userIn = userIn.toLowerCase();
@@ -119,8 +119,8 @@ public class CellPhoneOrderingSystem {
 		return phoneOS;
 	}
 	
-	private static String chooseScreenSize(Scanner input) {							// has user choose screen size
-		String screenSize = "";														// and returns choice as a string
+	private static String chooseScreenSize(Scanner input) {										// has user choose screen size
+		String screenSize = "";																	// and returns choice as a string
 		
 		boolean properInput = false;
 		do {
@@ -141,7 +141,7 @@ public class CellPhoneOrderingSystem {
 				properInput = true;
 			
 			} else {
-				System.out.println("Invalid input. Please try again.");				// checks for invalid input
+				System.out.println("Invalid input. Please try again.");							// checks for invalid input
 			}
 		} while (!properInput);														
 		
@@ -149,8 +149,8 @@ public class CellPhoneOrderingSystem {
 		return screenSize;
 	}
 	
-	private static String chooseStorage(Scanner input) {							// has user choose storage capacity
-		String storage = "";														// and returns choice as a string
+	private static String chooseStorage(Scanner input) {										// has user choose storage capacity
+		String storage = "";																	// and returns choice as a string
 			
 		boolean properInput = false;
 		do {
@@ -169,7 +169,7 @@ public class CellPhoneOrderingSystem {
 				storage = "256GB ";
 				properInput = true;
 				
-			} else {																// checks for invalid input
+			} else {																			// checks for invalid input
 				System.out.println("Invalid input. Please try again.");
 			}
 		} while (!properInput);
@@ -178,15 +178,15 @@ public class CellPhoneOrderingSystem {
 		return storage;
 	}
 	
-	private static String chooseAddOns(Scanner input) {								// cycles through all add-on options and adds
-		String addOns = "";															// the chosen ones to a string that is returned
+	private static String chooseAddOns(Scanner input) {											// cycles through all add-on options and adds
+		String addOns = "";																		// the chosen ones to a string that is returned
 		
 		boolean properInput = false;
 		boolean doneChoosing = false;
 		while (!doneChoosing) {
 			do {
 				printAddOnOptions();
-				String userIn = input.nextLine().toLowerCase();						// both lower case and upper case are allowed
+				String userIn = input.nextLine().toLowerCase();									// both lower case and upper case are allowed
 			
 				if (userIn.equals("c")) {
 					addOns += "/ case ";
@@ -204,12 +204,12 @@ public class CellPhoneOrderingSystem {
 					addOns += "/ wireless charger ";
 					properInput = true;
 				
-				} else if (userIn.equals("f")) {									// choice that ends loop
+				} else if (userIn.equals("f")) {												// choice that ends loop
 					doneChoosing = true;
 					properInput = true;
 					System.out.println();
 				
-				} else {															// checks for invalid input
+				} else {																		// checks for invalid input
 					System.out.println("Invalid input. Please try again.");
 					properInput = false;
 				}
@@ -221,7 +221,7 @@ public class CellPhoneOrderingSystem {
 		return addOns;
 	}
 	
-	private static void printAddOnOptions() {										// prints options for add-ons
+	private static void printAddOnOptions() {													// prints options for add-ons
 		System.out.println("What add-on do you want?");
 		System.out.println("[C]ase ($49)");
 		System.out.println("[S]creen protector ($15)");
@@ -231,14 +231,14 @@ public class CellPhoneOrderingSystem {
 		System.out.print("Enter the letter of your choice: ");
 	}
 	
-	private static double getPriceFromString(String string) {						// takes in string containing a phone's price
-																					// and returns just the price as a double
+	private static double getPriceFromString(String string) {									// takes in string containing a phone's price
+																								// and returns just the price as a double
 		String doubleFromString = string.substring(string.indexOf('$') + 1, 
 				string.length() - 1);
 		return Double.parseDouble(doubleFromString);
 	}
 	
-	private static void printTotal(String[] outputLines, double[] prices) {			// prints the total and a thank-you message
+	private static void printTotal(String[] outputLines, double[] prices) {						// prints the total and a thank-you message
 		double totalPrice = 0;
 		for (double price : prices) {
 			totalPrice += price;
