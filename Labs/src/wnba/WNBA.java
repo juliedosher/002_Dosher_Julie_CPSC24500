@@ -11,7 +11,7 @@ public class WNBA {
 		
 	}
 	
-	private static int chooseOption(Scanner input) {
+	private static int chooseOption(Scanner input) { 				// finish this later
 		printOptions();
 		boolean isValidChoice = false;
 		int choice = 0;
