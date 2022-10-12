@@ -16,10 +16,10 @@ public class CellPhoneOrderingSystem {
 		for (int i = 0; i < numPhones; i++) {
 			outputLines[i] = configurePhone(input, i+1);
 			prices[i] = getPriceFromString(outputLines[i]);
-			System.out.println(outputLines[i]);
+			
 		}
 		
-		printTotalPrice(prices);
+		printTotal(outputLines, prices);
 	}
 	
 	
@@ -37,12 +37,12 @@ public class CellPhoneOrderingSystem {
 		int phones = input.nextInt();
 		input.nextLine();
 		System.out.println();
-		return phones;																			// **** ADD CHECK FOR PROPER INPUT ****
+		return phones;																			
 	}
 	
-	private static String configurePhone(Scanner input, int phoneNum) {							// **** FINISH ****
-		String outputString = ""; 																// change return to String, and update function
-		double price = 0;																			// to get price later, get substring starting 1 after $
+	private static String configurePhone(Scanner input, int phoneNum) {							// goes through all available options for phone
+		String outputString = ""; 																// and has user choose what they want
+		double price = 0;																			
 		
 		System.out.println("Let's configure phone #" + phoneNum + " ...");
 	
@@ -86,16 +86,17 @@ public class CellPhoneOrderingSystem {
 			price += 59;
 		}
 		
-		outputString += " ($" + price + ")";								// **** ROUND TO 2 DECIMALS ****
+		outputString += phoneOS + screenSize + phoneStorage 									// nicely formatted string with all 
+				+ addOns + " ($" + String.format("%.2f", price) + ")";							// features and the price
 		return outputString;
 	}
 	
 	
-	private static String choosePhoneOS(Scanner input) {
-		String phoneOS = "";
+	private static String choosePhoneOS(Scanner input) {										// has user to choose phone OS type
+		String phoneOS = "";																	// and returns choice as a string
 		
 		System.out.print("Enter A for Android or I for IPhone: ");
-		String userIn = input.nextLine().toLowerCase();
+		String userIn = input.nextLine().toLowerCase();											// allows both upper case and lower case
 		
 		boolean properInput = false;
 		do {
@@ -108,24 +109,25 @@ public class CellPhoneOrderingSystem {
 				properInput = true;
 				
 			} else {
-				System.out.println("Invalid input. Please try again.");
+				System.out.println("Invalid input. Please try again.");							// checks for invalid input (i.e., not I or A)
 				System.out.print("Enter A for Android or I for IPhone: ");
 				userIn = input.nextLine();
 				userIn = userIn.toLowerCase();
 			}
-		} while (!properInput);
+		} while (!properInput);													
 		
 		return phoneOS;
 	}
 	
-	private static String chooseScreenSize(Scanner input) {
-		String screenSize = "";
-		
-		System.out.print("What size screen? Enter 1 for 5.6\", 2 for 6.2\", or 3 for 6.7\": ");
-		int userIn = input.nextInt();
+	private static String chooseScreenSize(Scanner input) {										// has user choose screen size
+		String screenSize = "";																	// and returns choice as a string
 		
 		boolean properInput = false;
 		do {
+			System.out.print("What size screen? Enter 1 for 5.6\", "
+					+ "2 for 6.2\", or 3 for 6.7\": ");
+			int userIn = input.nextInt();
+			
 			if (userIn == 1) {
 				screenSize = "5.6\" ";
 				properInput = true;
@@ -139,19 +141,17 @@ public class CellPhoneOrderingSystem {
 				properInput = true;
 			
 			} else {
-				System.out.println("Invalid input. Please try again.");
-				System.out.print("What size screen? Enter 1 for 5.6\", 2 for 6.2\", or 3 for 6.7\": ");
-				userIn = input.nextInt();
+				System.out.println("Invalid input. Please try again.");							// checks for invalid input
 			}
-		} while (!properInput);
+		} while (!properInput);														
 		
 		
 		return screenSize;
 	}
 	
-	private static String chooseStorage(Scanner input) {
-		String storage = "";
-		
+	private static String chooseStorage(Scanner input) {										// has user choose storage capacity
+		String storage = "";																	// and returns choice as a string
+			
 		boolean properInput = false;
 		do {
 			System.out.print("How much storage? Enter 64, 128, or 256: ");
@@ -169,7 +169,7 @@ public class CellPhoneOrderingSystem {
 				storage = "256GB ";
 				properInput = true;
 				
-			} else {
+			} else {																			// checks for invalid input
 				System.out.println("Invalid input. Please try again.");
 			}
 		} while (!properInput);
@@ -178,15 +178,15 @@ public class CellPhoneOrderingSystem {
 		return storage;
 	}
 	
-	private static String chooseAddOns(Scanner input) {
-		String addOns = "";
+	private static String chooseAddOns(Scanner input) {											// cycles through all add-on options and adds
+		String addOns = "";																		// the chosen ones to a string that is returned
 		
 		boolean properInput = false;
 		boolean doneChoosing = false;
 		while (!doneChoosing) {
 			do {
 				printAddOnOptions();
-				String userIn = input.nextLine().toLowerCase();
+				String userIn = input.nextLine().toLowerCase();									// both lower case and upper case are allowed
 			
 				if (userIn.equals("c")) {
 					addOns += "/ case ";
@@ -204,11 +204,12 @@ public class CellPhoneOrderingSystem {
 					addOns += "/ wireless charger ";
 					properInput = true;
 				
-				} else if (userIn.equals("f")) {
+				} else if (userIn.equals("f")) {												// choice that ends loop
 					doneChoosing = true;
 					properInput = true;
+					System.out.println();
 				
-				} else {
+				} else {																		// checks for invalid input
 					System.out.println("Invalid input. Please try again.");
 					properInput = false;
 				}
@@ -220,32 +221,38 @@ public class CellPhoneOrderingSystem {
 		return addOns;
 	}
 	
-	private static void printAddOnOptions() {
+	private static void printAddOnOptions() {													// prints options for add-ons
 		System.out.println("What add-on do you want?");
 		System.out.println("[C]ase ($49)");
 		System.out.println("[S]creen protector ($15)");
 		System.out.println("[E]ar buds ($99)");
 		System.out.println("[W]ireless charger ($59)");
 		System.out.println("[F]inish order");
-		System.out.print("Enter the letter of your choice");
+		System.out.print("Enter the letter of your choice: ");
 	}
 	
-	private static double getPriceFromString(String string) {						// takes in string containing a phone's price
-																					// and returns just the price as a double
-		
-		
-		return 0;
+	private static double getPriceFromString(String string) {									// takes in string containing a phone's price
+																								// and returns just the price as a double
+		String doubleFromString = string.substring(string.indexOf('$') + 1, 
+				string.length() - 1);
+		return Double.parseDouble(doubleFromString);
 	}
 	
-	private static String printTotalPrice(double[] prices) {
+	private static void printTotal(String[] outputLines, double[] prices) {						// prints the total and a thank-you message
 		double totalPrice = 0;
 		for (double price : prices) {
 			totalPrice += price;
 		}
 		
-		String totalString = "Your total cost is $" + totalPrice + ".\n\n";					// **** ROUND TO 2 DECIMALS ****
-		totalString += "Thank you for your order.";
+		System.out.println("Here is a summary of your order:");
 		
-		return totalString;
+		for (int i = 0; i < outputLines.length; i++) {
+			System.out.println(outputLines[i]);
+		}
+		
+		System.out.println();
+		System.out.println("Your total cost is $" + String.format("%.2f", totalPrice) + ".");				
+		System.out.println();																						
+		System.out.println("Thank you for your order.");
 	}
 }
