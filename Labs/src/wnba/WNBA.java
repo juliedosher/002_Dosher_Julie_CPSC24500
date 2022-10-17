@@ -18,12 +18,9 @@ public class WNBA {
 			printExitMessage();
 		}
 			
-	}
+	}	
 		
 		
-	
-
-	
 	private static File getFile(Scanner input) {
 		System.out.println("Enter the standings filename: ");
 		String fileName = input.nextLine();
@@ -38,6 +35,7 @@ public class WNBA {
 		try {
 			Scanner scanFile = new Scanner(file);
 			fileExists = true;
+			System.out.println("The teams have been read.");
 			
 		} catch (FileNotFoundException e) {
 			fileExists = false;
@@ -70,6 +68,18 @@ public class WNBA {
 	}
 	
 	
+	private static void printConferenceStandings(String conference) {
+		System.out.println();
+		if (conference.equals("east")) {
+			System.out.println("Standings for the Eastern Conference");
+		} else if (conference.equals("west")) {
+			System.out.println("Standings for the Western Conference");
+		} else {
+			System.out.println("Combined Conference Standings");
+		}
+		
+	}
+	
 	private static void printHeading() {
 		String asterisks = "*".repeat(51);
 		String header = "2022 WNBA STANDINGS";
@@ -79,15 +89,9 @@ public class WNBA {
 		System.out.println(asterisks);
 		System.out.println(header);
 		System.out.println(asterisks);
+		System.out.println();
 	}
 	
-	private static void printOptions() {
-		System.out.println("What would you like to see?");
-		System.out.println("1. Eastern Conference");
-		System.out.println("2. Western Conference");
-		System.out.println("3. Combined");
-		System.out.println("4. Exit");
-	}
 
 	private static void printExitMessage() {
 		System.out.println("File does not exist. Exiting program");
@@ -97,5 +101,14 @@ public class WNBA {
 		System.out.println();
 		System.out.println("That is an invalid choice.");
 		System.out.println();
+	}
+	
+	private static void printOptions() {
+		System.out.println("What would you like to see?");
+		System.out.println("1. Eastern Conference");
+		System.out.println("2. Western Conference");
+		System.out.println("3. Combined");
+		System.out.println("4. Exit");
+		System.out.println("Enter the number of your choice: ");
 	}
 }
