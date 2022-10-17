@@ -55,17 +55,16 @@ public class WNBA {
 			try {
 				choice = input.nextInt();
 			} catch (IllegalArgumentException e) {
-				System.out.println("\nThat is an invalid choice.\n");
+				printInvalidInput();
 			}
 			
 			if (choice >= 1 && choice <= 4) {
 				isValidChoice = true;
 			} else {
-				System.out.println("\nThat is an invalid choice.\n");
+				printInvalidInput();
 			}
 			
 		} while (!isValidChoice);
-		
 		
 		return choice;
 	}
@@ -92,5 +91,11 @@ public class WNBA {
 
 	private static void printExitMessage() {
 		System.out.println("File does not exist. Exiting program");
+	}
+	
+	private static void printInvalidInput() {
+		System.out.println();
+		System.out.println("That is an invalid choice.");
+		System.out.println();
 	}
 }
