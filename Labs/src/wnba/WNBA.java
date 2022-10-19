@@ -27,8 +27,15 @@ public class WNBA {
 			
 			int choice = chooseOption(input);
 			while (choice != 4) {
-				printConferenceData(choice, eastern);
-					
+				printConferenceHeading(choice);
+				if (choice == EASTERN) {
+					printConferenceData(eastern);
+				} else if (choice == WESTERN) {
+					printConferenceData(western);
+				} else if (choice == COMBINED) {
+					printConferenceData(combined);
+				}
+				
 				choice = chooseOption(input);
 			}
 				
@@ -100,8 +107,15 @@ public class WNBA {
 	}
 	
 	
-	private static void printConferenceData(int choice, String[] conference) {					// prints appropriate conference data for  
-		System.out.println();																	// whichever option was chosen
+	private static void printConferenceData(String[] conference) {								// prints data for the chosen conference
+		for (int i = 0; i < conference.length; i++) {
+			System.out.println(conference[i]);
+		}
+		System.out.println();
+	}
+	
+	private static void printConferenceHeading(int choice) {									// prints appropriate conference heading
+		System.out.println();																	// for whichever option was chosen
 		if (choice == EASTERN) {
 			System.out.println("Standings for the Eastern Conference");
 			
@@ -110,10 +124,6 @@ public class WNBA {
 			
 		} else if (choice == COMBINED) {
 			System.out.println("Combined Conference Standings");
-		}
-		
-		for (int i = 0; i < conference.length; i++) {
-			System.out.println(conference[i]);
 		}
 	}
 	
