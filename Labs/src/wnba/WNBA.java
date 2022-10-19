@@ -22,7 +22,7 @@ public class WNBA {
 		
 		
 	private static File getFile(Scanner input) {
-		System.out.println("Enter the standings filename: ");
+		System.out.print("Enter the standings filename: ");
 		String fileName = input.nextLine();
 		File file = new File(fileName);
 		
@@ -68,7 +68,7 @@ public class WNBA {
 	}
 	
 	
-	private static void printConferenceStandings(String conference) {
+	private static void printConferenceStandings(String conference, String[] conferenceStats) {
 		System.out.println();
 		if (conference.equals("east")) {
 			System.out.println("Standings for the Eastern Conference");
@@ -92,7 +92,6 @@ public class WNBA {
 		System.out.println();
 	}
 	
-
 	private static void printExitMessage() {
 		System.out.println("File does not exist. Exiting program");
 	}
