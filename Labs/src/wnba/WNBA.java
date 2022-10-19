@@ -9,7 +9,6 @@ public class WNBA {
 	private static final int WESTERN = 2;
 	private static final int COMBINED = 3;
 	private static final int CONFERENCE_SIZE = 6;
-	private static final int NUM_OF_STATS = 5;
 	
 	
 	public static void main(String[] args) {
@@ -24,12 +23,13 @@ public class WNBA {
 			String[] combined = new String[2 * CONFERENCE_SIZE];
 			
 			try {
-				eastern = assignArrayValues(file, "Eastern");
+				eastern = assignArrayValues(file, "Eastern");									// creates the three arrays 
 				western = assignArrayValues(file, "Western");
 				combined = combineArrays(eastern, western);	
-			} catch (FileNotFoundException e) {
-				printFileError();
-			}
+			
+			} catch (FileNotFoundException e) {													// if an invalid file has been entered
+				printFileError();																// this should never be reached because there is 
+			}																					// already a check for this elsewhere
 			
 			int choice = chooseOption(input);
 			while (choice != 4) {																// repeats this block until user chooses to exit
@@ -117,7 +117,6 @@ public class WNBA {
 			
 			c++;
 		}
-		
 		return combined;
 	}
 	
