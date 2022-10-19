@@ -17,13 +17,18 @@ public class WNBA {
 		printHeading();
 		File file = getFile(input);
 		
-		try {
-			Scanner fileIn = new Scanner(file);
-			System.out.println("The teams have been read.");
+		if (checkIfFileExists(file)) {
+			String[] eastern = new String[CONFERENCE_SIZE];
+			String[] western = new String[CONFERENCE_SIZE];
+			String[] combined = new String[2 * CONFERENCE_SIZE];
 			
-			String[] eastern = assignArrayValues(fileIn, EASTERN);
-			String[] western = assignArrayValues(fileIn, WESTERN);
-			String[] combined = combineArrays(eastern, western);
+			try {
+				eastern = assignArrayValues(file, "Eastern");
+				western = assignArrayValues(file, "Western");
+				combined = combineArrays(eastern, western);	
+			} catch (FileNotFoundException e) {
+				printFileError();
+			}
 			
 			int choice = chooseOption(input);
 			while (choice != 4) {
@@ -39,32 +44,49 @@ public class WNBA {
 				choice = chooseOption(input);
 			}
 				
-			fileIn.close();
+
 			printExit();	
 	
 				
-		} catch (FileNotFoundException e) {
-			printFileError();
-			e.printStackTrace();
-		}
+		} 
 	}	
 		
 	
-	private static String[] assignArrayValues(Scanner fileScan, int choice) {					// creates an array for a single conference
-		String[] arr = new String[CONFERENCE_SIZE];												// containing data from input file
-		String headerToLookFor;
+	private static String[] assignArrayValues(File file, String conference) 					// creates an array for a single conference
+			throws FileNotFoundException {														// containing data from input file
 		
-		if (choice == EASTERN) {
-			headerToLookFor = "Conference: Eastern";
-		} else {
-			headerToLookFor = "Conference: Western";
-		}
+		Scanner fileScan = new Scanner(file);
+		String[] arr = new String[CONFERENCE_SIZE];												
 		
 		while (fileScan.hasNextLine()) {
-			
+			if (fileScan.nextLine().contains(conference)) {
+				String next = fileScan.nextLine();
+		
+				for (int i = 0; i < CONFERENCE_SIZE; i++) {
+					arr[i] = next;
+					if (fileScan.hasNextLine()) {
+						next = fileScan.nextLine();
+					}
+				}	
+			} 
 		}
 		
 		return arr;
+	}
+	
+	private static boolean checkIfFileExists(File file) {
+		boolean fileExists = false;
+		
+		try {
+			Scanner fileIn = new Scanner(file);
+			System.out.println("The teams have been read.");
+			fileExists = true;
+			
+		} catch (FileNotFoundException e) {
+			printFileError();
+		}
+		
+		return fileExists;
 	}
 	
 	private static String[] combineArrays(String[] eastern, String[] western) {					// combines two conference arrays and
