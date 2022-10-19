@@ -12,13 +12,13 @@ public class WNBA {
 	
 	
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
+		Scanner input = new Scanner(System.in);										
 		
 		printHeading();
 		File file = getFile(input);
 		
-		if (checkIfFileExists(file)) {
-			String[] eastern = new String[CONFERENCE_SIZE];
+		if (checkIfFileExists(file)) {															// if the inputted file exists, program continues
+			String[] eastern = new String[CONFERENCE_SIZE];										// otherwise, it ends 
 			String[] western = new String[CONFERENCE_SIZE];
 			String[] combined = new String[2 * CONFERENCE_SIZE];
 			
@@ -31,7 +31,7 @@ public class WNBA {
 			}
 			
 			int choice = chooseOption(input);
-			while (choice != 4) {
+			while (choice != 4) {																// repeats this block until user chooses to exit
 				printConferenceHeading(choice);
 				if (choice == EASTERN) {
 					printConferenceData(eastern);
@@ -41,13 +41,10 @@ public class WNBA {
 					printConferenceData(combined);
 				}
 				
-				choice = chooseOption(input);
+				choice = chooseOption(input);													
 			}
 				
-
-			printExit();	
-	
-				
+			printExit();																		// once 4 is entered, the program ends	
 		} 
 	}	
 		
@@ -74,8 +71,8 @@ public class WNBA {
 		return arr;
 	}
 	
-	private static boolean checkIfFileExists(File file) {
-		boolean fileExists = false;
+	private static boolean checkIfFileExists(File file) {										// checks if the inputted file exits
+		boolean fileExists = false;																// and returns boolean value
 		
 		try {
 			Scanner fileIn = new Scanner(file);
@@ -83,7 +80,7 @@ public class WNBA {
 			fileExists = true;
 			
 		} catch (FileNotFoundException e) {
-			printFileError();
+			printFileError();																	// if file does not exist, the user is told so
 		}
 		
 		return fileExists;
