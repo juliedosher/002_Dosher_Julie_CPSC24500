@@ -9,6 +9,7 @@ public class WNBA {
 	private static final int WESTERN = 2;
 	private static final int COMBINED = 3;
 	private static final int CONFERENCE_SIZE = 6;
+	private static final int NUM_OF_STATS = 5;
 	
 	
 	public static void main(String[] args) {
@@ -25,7 +26,7 @@ public class WNBA {
 			try {
 				eastern = assignArrayValues(file, "Eastern");
 				western = assignArrayValues(file, "Western");
-				combined = combineArrays(eastern, western);	
+				//combined = combineArrays(eastern, western);	
 			} catch (FileNotFoundException e) {
 				printFileError();
 			}
@@ -76,10 +77,10 @@ public class WNBA {
 		boolean fileExists = false;																// and returns boolean value
 		
 		try {
-			Scanner fileIn = new Scanner(file);
+			Scanner fileScan = new Scanner(file);
 			System.out.println("The teams have been read.");
 			fileExists = true;
-			fileIn.close();
+			fileScan.close();
 			
 		} catch (FileNotFoundException e) {
 			printFileError();																	// if file does not exist, the user is told so
@@ -90,7 +91,13 @@ public class WNBA {
 	
 	private static String[] combineArrays(String[] eastern, String[] western) {					// combines two conference arrays and
 		String[] combined = new String[2 * CONFERENCE_SIZE];									// returns a single array with all data
-		
+		int i = 0;
+		int j = 0;
+		while (i < eastern.length && j < western.length) {
+			//if (eastern[i] > western[j]) {
+				
+			//}
+		}
 		
 		return combined;
 	}
@@ -127,10 +134,16 @@ public class WNBA {
 		return file;
 	}
 	
-	
+																								
 	private static void printConferenceData(String[] conference) {								// prints data for the chosen conference
+		System.out.print(String.format("%-20s","Team Name" ));
+		System.out.print(String.format("%8s", "Wins"));
+		System.out.print(String.format("%8s", "Losses"));
+		System.out.print(String.format("%8s", "PCT"));
+		System.out.println(String.format("%8s", "GB"));
+		
 		for (int i = 0; i < conference.length; i++) {
-			System.out.println(conference[i]);
+			printFormattedData(conference[i]);
 		}
 		System.out.println();
 	}
@@ -151,6 +164,23 @@ public class WNBA {
 	private static void printExit() {															// prints exit message for when user is done
 		System.out.println();
 		System.out.println("Thank you for using this program.");
+	}
+	
+	private static void printFormattedData(String line) {										// formats each line from the String array
+		String[] splitString = line.split("\t");												// with proper spacing
+		System.out.println(splitString.length);
+		
+		String teamName = splitString[0];
+		double wins = Double.valueOf(splitString[1]);
+		Double losses = Double.valueOf(splitString[2]);
+		double winPercentage = wins / (wins + losses);
+		double gamesBehind = 0;
+		
+		System.out.print(String.format("%-20s", teamName));
+		System.out.print(String.format("%8.0f", wins));
+		System.out.print(String.format("%8.0f", losses));
+		System.out.print(String.format("%8.3f", winPercentage));
+		System.out.print(String.format("%8.1f", gamesBehind));
 	}
 	
 	private static void printHeading() {														// prints the heading for the program
@@ -184,5 +214,4 @@ public class WNBA {
 		System.out.println("4. Exit");
 		System.out.print("Enter the number of your choice: ");
 	}
-	
 }
