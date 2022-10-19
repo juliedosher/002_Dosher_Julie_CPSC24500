@@ -26,7 +26,7 @@ public class WNBA {
 			try {
 				eastern = assignArrayValues(file, "Eastern");
 				western = assignArrayValues(file, "Western");
-				//combined = combineArrays(eastern, western);	
+				combined = combineArrays(eastern, western);	
 			} catch (FileNotFoundException e) {
 				printFileError();
 			}
@@ -91,12 +91,31 @@ public class WNBA {
 	
 	private static String[] combineArrays(String[] eastern, String[] western) {					// combines two conference arrays and
 		String[] combined = new String[2 * CONFERENCE_SIZE];									// returns a single array with all data
-		int i = 0;
-		int j = 0;
-		while (i < eastern.length && j < western.length) {
-			//if (eastern[i] > western[j]) {
+		double[] eastPCT = getWinPercent(eastern);
+		double[] westPCT = getWinPercent(western);
+		
+		int e = 0;		
+		int w = 0;		
+		int c = 0;		
+		while (c < combined.length) {
+			if (e == eastPCT.length) {															// if all eastern teams have already been added
+				combined[c] = western[w];
+				w++;
 				
-			//}
+			} else if (w == westPCT.length) {													// if all western teams have already been added
+				combined[c] = eastern[e];
+				e++;
+				
+			} else if (westPCT[e] > eastPCT[w]) {												// if the next western team has a better PCT
+				combined[c] = western[w];														// than the next eastern team
+				w++;
+				
+			} else {																			// if the next eastern team has a better PCT
+				combined[c] = eastern[e];														// than the next western team, 
+				e++;																			// or if it is a tie between the two teams
+			}
+			
+			c++;
 		}
 		
 		return combined;
@@ -134,6 +153,19 @@ public class WNBA {
 		return file;
 	}
 	
+	private static double[] getWinPercent(String[] conference) {									// returns an array of every team's win percent
+		double[] winPercents = new double[conference.length];
+		
+		for (int i = 0; i < conference.length; i++) {
+			String[] split = conference[i].split("\t");
+			double wins = Double.valueOf(split[1]);
+			double losses = Double.valueOf(split[2]);
+			winPercents[i] = wins / (wins + losses);
+		}
+		
+		return winPercents;
+	}
+	
 																								
 	private static void printConferenceData(String[] conference) {								// prints data for the chosen conference
 		System.out.print(String.format("%-20s","Team Name" ));
@@ -168,7 +200,6 @@ public class WNBA {
 	
 	private static void printFormattedData(String line) {										// formats each line from the String array
 		String[] splitString = line.split("\t");												// with proper spacing
-		System.out.println(splitString.length);
 		
 		String teamName = splitString[0];
 		double wins = Double.valueOf(splitString[1]);
@@ -180,7 +211,7 @@ public class WNBA {
 		System.out.print(String.format("%8.0f", wins));
 		System.out.print(String.format("%8.0f", losses));
 		System.out.print(String.format("%8.3f", winPercentage));
-		System.out.print(String.format("%8.1f", gamesBehind));
+		System.out.println(String.format("%8.1f", gamesBehind));
 	}
 	
 	private static void printHeading() {														// prints the heading for the program
