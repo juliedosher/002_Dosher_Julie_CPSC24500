@@ -5,17 +5,30 @@ import java.util.*;
 
 public class WNBA {
 
+	private static final int EASTERN = 1;
+	private static final int WESTERN = 2;
+	private static final int COMBINED = 3;
+	private static final int EXIT = 4;
+	
+	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		printHeading();
 		File file = getFile(input);
 		
 		if (checkIfFileExists(file, input)) {
-			// while loop
+			int choice = chooseOption(input);
 			
+			while (choice != 4) {
+				printConferenceHeading(choice);
+				
+				choice = chooseOption(input);
+			}
+			
+			printExit();
 			
 		} else {
-			printExitMessage();
+			printFileError();
 		}
 			
 	}	
@@ -45,15 +58,16 @@ public class WNBA {
 	}
 	
 	private static int chooseOption(Scanner input) { 
-		printOptions();
 		boolean isValidChoice = false;
 		int choice = 0;
 		
 		do {
+			printOptions();
 			try {
 				choice = input.nextInt();
-			} catch (IllegalArgumentException e) {
-				printInvalidInput();
+				
+			} catch (InputMismatchException e) {
+				input.nextLine();
 			}
 			
 			if (choice >= 1 && choice <= 4) {
@@ -68,16 +82,22 @@ public class WNBA {
 	}
 	
 	
-	private static void printConferenceStandings(String conference, String[] conferenceStats) {
+	private static void printConferenceHeading(int choice) {
 		System.out.println();
-		if (conference.equals("east")) {
+		if (choice == EASTERN) {
 			System.out.println("Standings for the Eastern Conference");
-		} else if (conference.equals("west")) {
+			
+		} else if (choice == WESTERN) {
 			System.out.println("Standings for the Western Conference");
-		} else {
+			
+		} else if (choice == COMBINED) {
 			System.out.println("Combined Conference Standings");
 		}
-		
+	}
+	
+	private static void printExit() {
+		System.out.println();
+		System.out.println("Thank you for using this program.");
 	}
 	
 	private static void printHeading() {
@@ -92,7 +112,8 @@ public class WNBA {
 		System.out.println();
 	}
 	
-	private static void printExitMessage() {
+	private static void printFileError() {
+		System.out.println();
 		System.out.println("File does not exist. Exiting program");
 	}
 	
@@ -108,6 +129,9 @@ public class WNBA {
 		System.out.println("2. Western Conference");
 		System.out.println("3. Combined");
 		System.out.println("4. Exit");
-		System.out.println("Enter the number of your choice: ");
+		System.out.print("Enter the number of your choice: ");
 	}
+	
+	
+	
 }
