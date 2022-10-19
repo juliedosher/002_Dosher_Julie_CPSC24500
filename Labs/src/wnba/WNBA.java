@@ -152,7 +152,36 @@ public class WNBA {
 		return file;
 	}
 	
-	private static double[] getWinPercent(String[] conference) {									// returns an array of every team's win percent
+	private static double getLeadLosses(String[] conference) {
+		double leadWins = 0;
+		double leadLosses = 0;
+		for (int i = 0; i < conference.length; i++) {
+			String[] split = conference[i].split("\t");
+			double wins = Double.valueOf(split[1]);
+			double losses = Double.valueOf(split[2]);
+			if (wins > leadWins) {
+				leadWins = wins;
+				leadLosses = losses;
+			}
+		}
+		
+		return leadLosses;
+	}
+	
+	private static double getLeadWins(String[] conference) {
+		double leadWins = 0;
+		for (int i = 0; i < conference.length; i++) {
+			String[] split = conference[i].split("\t");
+			double wins = Double.valueOf(split[1]);
+			if (wins > leadWins) {
+				leadWins = wins;
+			}
+		}
+		
+		return leadWins;
+	}
+	
+	private static double[] getWinPercent(String[] conference) {								// returns an array of every team's win percent
 		double[] winPercents = new double[conference.length];
 		
 		for (int i = 0; i < conference.length; i++) {
@@ -173,9 +202,7 @@ public class WNBA {
 		System.out.print(String.format("%8s", "PCT"));
 		System.out.println(String.format("%8s", "GB"));
 		
-		for (int i = 0; i < conference.length; i++) {
-			printFormattedData(conference[i]);
-		}
+		printFormattedData(conference);
 		System.out.println();
 	}
 	
@@ -197,20 +224,32 @@ public class WNBA {
 		System.out.println("Thank you for using this program.");
 	}
 	
-	private static void printFormattedData(String line) {										// formats each line from the String array
-		String[] splitString = line.split("\t");												// with proper spacing
+	private static void printFormattedData(String[] conference) {								// prints each line from the String array
+		double leadWins = getLeadWins(conference);												// with proper spacing
+		double leadLosses = getLeadLosses(conference);
 		
-		String teamName = splitString[0];
-		double wins = Double.valueOf(splitString[1]);
-		Double losses = Double.valueOf(splitString[2]);
-		double winPercentage = wins / (wins + losses);
-		double gamesBehind = 0;
+		for (int i = 0; i < conference.length; i++) {											
+			String[] splitString = conference[i].split("\t");												
+			
+			String teamName = splitString[0];
+			double wins = Double.valueOf(splitString[1]);
+			Double losses = Double.valueOf(splitString[2]);
+			double winPercentage = wins / (wins + losses);
+			double gamesBehind = ((leadWins - wins) + (losses - leadLosses)) / 2;
+			
+			System.out.print(String.format("%-20s", teamName));
+			System.out.print(String.format("%8.0f", wins));
+			System.out.print(String.format("%8.0f", losses));
+			System.out.print(String.format("%8.3f", winPercentage));
+			
+			if (gamesBehind == 0) {
+				System.out.println("      - ");
+			} else {
+				System.out.println(String.format("%8.1f", gamesBehind));
+			}
+			
+		}
 		
-		System.out.print(String.format("%-20s", teamName));
-		System.out.print(String.format("%8.0f", wins));
-		System.out.print(String.format("%8.0f", losses));
-		System.out.print(String.format("%8.3f", winPercentage));
-		System.out.println(String.format("%8.1f", gamesBehind));
 	}
 	
 	private static void printHeading() {														// prints the heading for the program
