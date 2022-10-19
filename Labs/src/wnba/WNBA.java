@@ -106,7 +106,7 @@ public class WNBA {
 				combined[c] = eastern[e];
 				e++;
 				
-			} else if (westPCT[e] > eastPCT[w]) {												// if the next western team has a better PCT
+			} else if (westPCT[w] > eastPCT[e]) {												// if the next western team has a better PCT
 				combined[c] = western[w];														// than the next eastern team
 				w++;
 				
