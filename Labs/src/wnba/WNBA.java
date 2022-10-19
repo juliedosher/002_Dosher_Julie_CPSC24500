@@ -56,7 +56,7 @@ public class WNBA {
 		String[] arr = new String[CONFERENCE_SIZE];												
 		
 		while (fileScan.hasNextLine()) {
-			if (fileScan.nextLine().contains(conference)) {
+			if (fileScan.nextLine().contains(conference)) {										// tries to find specified conference
 				String next = fileScan.nextLine();
 		
 				for (int i = 0; i < CONFERENCE_SIZE; i++) {
@@ -68,6 +68,7 @@ public class WNBA {
 			} 
 		}
 		
+		fileScan.close();
 		return arr;
 	}
 	
@@ -78,6 +79,7 @@ public class WNBA {
 			Scanner fileIn = new Scanner(file);
 			System.out.println("The teams have been read.");
 			fileExists = true;
+			fileIn.close();
 			
 		} catch (FileNotFoundException e) {
 			printFileError();																	// if file does not exist, the user is told so
