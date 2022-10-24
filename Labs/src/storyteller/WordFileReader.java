@@ -1,0 +1,5 @@
+package storyteller;
+
+class WordFileReader {
+
+}

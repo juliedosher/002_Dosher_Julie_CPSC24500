@@ -1,6 +1,6 @@
 package storyteller;
 
-public class StoryTeller {
+public class App {
 
 	public static void main(String[] args) {
 		
