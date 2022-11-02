@@ -41,8 +41,8 @@ class WordFileReader {
 				}
 			}
 			
-		} catch (FileNotFoundException e) {															// in case file is not found
-			printFileError();
+		} catch (FileNotFoundException e) {															// should never be used because this
+			printFileError();																		// is already checked in App.java
 		}
 		
 		return dictionary;

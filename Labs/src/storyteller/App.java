@@ -55,8 +55,8 @@ public class App {
 				fileScan.close();
 				validFile = true;
 					
-			} catch (FileNotFoundException e) {
-				printFileError();
+			} catch (FileNotFoundException e) {														// in case file is not found
+				printFileError();																	
 			}
 			
 		} while (!validFile);													
@@ -208,12 +208,12 @@ public class App {
 		System.out.println();
 	}
 	
-	private static void printFileError() {
-		System.out.println("That file was not found. Please try again.");
+	private static void printFileError() {															// error message for when a file is
+		System.out.println("That file was not found. Please try again.");							// not found
 		System.out.println();
 	}
 	
-	private static void printScale() {
+	private static void printScale() {																
 		System.out.println("On a scale of " + FREQ_MIN + " to " + FREQ_MAX + " ...");
 	}
 	
