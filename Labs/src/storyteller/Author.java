@@ -7,9 +7,9 @@ class Author {
 	private HashMap<String, ArrayList<String>> dictionary;
 	
 	private int sentences;
-	private double adjectiveFrequency;
-	private double adverbFrequency;
-	private double prepositionFrequency;
+	private int adjectiveFrequency;
+	private int adverbFrequency;
+	private int prepositionFrequency;
 	
 	public Author() {																								// default constructor
 		this.dictionary = new HashMap<String, ArrayList<String>>();
@@ -19,8 +19,8 @@ class Author {
 		this.prepositionFrequency = 0;
 	}
 	
-	public Author(HashMap<String, ArrayList<String>> dictionary, int sentences, double adjectiveFrequency, 			// constructor
-			double adverbFrequency, double prepositionFrequency) {
+	public Author(HashMap<String, ArrayList<String>> dictionary, int sentences, int adjectiveFrequency, 			// constructor
+			int adverbFrequency, int prepositionFrequency) {
 		this.dictionary = dictionary;
 		this.sentences = sentences;
 		this.adjectiveFrequency = adjectiveFrequency;
@@ -63,29 +63,28 @@ class Author {
 		this.sentences = sentences;
 	}
 
-	public double getAdjectiveFrequency() {
+	public int getAdjectiveFrequency() {
 		return adjectiveFrequency;
 	}
 
-	public void setAdjectiveFrequency(double adjectiveFrequency) {
+	public void setAdjectiveFrequency(int adjectiveFrequency) {
 		this.adjectiveFrequency = adjectiveFrequency;
 	}
 
-	public double getAdverbFrequency() {
+	public int getAdverbFrequency() {
 		return adverbFrequency;
 	}
 
-	public void setAdverbFrequency(double adverbFrequency) {
+	public void setAdverbFrequency(int adverbFrequency) {
 		this.adverbFrequency = adverbFrequency;
 	}
 
-	public double getPrepositionFrequency() {
+	public int getPrepositionFrequency() {
 		return prepositionFrequency;
 	}
 
-	public void setPrepositionFrequency(double prepositionFrequency) {
+	public void setPrepositionFrequency(int prepositionFrequency) {
 		this.prepositionFrequency = prepositionFrequency;
 	}
 	
-
 }

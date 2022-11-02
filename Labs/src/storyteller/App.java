@@ -27,9 +27,9 @@ public class App {
 		while (wantsAnotherStory) {
 			int sentences = askForTotalSentences(input);
 			printScale();
-			double adjectives = askForAdjectives(input);
-			double adverbs = askForAdverbs(input);
-			double prepositions = askForPrepositions(input);
+			int adjectives = askForAdjectives(input);
+			int adverbs = askForAdverbs(input);
+			int prepositions = askForPrepositions(input);
 			
 			Author author = new Author(dictionary, sentences, adjectives, adverbs, prepositions);
 			author.printStory();
@@ -115,8 +115,8 @@ public class App {
 		return totalSentences;
 	}
 	
-	private static double askForAdjectives(Scanner input) {											// asks user for desired frequency of adjectives
-		double adjectives = 0;																		// and returns it as a percentage
+	private static int askForAdjectives(Scanner input) {											// asks user for desired frequency of adjectives
+		int adjectives = 0;																			// and returns it as a percentage
 																									
 		boolean validInput = false;
 		do {
@@ -124,7 +124,7 @@ public class App {
 			int choice = input.nextInt();
 			
 			if (choice >= FREQ_MIN && choice <= FREQ_MAX) {																		
-				adjectives = Double.valueOf(choice) / 10;																
+				adjectives = choice;																
 				validInput = true;
 				
 			} else {
@@ -137,8 +137,8 @@ public class App {
 		return adjectives;
 	}
 	
-	private static double askForAdverbs(Scanner input) {											// asks user for desired frequency of adverbs
-		double adverbs = 0;																			// and returns it as a percentage
+	private static int askForAdverbs(Scanner input) {												// asks user for desired frequency of adverbs
+		int adverbs = 0;																			// and returns it as a percentage
 																									
 		boolean validInput = false;
 		do {
@@ -146,7 +146,7 @@ public class App {
 			int choice = input.nextInt();
 			
 			if (choice >= FREQ_MIN && choice <= FREQ_MAX) {															
-				adverbs = Double.valueOf(choice) / 10;																	
+				adverbs = choice;																	
 				validInput = true;
 				
 			} else {
@@ -159,8 +159,8 @@ public class App {
 		return adverbs;
 	}
 	
-	private static double askForPrepositions(Scanner input) {										// asks user for desired frequency of prepositions
-		double prepositions = 0;																	// and returns it as a percentage
+	private static int askForPrepositions(Scanner input) {											// asks user for desired frequency of prepositions
+		int prepositions = 0;																		// and returns it as a percentage
 																									
 		boolean validInput = false;
 		do {
@@ -168,7 +168,7 @@ public class App {
 			int choice = input.nextInt();
 			
 			if (choice >= FREQ_MIN && choice <= FREQ_MAX) {														
-				prepositions = Double.valueOf(choice) / 10;																
+				prepositions = choice;																
 				validInput = true;
 				
 			} else {
