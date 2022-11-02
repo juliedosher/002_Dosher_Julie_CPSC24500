@@ -5,11 +5,13 @@ import java.util.*;
 
 public class App {
 	
+	private static final int FREQ_MIN = 0;
+	private static final int FREQ_MAX = 10;
+	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-	
+		printHeading();
 		HashMap<String, ArrayList<String>> dictionary = WordFileReader.readFile(askForFileName(input));
-		
 		/*
 		for (String key : dictionary.keySet()) {
 			System.out.println(key);
@@ -21,7 +23,6 @@ public class App {
 			System.out.println();
 		}
 		*/
-		
 		boolean wantsAnotherStory = true;
 		while (wantsAnotherStory) {
 			int sentences = askForTotalSentences(input);
@@ -30,11 +31,8 @@ public class App {
 			double adverbs = askForAdverbs(input);
 			double prepositions = askForPrepositions(input);
 			
-			System.out.println(adjectives);
-			System.out.println(adverbs);
-			System.out.println(prepositions);
-			
-			Author author = new Author(dictionary, 0, 0, 0);
+			Author author = new Author(dictionary, sentences, adjectives, adverbs, prepositions);
+			author.printStory(sentences);
 			
 			System.out.println();
 			wantsAnotherStory = askForAnotherStory(input);
@@ -44,14 +42,14 @@ public class App {
 	}
 
 	
-	private static String askForFileName(Scanner input) {											// asks user for name of file and returns it
-		String fileName = "";																		// repeats if user enters invalid file name
+	private static String askForFileName(Scanner input) {											// asks user for name of file and returns it																		
+		System.out.print("Enter the name of the word file: ");										// repeats if user enters invalid file name
+		String fileName = input.nextLine();
 		
 		boolean validFile = false;
 		do {
 			try {
-				System.out.print("Enter the name of the word file: ");
-				fileName = input.nextLine();
+				
 				
 				Scanner fileScan = new Scanner(new File(fileName));
 				fileScan.close();
@@ -63,7 +61,7 @@ public class App {
 			
 		} while (!validFile);													
 		
-		
+		System.out.println();
 		return fileName;
 	}
 	
@@ -125,7 +123,7 @@ public class App {
 			System.out.print("  How frequently should adjectives be used? ");
 			int choice = input.nextInt();
 			
-			if (choice >= 0 ) {																		
+			if (choice >= FREQ_MIN && choice <= FREQ_MAX) {																		
 				adjectives = Double.valueOf(choice) / 10;																
 				validInput = true;
 				
@@ -147,7 +145,7 @@ public class App {
 			System.out.print("  How frequently should adverbs be used? ");
 			int choice = input.nextInt();
 			
-			if (choice >= 0) {														
+			if (choice >= FREQ_MIN && choice <= FREQ_MAX) {															
 				adverbs = Double.valueOf(choice) / 10;																	
 				validInput = true;
 				
@@ -169,7 +167,7 @@ public class App {
 			System.out.print("  How frequently should prepositions be used? ");
 			int choice = input.nextInt();
 			
-			if (choice >= 0) {														
+			if (choice >= FREQ_MIN && choice <= FREQ_MAX) {														
 				prepositions = Double.valueOf(choice) / 10;																
 				validInput = true;
 				
@@ -193,6 +191,7 @@ public class App {
 		System.out.print(space);
 		System.out.print(mainHeading);
 		System.out.println(space);
+		System.out.println(asterisks);
 		System.out.println();
 		
 		System.out.println("Welcome to StoryTeller, a sophisticated electronic");
@@ -201,6 +200,7 @@ public class App {
 		System.out.println("them. You can tune the richness of the writing by");
 		System.out.println("changing how frequently adjectives, adverbs, and");
 		System.out.println("prepositions should be included.");
+		System.out.println();
 	}
 	
 	private static void printInvalidInput() {														// error message for when the user 
@@ -214,7 +214,7 @@ public class App {
 	}
 	
 	private static void printScale() {
-		System.out.println("On a scale of 0 to 10 ...");
+		System.out.println("On a scale of " + FREQ_MIN + " to " + FREQ_MAX + " ...");
 	}
 	
 	private static void printThankYouMessage() {													// thank-you message for end of program
