@@ -11,7 +11,7 @@ public class App {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 	
-		WordFileReader.readFile(askForFileName(input));
+		HashMap<String, ArrayList<String>> dictionary = WordFileReader.readFile(askForFileName(input));
 		
 		boolean wantsAnotherStory = true;
 		while (wantsAnotherStory) {
