@@ -1,5 +1,10 @@
 package storyteller;
 
+/*
+ * Class that reads through a user-submitted text file and stores a dictionary.
+ * The "dictionary" is a hash map connecting the type of word to an array list of words
+ */
+
 import java.io.*;
 import java.util.*;
 

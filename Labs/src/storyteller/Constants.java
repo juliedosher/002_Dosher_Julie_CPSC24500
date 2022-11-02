@@ -1,5 +1,9 @@
 package storyteller;
 
+/*
+ * A class that contains constants that are used by other classes
+ */
+
 public class Constants {
 	public static final String ADJECTIVE = "adj";	
 	public static final String ADVERB = "adv";

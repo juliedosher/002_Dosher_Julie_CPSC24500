@@ -1,5 +1,9 @@
 package storyteller;
 
+/*
+ * The class that creates the story.
+ */
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;

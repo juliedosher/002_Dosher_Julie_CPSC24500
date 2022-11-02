@@ -1,5 +1,9 @@
 package storyteller;
 
+/*
+ * The class that contains the main() function and asks for and stores user input
+ */
+
 import java.io.*;
 import java.util.*;
 
