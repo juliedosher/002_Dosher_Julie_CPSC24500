@@ -11,9 +11,12 @@ public class App {
 		boolean wantsAnotherStory = true;
 		while (wantsAnotherStory) {
 			int sentences = askForTotalSentences(input);
+			int adjectives = askForAdjectives(input, sentences);
+			int adverbs = askForAdverbs(input, sentences);
+			int prepositions = askForPrepositions(input, sentences);
 			
 			
-			
+			System.out.println();
 			wantsAnotherStory = askForAnotherStory(input);
 		}
 		
@@ -88,6 +91,7 @@ public class App {
 			
 		} while (!validInput);
 		
+		input.nextLine();
 		return adjectives;
 	}
 	
@@ -109,6 +113,7 @@ public class App {
 			
 		} while (!validInput);
 		
+		input.nextLine();
 		return adverbs;
 	}
 	
@@ -130,9 +135,11 @@ public class App {
 			
 		} while (!validInput);
 		
+		input.nextLine();
 		return prepositions;
 	}
 
+	
 	private static void printHeading() {															// prints the heading of the program
 		String asterisks = "*".repeat(51);
 		String mainHeading = "STORYTELLER V1.0";
