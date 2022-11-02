@@ -4,13 +4,19 @@ import java.io.*;
 import java.util.*;
 
 public class App {
+	
+	private static final int SENTENCE_MIN = 1;
+	private static final int SENTENCE_MAX = 10;
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 	
+		WordFileReader.readFile(askForFileName(input));
+		
 		boolean wantsAnotherStory = true;
 		while (wantsAnotherStory) {
 			int sentences = askForTotalSentences(input);
+			printScale();
 			int adjectives = askForAdjectives(input, sentences);
 			int adverbs = askForAdverbs(input, sentences);
 			int prepositions = askForPrepositions(input, sentences);
@@ -23,6 +29,29 @@ public class App {
 		printThankYouMessage();
 	}
 
+	
+	private static String askForFileName(Scanner input) {											// asks user for name of file and returns it
+		String fileName = "";																		// repeats if user enters invalid file name
+		
+		boolean validFile = false;
+		do {
+			try {
+				System.out.print("Enter the name of the word file: ");
+				fileName = input.nextLine();
+				
+				Scanner fileScan = new Scanner(new File(fileName));
+				fileScan.close();
+				validFile = true;
+					
+			} catch (FileNotFoundException e) {
+				printFileError();
+			}
+			
+		} while (!validFile);													
+		
+		
+		return fileName;
+	}
 	
 	private static boolean askForAnotherStory(Scanner input) {										// asks user if they want another story
 		boolean wantsAnotherStory = false;															// and returns answer as a boolean
@@ -60,7 +89,7 @@ public class App {
 			System.out.print("How many sentences would you like in your story? ");
 			int choice = input.nextInt();
 			
-			if (choice > 0 && choice <= 10) {
+			if (choice >= SENTENCE_MIN && choice <= SENTENCE_MAX) {
 				totalSentences = choice;
 				validInput = true;
 			
@@ -79,7 +108,7 @@ public class App {
 																									
 		boolean validInput = false;
 		do {
-			System.out.print("How frequently should adjectives be used? ");
+			System.out.print("  How frequently should adjectives be used? ");
 			int choice = input.nextInt();
 			
 			if (choice >= 0 && choice <= max) {														// checks that input is not above total number
@@ -101,7 +130,7 @@ public class App {
 																									
 		boolean validInput = false;
 		do {
-			System.out.print("How frequently should adverbs be used? ");
+			System.out.print("  How frequently should adverbs be used? ");
 			int choice = input.nextInt();
 			
 			if (choice >= 0 && choice <= max) {														// checks that input is not above total number
@@ -119,11 +148,11 @@ public class App {
 	}
 	
 	private static int askForPrepositions(Scanner input, int max) {									// asks user for desired frequency of prepositions
-		int prepositions = 0;																			// and returns it
+		int prepositions = 0;																		// and returns it
 																									
 		boolean validInput = false;
 		do {
-			System.out.print("How frequently should prepositions be used? ");
+			System.out.print("  How frequently should prepositions be used? ");
 			int choice = input.nextInt();
 			
 			if (choice >= 0 && choice <= max) {														// checks that input is not above total number
@@ -163,6 +192,15 @@ public class App {
 	private static void printInvalidInput() {														// error message for when the user 
 		System.out.println("That was an invalid choice. Please try again.");						// types a non-allowed response
 		System.out.println();
+	}
+	
+	private static void printFileError() {
+		System.out.println("That file was not found. Please try again.");
+		System.out.println();
+	}
+	
+	private static void printScale() {
+		System.out.println("On a scale of " + SENTENCE_MIN + " to " + SENTENCE_MAX + " ...");
 	}
 	
 	private static void printThankYouMessage() {													// thank-you message for end of program
