@@ -5,6 +5,12 @@ import java.util.*;
 
 class WordFileReader {
 
+	private static final String ADJECTIVE = "adj";
+	private static final String ADVERB = "adv";
+	private static final String PREPOSITION = "prep";
+	private static final String NOUN = "n";
+	private static final String VERB = "v";
+	
 	public static HashMap<String, ArrayList<String>> readFile(String fileName) {					// reads through file and returns a HashMap of
 		HashMap<String, ArrayList<String>> dictionary = new HashMap<String, ArrayList<String>>();	// all words mapped to the type of word it is
 		ArrayList<String> adjectives = new ArrayList<String>();
@@ -13,11 +19,11 @@ class WordFileReader {
 		ArrayList<String> nouns = new ArrayList<String>();
 		ArrayList<String> verbs = new ArrayList<String>();
 		
-		dictionary.put("adj", adjectives);
-		dictionary.put("adv", adverbs);
-		dictionary.put("prep", prepositions);
-		dictionary.put("n", nouns);
-		dictionary.put("v", verbs);
+		dictionary.put(ADJECTIVE, adjectives);
+		dictionary.put(ADVERB, adverbs);
+		dictionary.put(PREPOSITION, prepositions);
+		dictionary.put(NOUN, nouns);
+		dictionary.put(VERB, verbs);
 		
 		try {
 			Scanner fileScan = new Scanner(new File(fileName));
