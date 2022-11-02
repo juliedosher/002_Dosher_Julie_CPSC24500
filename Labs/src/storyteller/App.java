@@ -12,17 +12,7 @@ public class App {
 		Scanner input = new Scanner(System.in);
 		printHeading();
 		HashMap<String, ArrayList<String>> dictionary = WordFileReader.readFile(askForFileName(input));
-		/*
-		for (String key : dictionary.keySet()) {
-			System.out.println(key);
-			for (int i = 0; i < dictionary.get(key).size(); i++) {
-				System.out.print(dictionary.get(key).get(i) + "  ");
-				
-			}
-			System.out.println();
-			System.out.println();
-		}
-		*/
+		
 		boolean wantsAnotherStory = true;
 		while (wantsAnotherStory) {
 			int sentences = askForTotalSentences(input);
@@ -41,7 +31,7 @@ public class App {
 		printThankYouMessage();
 	}
 
-	
+
 	private static String askForFileName(Scanner input) {											// asks user for name of file and returns it																		
 		System.out.print("Enter the name of the word file: ");										// repeats if user enters invalid file name
 		String fileName = input.nextLine();

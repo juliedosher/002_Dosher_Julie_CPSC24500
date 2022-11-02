@@ -5,11 +5,11 @@ import java.util.*;
 
 class WordFileReader {
 
-	private static final String ADJECTIVE = "adj";
-	private static final String ADVERB = "adv";
-	private static final String PREPOSITION = "prep";
-	private static final String NOUN = "n";
-	private static final String VERB = "v";
+	public static final String ADJECTIVE = "adj";
+	public static final String ADVERB = "adv";
+	public static final String PREPOSITION = "prep";
+	public static final String NOUN = "n";
+	public static final String VERB = "v";
 	
 	public static HashMap<String, ArrayList<String>> readFile(String fileName) {					// reads through file and returns a HashMap of
 		HashMap<String, ArrayList<String>> dictionary = new HashMap<String, ArrayList<String>>();	// all words mapped to the type of word it is

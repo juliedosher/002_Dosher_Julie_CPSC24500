@@ -2,6 +2,7 @@ package storyteller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 class Author {
 	private HashMap<String, ArrayList<String>> dictionary;
@@ -37,15 +38,45 @@ class Author {
 		}
 	}
 	
-	private String createSentence(HashMap<String, ArrayList<String>> dictionary, double adjectiveFrequency, 		// creates a single sentence and 
-			double adverbFrequency, double prepositionFrequency) {													// returns it
-		String sentence = "x";
+	private String createSentence(HashMap<String, ArrayList<String>> dictionary, int adjectiveFrequency, 			// creates a single sentence and 
+			int adverbFrequency, int prepositionFrequency) {														// returns it
+		String sentence = "";
+		Random random = new Random();
 		
+		int adjectiveChance = random.nextInt(App.FREQ_MAX - App.FREQ_MIN) + App.FREQ_MIN;							// creates random int for each
+		int adverbChance = random.nextInt(App.FREQ_MAX - App.FREQ_MIN) + App.FREQ_MIN;								// optional type of speech
+		int prepositionChance = random.nextInt(App.FREQ_MAX - App.FREQ_MIN) + App.FREQ_MIN;	
 		
+		sentence += "The ";																							// sentence starter
 		
+		if (adjectiveChance <= adjectiveFrequency && adjectiveFrequency != 0) {										// checks if random int falls within percentage
+			sentence += chooseWord(dictionary, WordFileReader.ADJECTIVE) + " ";										// if so, adds word of that type														
+		}
+		
+		sentence += chooseWord(dictionary, WordFileReader.NOUN) + " ";												// adds subject to sentence										
+		sentence += chooseWord(dictionary, WordFileReader.VERB);													// adds predicate to sentence 
+		
+		if (adverbChance <= adverbFrequency && adverbFrequency != 0) {
+			sentence += " " + chooseWord(dictionary, WordFileReader.ADVERB);
+		}
+		
+		if (prepositionChance <= prepositionFrequency && prepositionFrequency != 0) {
+			sentence += " " + chooseWord(dictionary, WordFileReader.PREPOSITION);
+			sentence += " the ";
+			sentence += chooseWord(dictionary, WordFileReader.NOUN);
+		}
+		
+		sentence += ".";
 		return sentence;
 	}
 
+	private String chooseWord(HashMap<String, ArrayList<String>> dictionary, String key) {							// chooses a random word from the hash map
+		Random random = new Random();																				// and returns it
+		int wordAtIndex = random.nextInt(dictionary.get(key).size());
+		String word = dictionary.get(key).get(wordAtIndex);
+		
+		return word;
+	}
 	
 	public HashMap<String, ArrayList<String>> getDictionary() {														// getters and setters
 		return dictionary;
