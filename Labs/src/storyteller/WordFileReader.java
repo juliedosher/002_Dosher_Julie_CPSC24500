@@ -4,8 +4,6 @@ import java.io.*;
 import java.util.*;
 
 class WordFileReader {
-
-	
 	
 	public static HashMap<String, ArrayList<String>> readFile(String fileName) {					// reads through file and returns a HashMap of
 		HashMap<String, ArrayList<String>> dictionary = new HashMap<String, ArrayList<String>>();	// all words mapped to the type of word it is

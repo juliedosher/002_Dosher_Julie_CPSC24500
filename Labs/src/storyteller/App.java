@@ -30,13 +30,12 @@ public class App {
 
 
 	private static String askForFileName(Scanner input) {											// asks user for name of file and returns it																		
-		System.out.print("Enter the name of the word file: ");										// repeats if user enters invalid file name
-		String fileName = input.nextLine();
-		
+		String fileName = "";
 		boolean validFile = false;
 		do {
 			try {
-				
+				System.out.print("Enter the name of the word file: ");								// repeats if user enters invalid file name
+				fileName = input.nextLine();
 				
 				Scanner fileScan = new Scanner(new File(fileName));
 				fileScan.close();
