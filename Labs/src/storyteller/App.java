@@ -5,22 +5,36 @@ import java.util.*;
 
 public class App {
 	
-	private static final int SENTENCE_MIN = 1;
-	private static final int SENTENCE_MAX = 10;
-
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 	
 		HashMap<String, ArrayList<String>> dictionary = WordFileReader.readFile(askForFileName(input));
 		
+		/*
+		for (String key : dictionary.keySet()) {
+			System.out.println(key);
+			for (int i = 0; i < dictionary.get(key).size(); i++) {
+				System.out.print(dictionary.get(key).get(i) + "  ");
+				
+			}
+			System.out.println();
+			System.out.println();
+		}
+		*/
+		
 		boolean wantsAnotherStory = true;
 		while (wantsAnotherStory) {
 			int sentences = askForTotalSentences(input);
 			printScale();
-			int adjectives = askForAdjectives(input, sentences);
-			int adverbs = askForAdverbs(input, sentences);
-			int prepositions = askForPrepositions(input, sentences);
+			double adjectives = askForAdjectives(input);
+			double adverbs = askForAdverbs(input);
+			double prepositions = askForPrepositions(input);
 			
+			System.out.println(adjectives);
+			System.out.println(adverbs);
+			System.out.println(prepositions);
+			
+			Author author = new Author(dictionary, 0, 0, 0);
 			
 			System.out.println();
 			wantsAnotherStory = askForAnotherStory(input);
@@ -89,7 +103,7 @@ public class App {
 			System.out.print("How many sentences would you like in your story? ");
 			int choice = input.nextInt();
 			
-			if (choice >= SENTENCE_MIN && choice <= SENTENCE_MAX) {
+			if (choice > 0) {
 				totalSentences = choice;
 				validInput = true;
 			
@@ -103,16 +117,16 @@ public class App {
 		return totalSentences;
 	}
 	
-	private static int askForAdjectives(Scanner input, int max) {									// asks user for desired frequency of adjectives
-		int adjectives = 0;																			// and returns it
+	private static double askForAdjectives(Scanner input) {											// asks user for desired frequency of adjectives
+		double adjectives = 0;																		// and returns it as a frequency percentage
 																									
 		boolean validInput = false;
 		do {
 			System.out.print("  How frequently should adjectives be used? ");
 			int choice = input.nextInt();
 			
-			if (choice >= 0 && choice <= max) {														// checks that input is not above total number
-				adjectives = choice;																// of sentences
+			if (choice >= 0 ) {																		
+				adjectives = Double.valueOf(choice) / 10;																
 				validInput = true;
 				
 			} else {
@@ -125,16 +139,16 @@ public class App {
 		return adjectives;
 	}
 	
-	private static int askForAdverbs(Scanner input, int max) {										// asks user for desired frequency of adverbs
-		int adverbs = 0;																			// and returns it
+	private static double askForAdverbs(Scanner input) {											// asks user for desired frequency of adverbs
+		double adverbs = 0;																			// and returns it
 																									
 		boolean validInput = false;
 		do {
 			System.out.print("  How frequently should adverbs be used? ");
 			int choice = input.nextInt();
 			
-			if (choice >= 0 && choice <= max) {														// checks that input is not above total number
-				adverbs = choice;																	// of sentences
+			if (choice >= 0) {														
+				adverbs = Double.valueOf(choice) / 10;																	
 				validInput = true;
 				
 			} else {
@@ -147,16 +161,16 @@ public class App {
 		return adverbs;
 	}
 	
-	private static int askForPrepositions(Scanner input, int max) {									// asks user for desired frequency of prepositions
-		int prepositions = 0;																		// and returns it
+	private static double askForPrepositions(Scanner input) {										// asks user for desired frequency of prepositions
+		double prepositions = 0;																	// and returns it
 																									
 		boolean validInput = false;
 		do {
 			System.out.print("  How frequently should prepositions be used? ");
 			int choice = input.nextInt();
 			
-			if (choice >= 0 && choice <= max) {														// checks that input is not above total number
-				prepositions = choice;																// of sentences
+			if (choice >= 0) {														
+				prepositions = Double.valueOf(choice) / 10;																
 				validInput = true;
 				
 			} else {
@@ -200,7 +214,7 @@ public class App {
 	}
 	
 	private static void printScale() {
-		System.out.println("On a scale of " + SENTENCE_MIN + " to " + SENTENCE_MAX + " ...");
+		System.out.println("On a scale of 0 to 10 ...");
 	}
 	
 	private static void printThankYouMessage() {													// thank-you message for end of program
