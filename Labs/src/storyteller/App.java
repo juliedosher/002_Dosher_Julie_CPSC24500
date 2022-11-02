@@ -9,19 +9,131 @@ public class App {
 		Scanner input = new Scanner(System.in);
 	
 		boolean wantsAnotherStory = true;
-		
 		while (wantsAnotherStory) {
+			int sentences = askForTotalSentences(input);
+			
+			
+			
 			wantsAnotherStory = askForAnotherStory(input);
 		}
+		
+		printThankYouMessage();
 	}
 
-	private static boolean askForAnotherStory(Scanner input) {
+	
+	private static boolean askForAnotherStory(Scanner input) {										// asks user if they want another story
+		boolean wantsAnotherStory = false;															// and returns answer as a boolean
 		
+		boolean validInput = false;
+		do {
+			System.out.print("Would you like another story (y or n)? ");
+			String choice = input.nextLine();
+			choice = choice.toLowerCase();
+			
+			if (choice.equals("y")) {
+				wantsAnotherStory = true;
+				validInput = true;
+				
+			} else if (choice.equals("n")) {
+				wantsAnotherStory = false;
+				validInput = true;
+				
+			} else {
+				printInvalidInput();
+			}
+			
+		} while (!validInput);
 		
-		return false;
+		System.out.println();
+		return wantsAnotherStory;
+	}
+	
+	private static int askForTotalSentences(Scanner input) {										// asks user for desired number of sentences
+		int totalSentences = 0;																		// and returns it
+		
+		boolean validInput = false;
+		do {
+			System.out.print("How many sentences would you like in your story? ");
+			int choice = input.nextInt();
+			
+			if (choice > 0 && choice <= 10) {
+				totalSentences = choice;
+				validInput = true;
+			
+			} else {
+				printInvalidInput();
+			}
+			
+		} while (!validInput);
+		
+		input.nextLine();
+		return totalSentences;
+	}
+	
+	private static int askForAdjectives(Scanner input, int max) {									// asks user for desired frequency of adjectives
+		int adjectives = 0;																			// and returns it
+																									
+		boolean validInput = false;
+		do {
+			System.out.print("How frequently should adjectives be used? ");
+			int choice = input.nextInt();
+			
+			if (choice >= 0 && choice <= max) {														// checks that input is not above total number
+				adjectives = choice;																// of sentences
+				validInput = true;
+				
+			} else {
+				printInvalidInput(); 
+			}
+			
+		} while (!validInput);
+		
+		return adjectives;
+	}
+	
+	private static int askForAdverbs(Scanner input, int max) {										// asks user for desired frequency of adverbs
+		int adverbs = 0;																			// and returns it
+																									
+		boolean validInput = false;
+		do {
+			System.out.print("How frequently should adverbs be used? ");
+			int choice = input.nextInt();
+			
+			if (choice >= 0 && choice <= max) {														// checks that input is not above total number
+				adverbs = choice;																	// of sentences
+				validInput = true;
+				
+			} else {
+				printInvalidInput(); 
+			}
+			
+		} while (!validInput);
+		
+		return adverbs;
+	}
+	
+	private static int askForPrepositions(Scanner input, int max) {									// asks user for desired frequency of prepositions
+		int prepositions = 0;																			// and returns it
+																									
+		boolean validInput = false;
+		do {
+			System.out.print("How frequently should prepositions be used? ");
+			int choice = input.nextInt();
+			
+			if (choice >= 0 && choice <= max) {														// checks that input is not above total number
+				prepositions = choice;																// of sentences
+				validInput = true;
+				
+			} else {
+				printInvalidInput(); 
+			}
+			
+		} while (!validInput);
+		
+		return prepositions;
 	}
 
-	private static void printHeading() {
+	private static void printHeading() {															// prints the heading of the program
 		String asterisks = "*".repeat(51);
 		String mainHeading = "STORYTELLER V1.0";
 		String space = " ".repeat((asterisks.length() - mainHeading.length()) /2);
@@ -40,4 +152,12 @@ public class App {
 		System.out.println("prepositions should be included.");
 	}
 	
+	private static void printInvalidInput() {														// error message for when the user 
+		System.out.println("That was an invalid choice. Please try again.");						// types a non-allowed response
+		System.out.println();
+	}
+	
+	private static void printThankYouMessage() {													// thank-you message for end of program
+		System.out.println("Thank you for using StoryTeller!");
+	}
 }
