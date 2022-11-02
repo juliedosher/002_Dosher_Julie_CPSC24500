@@ -51,6 +51,7 @@ public class App {
 		return wantsAnotherStory;
 	}
 	
+	
 	private static int askForTotalSentences(Scanner input) {										// asks user for desired number of sentences
 		int totalSentences = 0;																		// and returns it
 		
