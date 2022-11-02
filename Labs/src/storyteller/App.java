@@ -118,7 +118,7 @@ public class App {
 	}
 	
 	private static double askForAdjectives(Scanner input) {											// asks user for desired frequency of adjectives
-		double adjectives = 0;																		// and returns it as a frequency percentage
+		double adjectives = 0;																		// and returns it as a percentage
 																									
 		boolean validInput = false;
 		do {
@@ -140,7 +140,7 @@ public class App {
 	}
 	
 	private static double askForAdverbs(Scanner input) {											// asks user for desired frequency of adverbs
-		double adverbs = 0;																			// and returns it
+		double adverbs = 0;																			// and returns it as a percentage
 																									
 		boolean validInput = false;
 		do {
@@ -162,7 +162,7 @@ public class App {
 	}
 	
 	private static double askForPrepositions(Scanner input) {										// asks user for desired frequency of prepositions
-		double prepositions = 0;																	// and returns it
+		double prepositions = 0;																	// and returns it as a percentage
 																									
 		boolean validInput = false;
 		do {
