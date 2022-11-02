@@ -5,8 +5,8 @@ import java.util.*;
 
 public class App {
 	
-	private static final int FREQ_MIN = 0;
-	private static final int FREQ_MAX = 10;
+	public static final int FREQ_MIN = 0;
+	public static final int FREQ_MAX = 10;
 	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
@@ -32,7 +32,7 @@ public class App {
 			double prepositions = askForPrepositions(input);
 			
 			Author author = new Author(dictionary, sentences, adjectives, adverbs, prepositions);
-			author.printStory(sentences);
+			author.printStory();
 			
 			System.out.println();
 			wantsAnotherStory = askForAnotherStory(input);

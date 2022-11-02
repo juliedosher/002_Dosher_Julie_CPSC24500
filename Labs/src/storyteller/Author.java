@@ -21,9 +21,9 @@ class Author {
 		this.prepositionFrequency = prepositionFrequency;
 	}
 	
-	public void printStory(int sentences) {																			// generates the correct amount of 
+	public void printStory() {																						// generates the correct amount of 
 		System.out.println("Here it is:");																			// sentences and prints them
-		for (int i = 0; i < sentences; i++) {
+		for (int i = 0; i < this.sentences; i++) {
 			String sentence = createSentence(this.dictionary, this.adjectiveFrequency, 
 					this.adverbFrequency, this.prepositionFrequency);
 			System.out.println(sentence);
