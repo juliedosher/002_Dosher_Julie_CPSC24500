@@ -43,27 +43,27 @@ class Author {
 		String sentence = "";
 		Random random = new Random();
 		
-		int adjectiveChance = random.nextInt(App.FREQ_MAX - App.FREQ_MIN) + App.FREQ_MIN;							// creates random int for each
-		int adverbChance = random.nextInt(App.FREQ_MAX - App.FREQ_MIN) + App.FREQ_MIN;								// optional type of speech
-		int prepositionChance = random.nextInt(App.FREQ_MAX - App.FREQ_MIN) + App.FREQ_MIN;	
+		int adjectiveChance = random.nextInt(Constants.FREQ_MAX - Constants.FREQ_MIN) + Constants.FREQ_MIN;			// creates random int for each
+		int adverbChance = random.nextInt(Constants.FREQ_MAX - Constants.FREQ_MIN) + Constants.FREQ_MIN;			// optional type of speech
+		int prepositionChance = random.nextInt(Constants.FREQ_MAX - Constants.FREQ_MIN) + Constants.FREQ_MIN;	
 		
 		sentence += "The ";																							// sentence starter
 		
 		if (adjectiveChance <= adjectiveFrequency && adjectiveFrequency != 0) {										// checks if random int falls within percentage
-			sentence += chooseWord(dictionary, WordFileReader.ADJECTIVE) + " ";										// if so, adds word of that type														
+			sentence += chooseWord(dictionary, Constants.ADJECTIVE) + " ";											// if so, adds word of that type														
 		}
 		
-		sentence += chooseWord(dictionary, WordFileReader.NOUN) + " ";												// adds subject to sentence										
-		sentence += chooseWord(dictionary, WordFileReader.VERB);													// adds predicate to sentence 
+		sentence += chooseWord(dictionary, Constants.NOUN) + " ";													// adds subject to sentence										
+		sentence += chooseWord(dictionary, Constants.VERB);															// adds predicate to sentence 
 		
 		if (adverbChance <= adverbFrequency && adverbFrequency != 0) {
-			sentence += " " + chooseWord(dictionary, WordFileReader.ADVERB);
+			sentence += " " + chooseWord(dictionary, Constants.ADVERB);
 		}
 		
 		if (prepositionChance <= prepositionFrequency && prepositionFrequency != 0) {
-			sentence += " " + chooseWord(dictionary, WordFileReader.PREPOSITION);
+			sentence += " " + chooseWord(dictionary, Constants.PREPOSITION);
 			sentence += " the ";
-			sentence += chooseWord(dictionary, WordFileReader.NOUN);
+			sentence += chooseWord(dictionary, Constants.NOUN);
 		}
 		
 		sentence += ".";

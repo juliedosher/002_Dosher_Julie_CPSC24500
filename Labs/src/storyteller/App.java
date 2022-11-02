@@ -5,9 +5,6 @@ import java.util.*;
 
 public class App {
 	
-	public static final int FREQ_MIN = 0;
-	public static final int FREQ_MAX = 10;
-	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		printHeading();
@@ -113,7 +110,7 @@ public class App {
 			System.out.print("  How frequently should adjectives be used? ");
 			int choice = input.nextInt();
 			
-			if (choice >= FREQ_MIN && choice <= FREQ_MAX) {																		
+			if (choice >= Constants.FREQ_MIN && choice <= Constants.FREQ_MAX) {																		
 				adjectives = choice;																
 				validInput = true;
 				
@@ -135,7 +132,7 @@ public class App {
 			System.out.print("  How frequently should adverbs be used? ");
 			int choice = input.nextInt();
 			
-			if (choice >= FREQ_MIN && choice <= FREQ_MAX) {															
+			if (choice >= Constants.FREQ_MIN && choice <= Constants.FREQ_MAX) {															
 				adverbs = choice;																	
 				validInput = true;
 				
@@ -157,7 +154,7 @@ public class App {
 			System.out.print("  How frequently should prepositions be used? ");
 			int choice = input.nextInt();
 			
-			if (choice >= FREQ_MIN && choice <= FREQ_MAX) {														
+			if (choice >= Constants.FREQ_MIN && choice <= Constants.FREQ_MAX) {														
 				prepositions = choice;																
 				validInput = true;
 				
@@ -170,7 +167,7 @@ public class App {
 		input.nextLine();
 		return prepositions;
 	}
-
+	
 	
 	private static void printHeading() {															// prints the heading of the program
 		String asterisks = "*".repeat(51);
@@ -203,8 +200,9 @@ public class App {
 		System.out.println();
 	}
 	
-	private static void printScale() {																
-		System.out.println("On a scale of " + FREQ_MIN + " to " + FREQ_MAX + " ...");
+	private static void printScale() {																// as of now, prints that user should enter 
+		System.out.println("On a scale of " + Constants.FREQ_MIN 									// a number from 0 to 10
+				+ " to " + Constants.FREQ_MAX + " ...");			
 	}
 	
 	private static void printThankYouMessage() {													// thank-you message for end of program
