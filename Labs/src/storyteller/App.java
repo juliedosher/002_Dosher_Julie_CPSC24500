@@ -1,26 +1,29 @@
 package storyteller;
 
+/*
+ * The class that contains the main() function and asks for and stores user input
+ */
+
 import java.io.*;
 import java.util.*;
 
 public class App {
 	
-	private static final int SENTENCE_MIN = 1;
-	private static final int SENTENCE_MAX = 10;
-
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
-	
+		printHeading();
 		HashMap<String, ArrayList<String>> dictionary = WordFileReader.readFile(askForFileName(input));
 		
 		boolean wantsAnotherStory = true;
 		while (wantsAnotherStory) {
 			int sentences = askForTotalSentences(input);
 			printScale();
-			int adjectives = askForAdjectives(input, sentences);
-			int adverbs = askForAdverbs(input, sentences);
-			int prepositions = askForPrepositions(input, sentences);
+			int adjectives = askForAdjectives(input);
+			int adverbs = askForAdverbs(input);
+			int prepositions = askForPrepositions(input);
 			
+			Author author = new Author(dictionary, sentences, adjectives, adverbs, prepositions);
+			author.printStory();
 			
 			System.out.println();
 			wantsAnotherStory = askForAnotherStory(input);
@@ -29,27 +32,26 @@ public class App {
 		printThankYouMessage();
 	}
 
-	
-	private static String askForFileName(Scanner input) {											// asks user for name of file and returns it
-		String fileName = "";																		// repeats if user enters invalid file name
-		
+
+	private static String askForFileName(Scanner input) {											// asks user for name of file and returns it																		
+		String fileName = "";
 		boolean validFile = false;
 		do {
 			try {
-				System.out.print("Enter the name of the word file: ");
+				System.out.print("Enter the name of the word file: ");								// repeats if user enters invalid file name
 				fileName = input.nextLine();
 				
 				Scanner fileScan = new Scanner(new File(fileName));
 				fileScan.close();
 				validFile = true;
 					
-			} catch (FileNotFoundException e) {
-				printFileError();
+			} catch (FileNotFoundException e) {														// in case file is not found
+				printFileError();																	
 			}
 			
 		} while (!validFile);													
 		
-		
+		System.out.println();
 		return fileName;
 	}
 	
@@ -89,7 +91,7 @@ public class App {
 			System.out.print("How many sentences would you like in your story? ");
 			int choice = input.nextInt();
 			
-			if (choice >= SENTENCE_MIN && choice <= SENTENCE_MAX) {
+			if (choice > 0) {
 				totalSentences = choice;
 				validInput = true;
 			
@@ -103,16 +105,16 @@ public class App {
 		return totalSentences;
 	}
 	
-	private static int askForAdjectives(Scanner input, int max) {									// asks user for desired frequency of adjectives
-		int adjectives = 0;																			// and returns it
+	private static int askForAdjectives(Scanner input) {											// asks user for desired frequency of adjectives
+		int adjectives = 0;																			// and returns it as a percentage
 																									
 		boolean validInput = false;
 		do {
 			System.out.print("  How frequently should adjectives be used? ");
 			int choice = input.nextInt();
 			
-			if (choice >= 0 && choice <= max) {														// checks that input is not above total number
-				adjectives = choice;																// of sentences
+			if (choice >= Constants.FREQ_MIN && choice <= Constants.FREQ_MAX) {																		
+				adjectives = choice;																
 				validInput = true;
 				
 			} else {
@@ -125,16 +127,16 @@ public class App {
 		return adjectives;
 	}
 	
-	private static int askForAdverbs(Scanner input, int max) {										// asks user for desired frequency of adverbs
-		int adverbs = 0;																			// and returns it
+	private static int askForAdverbs(Scanner input) {												// asks user for desired frequency of adverbs
+		int adverbs = 0;																			// and returns it as a percentage
 																									
 		boolean validInput = false;
 		do {
 			System.out.print("  How frequently should adverbs be used? ");
 			int choice = input.nextInt();
 			
-			if (choice >= 0 && choice <= max) {														// checks that input is not above total number
-				adverbs = choice;																	// of sentences
+			if (choice >= Constants.FREQ_MIN && choice <= Constants.FREQ_MAX) {															
+				adverbs = choice;																	
 				validInput = true;
 				
 			} else {
@@ -147,16 +149,16 @@ public class App {
 		return adverbs;
 	}
 	
-	private static int askForPrepositions(Scanner input, int max) {									// asks user for desired frequency of prepositions
-		int prepositions = 0;																		// and returns it
+	private static int askForPrepositions(Scanner input) {											// asks user for desired frequency of prepositions
+		int prepositions = 0;																		// and returns it as a percentage
 																									
 		boolean validInput = false;
 		do {
 			System.out.print("  How frequently should prepositions be used? ");
 			int choice = input.nextInt();
 			
-			if (choice >= 0 && choice <= max) {														// checks that input is not above total number
-				prepositions = choice;																// of sentences
+			if (choice >= Constants.FREQ_MIN && choice <= Constants.FREQ_MAX) {														
+				prepositions = choice;																
 				validInput = true;
 				
 			} else {
@@ -168,7 +170,7 @@ public class App {
 		input.nextLine();
 		return prepositions;
 	}
-
+	
 	
 	private static void printHeading() {															// prints the heading of the program
 		String asterisks = "*".repeat(51);
@@ -179,6 +181,7 @@ public class App {
 		System.out.print(space);
 		System.out.print(mainHeading);
 		System.out.println(space);
+		System.out.println(asterisks);
 		System.out.println();
 		
 		System.out.println("Welcome to StoryTeller, a sophisticated electronic");
@@ -187,6 +190,7 @@ public class App {
 		System.out.println("them. You can tune the richness of the writing by");
 		System.out.println("changing how frequently adjectives, adverbs, and");
 		System.out.println("prepositions should be included.");
+		System.out.println();
 	}
 	
 	private static void printInvalidInput() {														// error message for when the user 
@@ -194,13 +198,14 @@ public class App {
 		System.out.println();
 	}
 	
-	private static void printFileError() {
-		System.out.println("That file was not found. Please try again.");
+	private static void printFileError() {															// error message for when a file is
+		System.out.println("That file was not found. Please try again.");							// not found
 		System.out.println();
 	}
 	
-	private static void printScale() {
-		System.out.println("On a scale of " + SENTENCE_MIN + " to " + SENTENCE_MAX + " ...");
+	private static void printScale() {																// as of now, prints that user should enter 
+		System.out.println("On a scale of " + Constants.FREQ_MIN 									// a number from 0 to 10
+				+ " to " + Constants.FREQ_MAX + " ...");			
 	}
 	
 	private static void printThankYouMessage() {													// thank-you message for end of program
