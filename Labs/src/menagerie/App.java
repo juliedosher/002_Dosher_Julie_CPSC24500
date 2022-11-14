@@ -31,7 +31,7 @@ public class App {
 		}
 		
 		input.nextLine();
-		return 0;
+		return choice;
 	}
 	
 	private static Pet getPet(Scanner input) {
