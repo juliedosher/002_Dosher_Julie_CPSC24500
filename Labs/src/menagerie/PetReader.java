@@ -3,8 +3,6 @@ package menagerie;
 import java.io.*;
 import java.util.*;
 
-import storyteller.Constants;
-
 public class PetReader {
 
 	public static ArrayList<Pet> readFile(String fileName) {										// reads .txt file and returns an
