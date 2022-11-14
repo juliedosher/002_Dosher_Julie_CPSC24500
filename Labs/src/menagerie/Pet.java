@@ -1,7 +1,7 @@
 package menagerie;
 
 public abstract class Pet {
-																				// add random number generator
+																					// add random number generator
 	String name;
 	int age;
 	double weight;
@@ -12,12 +12,19 @@ public abstract class Pet {
 	
 	public abstract String getType();
 	
-	public abstract void setFoodCutoff(int cutoff);
-	public abstract void setAttentionCutoff(int cutoff);
-	public abstract void setSleepCutoff(int cutoff);
+	public void setFoodCutoff(int cutoff) {
+		this.foodCutoff = cutoff;
+	}
+	public void setAttentionCutoff(int cutoff) {
+		this.attentionCutoff = cutoff;
+	}
+	public void setSleepCutoff(int cutoff) {
+		this.sleepCutoff = cutoff;
+	}
 	
-	public String toString() {													// finish!
-		String output = this.getType() + name + age + weight;
+	public String toString() {														// returns String of pet's info
+		String output = this.getType() + "\t" + name + "\t" + age + "\t" 		
+				+ String.format(".2f", weight);
 		return output;
 	}
 	
