@@ -7,8 +7,8 @@ import storyteller.Constants;
 
 public class PetReader {
 
-	public static ArrayList<Pet> readFile(String fileName) {					
-		ArrayList<Pet> pets = new ArrayList<Pet>();
+	public static ArrayList<Pet> readFile(String fileName) {										// reads .txt file and returns an
+		ArrayList<Pet> pets = new ArrayList<Pet>();													// ArrayList of pets
 		
 		try {
 			String type = "";
@@ -18,8 +18,8 @@ public class PetReader {
 			
 			Scanner fileScan = new Scanner(new File(fileName));
 				
-			while (fileScan.hasNextLine()) {														// gets info from .txt file one line 
-				String[] split = fileScan.nextLine().split("\t");									// at a time
+			while (fileScan.hasNextLine()) {														// gets info from file one line at
+				String[] split = fileScan.nextLine().split("\t");									// a time
 				type = split[0];										
 				name = split[1];
 				age = Integer.parseInt(split[2]);
