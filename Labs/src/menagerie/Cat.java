@@ -6,6 +6,9 @@ public class Cat extends Pet {
 		this.name = name;
 		this.age = age;
 		this.weight = weight;
+		this.foodCutoff = 3;
+		this.attentionCutoff = 2;
+		this.sleepCutoff = 8;
 	}
 	
 	@Override
