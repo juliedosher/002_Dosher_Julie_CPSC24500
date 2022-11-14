@@ -11,6 +11,7 @@ public abstract class Pet {
 	int sleepCutoff;
 	
 	public abstract String getType();
+	public abstract String act();
 	
 	public void setFoodCutoff(int cutoff) {
 		this.foodCutoff = cutoff;

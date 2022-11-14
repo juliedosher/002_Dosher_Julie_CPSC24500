@@ -14,6 +14,12 @@ public class Dog extends Pet {
 	}
 
 	@Override
+	public String act() {												// TODO
+		
+		return "";
+	}
+	
+	@Override
 	public void setFoodCutoff(int cutoff) {
 		// TODO Auto-generated method stub
 		
