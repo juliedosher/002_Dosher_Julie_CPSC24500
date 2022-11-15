@@ -1,3 +1,7 @@
+/*
+ * Class that reads a file of Pets 
+ */
+
 package menagerie;
 
 import java.io.*;
