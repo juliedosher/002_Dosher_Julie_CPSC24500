@@ -47,7 +47,7 @@ public class PetReader {
 			fileScan.close();
 			
 		} catch (FileNotFoundException e) {															// should never be used because this
-			Constants.printFileError();																		// is already checked in Menagerie.java
+			Constants.printFileError();																// is already checked in Menagerie.java
 		}
 	
 		return pets;
