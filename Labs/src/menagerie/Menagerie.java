@@ -1,3 +1,7 @@
+/*
+ * Class that defines and handles the Menagerie game
+ */
+
 package menagerie;
 
 import java.io.*;
