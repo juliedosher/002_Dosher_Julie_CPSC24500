@@ -10,11 +10,11 @@ public class Menagerie {
 	public void playPetSimulator() {
 		Scanner input = new Scanner(System.in);
 		
-		printHeading();
+		Constants.printHeading();
 		int choice = 0;
 		
 		while (choice != 7) {
-			printMenu();
+			Constants.printMenu();
 			
 			boolean validInput = false;
 			while (!validInput) {
@@ -58,13 +58,13 @@ public class Menagerie {
 						break;
 						
 					default:
-						printInvalidInput();		
+						Constants.printInvalidInput();		
 				}
 			}
 		}
 		
 		
-		printExit();
+		Constants.printExit();
 	}
 	
 	
@@ -80,7 +80,7 @@ public class Menagerie {
 				isValid = true;
 				
 			} else {
-				printInvalidInput();
+				Constants.printInvalidInput();
 			}
 		}
 		
@@ -96,20 +96,12 @@ public class Menagerie {
 			System.out.print("Enter d for dog, c for cat, or f for fish: ");
 			String choice = input.nextLine();
 			choice = choice.toLowerCase();
-			if (choice.equals("d")) {
-				type = "dog";
+			if (choice.equals(Constants.DOG) || choice.equals(Constants.CAT) || choice.equals(Constants.FISH)) {
+				type = choice;
 				validInput = true;
-				
-			} else if (choice.equals("c")) {
-				type = "cat";
-				validInput = true;
-				
-			} else if (choice.equals("f")) {
-				type = "fish";
-				validInput = true;
-				
+			
 			} else {
-				printInvalidInput();
+				Constants.printInvalidInput();
 			}
 		}
 		
@@ -130,20 +122,20 @@ public class Menagerie {
 				age = input.nextInt();
 				weight = input.nextDouble();
 			} catch (Exception e) {
-				printInvalidInput();
+				Constants.printInvalidInput();
 			}
 			validInput = true;
 		}
 		
 		switch (animalType) {
-			case "dog":
+			case Constants.DOG:
 				pet = new Dog(name, age, weight);
 				break;
-			case "cat":
+			case Constants.CAT:
 				pet = new Cat(name, age, weight);
 				break;
 				
-			case "fish":
+			case Constants.FISH:
 			default:																					// default should never be triggered
 				pet = new Fish(name, age, weight);
 				break;
@@ -167,36 +159,11 @@ public class Menagerie {
 				System.out.println("The pets were read from the file.");
 				
 			} catch (FileNotFoundException e) {
-				printFileError();
+				Constants.printFileError();
 			}
 		}
 		
 		return fileName;
-	}
-	
-	
-	private void printHeading() {																		// printing functions:
-		String asterisks = "*".repeat(60);
-		String mainHeading = "Menagerie V1.0: The Pet Simulator";
-		String space = " ".repeat((asterisks.length() - mainHeading.length()) / 2);
-		
-		System.out.println(asterisks);
-		System.out.print(space);
-		System.out.print(mainHeading);
-		System.out.println(space);
-		System.out.println(asterisks);
-		System.out.println();
-	}
-	
-	private void printMenu() {
-		System.out.println("What would you like to do?");
-		System.out.println("1. Add a new pet.");
-		System.out.println("2. Print list of pets.");
-		System.out.println("3. Save pets to a file.");
-		System.out.println("4. Load pets from a file.");
-		System.out.println("5. Simulate a day in the life of your pets.");
-		System.out.println("6. Clear your list of pets.");
-		System.out.println("7. Exit");
 	}
 	
 	private void printPets() {																			// TODO: add spacing
@@ -208,18 +175,5 @@ public class Menagerie {
 			System.out.println(pet.getWeight());
 		}
 	}
-	
-	private void printExit() {
-		System.out.println("Thank you for using Menagerie. We hope you had fun.");
-	}
-	
-	private void printInvalidInput() {
-		System.out.println("Invalid input. Please try again.");
-		System.out.println();
-	}
-	
-	private static void printFileError() {
-		System.out.println("ERROR: That file was not found.");
-		System.out.println();
-	}
+
 }

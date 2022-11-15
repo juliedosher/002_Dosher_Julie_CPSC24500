@@ -43,16 +43,10 @@ public class PetReader {
 			fileScan.close();
 			
 		} catch (FileNotFoundException e) {															// should never be used because this
-			printFileError();																		// is already checked in Menagerie.java
+			Constants.printFileError();																		// is already checked in Menagerie.java
 		}
 	
 		return pets;
-	}
-	
-	
-	private static void printFileError() {
-		System.out.println("ERROR: That file was not found.");
-		System.out.println();
 	}
 	
 }
