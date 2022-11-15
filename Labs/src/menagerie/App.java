@@ -9,6 +9,9 @@ public class App {
 		
 		printHeading();
 		printMenu();
+		
+		PetReader.readFile("pets.txt");
+		
 		getPet(input);
 
 	}
