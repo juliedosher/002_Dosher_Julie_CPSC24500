@@ -1,7 +1,7 @@
 package menagerie;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Menagerie {
 	
@@ -21,34 +21,45 @@ public class Menagerie {
 				choice = getChoice(input);
 				
 				switch (choice) {
-				case 1:
-					validInput = true;
-					String type = getType(input);
-					pets.add(getPet(input, type));
-					break;
+					case 1:
+						validInput = true;
+						String type = getType(input);
+						pets.add(getPet(input, type));
+						break;
+						
+					case 2:
+						validInput = true;
+						printPets();
+						break;
+						
+					case 3: 
+						validInput = true;
+						// TODO: write pets to file
+						break;
+						
+					case 4:
+						validInput = true;
+						pets.clear();
+						pets = PetReader.readFile(getFile(input));
+						break;
+						
+					case 5:
+						validInput = true;
+						break;
+						
+					case 6:
+						validInput = true;
+						pets.clear();
+						break;
 					
-				case 2:
-					validInput = true;
-					break;
 					
-				case 3: 
-					validInput = true;
-					break;
-					
-				case 4:
-					validInput = true;
-					break;
-					
-				case 5:
-					validInput = true;
-					break;
-					
-				case 6:
-					validInput = true;
-					break;
+					case 7:
+						validInput = true;
+						break;
+						
+					default:
+						printInvalidInput();		
 				}
-				
-				
 			}
 		}
 		
@@ -141,6 +152,28 @@ public class Menagerie {
 		return pet;
 	}
 	
+	private String getFile(Scanner input) {
+		String fileName = "";
+		
+		boolean validInput = false;
+		while (!validInput) {
+			System.out.print("Enter name of file to load: ");
+			fileName = input.nextLine();
+			
+			try {
+				Scanner fileScan = new Scanner(new File(fileName));
+				fileScan.close();
+				validInput = true;
+				System.out.println("The pets were read from the file.");
+				
+			} catch (FileNotFoundException e) {
+				printFileError();
+			}
+		}
+		
+		return fileName;
+	}
+	
 	
 	private void printHeading() {																		// printing functions:
 		String asterisks = "*".repeat(60);
@@ -182,6 +215,11 @@ public class Menagerie {
 	
 	private void printInvalidInput() {
 		System.out.println("Invalid input. Please try again.");
+		System.out.println();
+	}
+	
+	private static void printFileError() {
+		System.out.println("ERROR: That file was not found.");
 		System.out.println();
 	}
 }

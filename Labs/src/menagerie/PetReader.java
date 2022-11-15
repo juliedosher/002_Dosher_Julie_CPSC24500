@@ -40,6 +40,7 @@ public class PetReader {
 						break;
 				}
 			}
+			fileScan.close();
 			
 		} catch (FileNotFoundException e) {															// should never be used because this
 			printFileError();																		// is already checked in Menagerie.java
