@@ -1,8 +1,11 @@
 package menagerie;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menagerie {
+	
+	ArrayList<Pet> pets = new ArrayList<Pet>();
 	
 	public void playPetSimulator() {
 		Scanner input = new Scanner(System.in);
@@ -11,9 +14,39 @@ public class Menagerie {
 		int choice = 0;
 		
 		while (choice != 7) {
+			printMenu();
+			
 			boolean validInput = false;
 			while (!validInput) {
+				choice = getChoice(input);
 				
+				switch (choice) {
+				case 1:
+					validInput = true;
+					String type = getType(input);
+					pets.add(getPet(input, type));
+					break;
+					
+				case 2:
+					validInput = true;
+					break;
+					
+				case 3: 
+					validInput = true;
+					break;
+					
+				case 4:
+					validInput = true;
+					break;
+					
+				case 5:
+					validInput = true;
+					break;
+					
+				case 6:
+					validInput = true;
+					break;
+				}
 				
 				
 			}
@@ -108,7 +141,8 @@ public class Menagerie {
 		return pet;
 	}
 	
-	private void printHeading() {
+	
+	private void printHeading() {																		// printing functions:
 		String asterisks = "*".repeat(60);
 		String mainHeading = "Menagerie V1.0: The Pet Simulator";
 		String space = " ".repeat((asterisks.length() - mainHeading.length()) / 2);
@@ -130,6 +164,16 @@ public class Menagerie {
 		System.out.println("5. Simulate a day in the life of your pets.");
 		System.out.println("6. Clear your list of pets.");
 		System.out.println("7. Exit");
+	}
+	
+	private void printPets() {																			// TODO: add spacing
+		System.out.println("Here is your list of pets:");
+		for (Pet pet : pets) {
+			System.out.print(pet.getType());
+			System.out.print(pet.getName());
+			System.out.print(pet.getAge());
+			System.out.println(pet.getWeight());
+		}
 	}
 	
 	private void printExit() {
