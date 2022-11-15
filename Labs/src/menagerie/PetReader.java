@@ -44,7 +44,7 @@ public class PetReader {
 		} catch (FileNotFoundException e) {															// should never be used because this
 			printFileError();																		// is already checked in App.java
 		}
-		
+	
 		return pets;
 	}
 	
