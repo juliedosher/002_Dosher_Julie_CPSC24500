@@ -2,13 +2,13 @@ package menagerie;
 
 public abstract class Pet {
 																					// add random number generator
-	String name;
-	int age;
-	double weight;
+	protected String name;
+	protected int age;
+	protected double weight;
 	
-	int foodCutoff;
-	int attentionCutoff;
-	int sleepCutoff;
+	protected int foodCutoff;
+	protected int attentionCutoff;
+	protected int sleepCutoff;
 	
 	public abstract String getType();
 	public abstract String act();
