@@ -1,3 +1,7 @@
+/*
+ * Class that contains constants and basic printing functions
+ */
+
 package menagerie;
 
 public class Constants {
@@ -7,8 +11,7 @@ public class Constants {
 	public static final String FISH = "f";
 	
 	
-	
-	public static void printHeading() {																		// printing functions:
+	public static void printHeading() {																	
 		String asterisks = "*".repeat(60);
 		String mainHeading = "Menagerie V1.0: The Pet Simulator";
 		String space = " ".repeat((asterisks.length() - mainHeading.length()) / 2);
