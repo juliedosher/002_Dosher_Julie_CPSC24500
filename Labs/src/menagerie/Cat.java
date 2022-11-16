@@ -4,6 +4,8 @@
 
 package menagerie;
 
+import java.util.*;
+
 public class Cat extends Pet {
 
 	public Cat() {																	// default constructor
