@@ -22,7 +22,7 @@ public abstract class Pet {
 	public boolean needsFood(int food) {
 		boolean doesNeed = false;
 		
-		if (food < foodCutoff) {
+		if (food <= foodCutoff) {
 			doesNeed = true;
 		}
 		return doesNeed;
@@ -31,7 +31,7 @@ public abstract class Pet {
 	public boolean needsAttention(int attention) {
 		boolean doesNeed = false;
 		
-		if (attention < attentionCutoff) {
+		if (attention <= attentionCutoff) {
 			doesNeed = true;
 		}
 		return doesNeed;
@@ -40,13 +40,14 @@ public abstract class Pet {
 	public boolean needsSleep(int sleep) {
 		boolean doesNeed = false;
 		
-		if (sleep < sleepCutoff) {
+		if (sleep <= sleepCutoff) {
 			doesNeed = true;
 		}
 		return doesNeed;
 	}
 	
-	public String getName() {
+	
+	public String getName() {														// getters
 		return name;
 	}
 	
@@ -56,5 +57,17 @@ public abstract class Pet {
 	
 	public double getWeight() {
 		return weight;
+	}
+	
+	public void setName(String name) {												// setters
+		this.name = name;
+	}
+	
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	public void setWeight(double weight) {
+		this.weight = weight;
 	}
 }
