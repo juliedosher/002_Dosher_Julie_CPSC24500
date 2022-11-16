@@ -18,6 +18,8 @@ public abstract class Pet {
 	
 	public String actions[];
 	
+	Random brain = new Random();
+	
 	public abstract String getType();
 	public abstract String act();
 	
@@ -30,7 +32,7 @@ public abstract class Pet {
 	public boolean needsFood(int food) {
 		boolean doesNeed = false;
 		
-		if (food <= foodCutoff) {
+		if (food > Constants.BRAIN_MIN && food <= (foodCutoff + Constants.BRAIN_MIN)) {
 			doesNeed = true;
 		}
 		return doesNeed;
@@ -39,7 +41,7 @@ public abstract class Pet {
 	public boolean needsAttention(int attention) {
 		boolean doesNeed = false;
 		
-		if (attention <= attentionCutoff) {
+		if (attention > foodCutoff && attention <= (attentionCutoff + foodCutoff)) {
 			doesNeed = true;
 		}
 		return doesNeed;
@@ -48,7 +50,7 @@ public abstract class Pet {
 	public boolean needsSleep(int sleep) {
 		boolean doesNeed = false;
 		
-		if (sleep <= sleepCutoff) {
+		if (sleep > attentionCutoff && sleep <= (sleepCutoff + attentionCutoff)) {
 			doesNeed = true;
 		}
 		return doesNeed;
