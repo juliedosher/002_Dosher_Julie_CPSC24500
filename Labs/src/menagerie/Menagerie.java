@@ -33,7 +33,7 @@ public class Menagerie {
 						
 					case 2:
 						validInput = true;
-						printPets();
+						PetWriter.printPets(pets);
 						break;
 						
 					case 3: 
@@ -179,16 +179,6 @@ public class Menagerie {
 		System.out.println("The pets were saved to the file.");
 		return fileName;
 	}
-																						// TODO: sort by name lol
-	private void printPets() {																			// prints all pets in a neatly formatted list
-		System.out.println("Here is your list of pets:");
-		for (Pet pet : pets) {
-			System.out.print(String.format("%-10s", pet.getType()));
-			System.out.print(String.format("%-12s", pet.getName()));
-			System.out.print(String.format("%3s", pet.getAge()));
-			System.out.println(String.format("%10.2f", pet.getWeight()));
-		}
-		System.out.println();
-	}
+	
 
 }
