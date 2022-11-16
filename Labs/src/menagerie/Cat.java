@@ -13,7 +13,11 @@ public class Cat extends Pet {
 		this.foodCutoff = 3;
 		this.attentionCutoff = 2;
 		this.sleepCutoff = 8;
-		this.actions = new String[] {""};
+		this.actions = new String[] {"had some catnip.", "chased its tail.", 
+				"jumped on the bookshelf.", "jumped on the countertop.", 
+				"hid under the bed.", "caught a mouse.", "played with its toy.",
+				"scratched its scratching pole.", "looked out the window.", 
+				"meowed.", "plotted your demise.", "jumped on your bed."};
 	}
 	
 	public Cat(String name, int age, double weight) {								// constructor
@@ -23,6 +27,11 @@ public class Cat extends Pet {
 		this.foodCutoff = 3;
 		this.attentionCutoff = 2;
 		this.sleepCutoff = 8;
+		this.actions = new String[] {"had some catnip.", "chased its tail.", 
+				"jumped on the bookshelf.", "jumped on the countertop.", 
+				"hid under the bed.", "caught a mouse.", "played with its toy.",
+				"scratched its scratching pole.", "looked out the window.", 
+				"meowed.", "plotted your demise.", "jumped on your bed."};
 	}
 	
 	

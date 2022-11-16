@@ -15,8 +15,8 @@ public class Dog extends Pet {
 		this.sleepCutoff = 8;
 		this.actions = new String[] {"barked at the window.", "whimpered.",
 				"tore the squeaker out of its toy.", "played fetch.", 
-				"wagged its tail.", "tore up a pillow.", "drank some water.", 
-				"chased its tail.", "played with its chew toy.", "ran around.", 
+				"wagged its tail.", "drank some water.", "chased its tail.", 
+				"played with its chew toy.", "ran around.", "barked.",
 				"hid one of your shoes.", "jumped on the couch."};
 	}
 	
@@ -29,9 +29,9 @@ public class Dog extends Pet {
 		this.sleepCutoff = 8;
 		this.actions = new String[] {"barked at the window.", "whimpered.",
 				"tore the squeaker out of its toy.", "played fetch.", 
-				"wagged its tail.", "tore up a pillow.", "drank some water.", 
-				"chased its tail.", "played with its chew toy.", "ran around.", 
-				"hid one of your shoes."};
+				"wagged its tail.", "drank some water.", "chased its tail.", 
+				"played with its chew toy.", "ran around.", "barked.",
+				"hid one of your shoes.", "jumped on the couch."};
 	}
 	
 	
