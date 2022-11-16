@@ -38,6 +38,7 @@ public class Menagerie {
 						
 					case 3: 
 						validInput = true;
+						String fileName = nameFile(input);
 						// TODO: write pets to file
 						break;
 						

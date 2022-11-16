@@ -1,9 +1,36 @@
 package menagerie;
 
+import java.io.*;
 import java.util.*;
 
 public class PetWriter {
 
+	public static String createFile(Scanner input) {
+		boolean validInput = false;
+		String fileName = "";
+		
+		while (!validInput) {
+			System.out.print("Enter name of file to save: ");
+			fileName = input.nextLine();
+			
+			try {
+			      File newFile = new File("filename.txt");
+			      if (newFile.createNewFile()) {
+			        System.out.println("The pets were saved to the file.");
+			        validInput = true;
+			     
+			      } else {
+			        Constants.printFileExistsError();
+			      }
+			      
+			    } catch (IOException ex) {
+			      Constants.printFileError();
+			    }
+		}
+		
+		return fileName;
+	}
+	
 	public static void writeToFile(String fileName, ArrayList<Pet> pets) {
 		for (Pet pet : pets) {
 			// TODO: write to file

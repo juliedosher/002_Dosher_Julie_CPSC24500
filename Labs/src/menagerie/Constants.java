@@ -58,4 +58,9 @@ public class Constants {
 		System.out.println("ERROR: That file name is not valid.");
 		System.out.println();
 	}
+	
+	public static void printFileExistsError() {
+		System.out.println("ERROR: That file name is already in use.");
+		System.out.println();
+	}
 }
