@@ -54,12 +54,17 @@ public class PetWriter {
 													
 	public static void printPets(ArrayList<Pet> pets) {								// prints all pets in a neatly formatted list
 		System.out.println("Here is your list of pets:");
-		for (Pet pet : pets) {
-			System.out.print(String.format("%-10s", pet.getType()));
-			System.out.print(String.format("%-12s", pet.getName()));
-			System.out.print(String.format("%3s", pet.getAge()));
-			System.out.println(String.format("%10.2f", pet.getWeight()));
-			}
+		for (int i = 0; i < pets.size(); i++) {
+			String type = pets.get(i).getType();
+			String name = pets.get(i).getName();
+			int age = pets.get(i).getAge();
+			double weight = pets.get(i).getWeight();
+			
+			System.out.print(String.format("%-10s", type));
+			System.out.print(String.format("%-12s", name));
+			System.out.print(String.format("%3s", age));
+			System.out.println(String.format("%10.2f", weight));
+		}
 		System.out.println();
 		}
 }

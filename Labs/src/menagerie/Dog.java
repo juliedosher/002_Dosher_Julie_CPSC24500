@@ -4,8 +4,6 @@
 
 package menagerie;
 
-import java.util.*;
-
 public class Dog extends Pet {
 
 	public Dog() {																	// default constructor
@@ -42,5 +40,4 @@ public class Dog extends Pet {
 		return "dog";
 	}
 
-	
 }

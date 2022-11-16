@@ -19,7 +19,6 @@ public abstract class Pet {
 	public String actions[];
 	
 	public abstract String getType();
-	//public abstract String act(int brain);
 	
 	public String toString() {														// returns String of pet's info
 		String output = this.getType() + "\t" + name + "\t" + age + "\t" 		
@@ -38,19 +37,19 @@ public abstract class Pet {
 		Random brain = new Random();												// determines if pet needs to eat, sleep, or seek attention
 		int needsChoice = brain.nextInt(Constants.HOUR_MAX) + Constants.HOUR_MIN;
 
-		if (needsFood(needsChoice)) {
+		if (needsFood(needsChoice)) {												// eats if pet needs food
 			action += Constants.FOOD;
 			action += "\n" + "The " + this.getType() 
 				+ ", " + this.getName() + ", "; 
 		}
 		
-		if (needsAttention(needsChoice)) {
+		if (needsAttention(needsChoice)) {											// seeks attention if pet is lonely
 			action += Constants.ATTENTION;
 			action += "\n" + "The " + this.getType() 
 				+ ", " + this.getName() + ", "; 
 		}
 		
-		if (needsSleep(needsChoice)) {
+		if (needsSleep(needsChoice)) {												// sleeps if pet is tired
 			action += Constants.SLEEP;
 			action += "\n" + "The " + this.getType() 
 				+ ", " + this.getName() + ", "; 
@@ -60,33 +59,35 @@ public abstract class Pet {
 		return action;
 	}
 	
-	public boolean needsFood(int choice) {
-		boolean doesNeed = false;
+	public boolean needsFood(int choice) {											// compares randomly generated choice value to		
+		boolean doesNeed = false;													// foodCutoff value
 		
-		if (choice > Constants.HOUR_MIN && choice <= (foodCutoff)) {
+		if (choice > 0 && choice <= (foodCutoff)) {
 			doesNeed = true;
 		}
 		return doesNeed;
 	}
 	
-	public boolean needsAttention(int choice) {
-		boolean doesNeed = false;
-		
-		if (choice > foodCutoff && choice <= (attentionCutoff + foodCutoff)) {
+	public boolean needsAttention(int choice) {										// compares randomly generated choice value to 
+		boolean doesNeed = false;													// attentionCutoff value
+		attentionCutoff += foodCutoff;												// attentionCutoff is offset by foodCutoff so multiple needs 
+																					// are not met in the same hour
+		if (choice > foodCutoff && choice <= attentionCutoff) {
 			doesNeed = true;
 		}
 		return doesNeed;
 	}
 	
-	public boolean needsSleep(int choice) {
-		boolean doesNeed = false;
-		
-		if (choice > attentionCutoff && choice <= (sleepCutoff + attentionCutoff + foodCutoff)) {
+	public boolean needsSleep(int choice) {											// compares randomly generated choice value to 
+		boolean doesNeed = false;													// sleepCutoff value
+		sleepCutoff += attentionCutoff + foodCutoff;								// sleepCutoff is offset by foodCutoff and attentionCutoff so
+																					// multiple needs are not met in the same hour
+		if (choice > (attentionCutoff + foodCutoff) && choice <= sleepCutoff) {
 			doesNeed = true;
 		}
 		return doesNeed;
 	}
-	
+
 	
 	public String getName() {														// getters
 		return name;

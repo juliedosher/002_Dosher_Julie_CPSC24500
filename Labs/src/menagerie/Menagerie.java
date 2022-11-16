@@ -29,6 +29,7 @@ public class Menagerie {
 						validInput = true;
 						String type = getType(input);
 						pets.add(getPet(input, type));
+						pets = orderPets(pets);
 						break;
 						
 					case 2:
@@ -66,8 +67,8 @@ public class Menagerie {
 						Constants.printInvalidInput();		
 				}
 				
-				pets = orderPets(pets);														// orders ArrayList of pets at end of the while 
-			}																				// loop to prepare for next command
+																		
+			}																				
 		}
 		
 		Constants.printExit();
@@ -186,13 +187,32 @@ public class Menagerie {
 		}
 	}
 	
-	private ArrayList<Pet> orderPets(ArrayList<Pet> pets) {							// TODO
-		ArrayList<Pet> orderedList = new ArrayList<Pet>();
-		String currPetName = "";
-		for (Pet pet : pets) {
-			
-		}
+	private ArrayList<Pet> orderPets(ArrayList<Pet> pets) {												// takes in an ArrayList of pets and
+		ArrayList<Pet> orderedList = new ArrayList<Pet>();												// returns a new ArrayList of them in
+		ArrayList<String> names = new ArrayList<String>();												// alphabetical order
+	
+		if (pets.size() == 0) {
+			orderedList = pets;
 		
-		return pets;
+		} else {
+			for (Pet pet : pets) {
+				names.add(pet.getName());
+			}
+			
+			Collections.sort(names);
+			System.out.println("Alphabetize: ");
+			for (int i = 0; i < names.size(); i++) {
+				System.out.println(names.get(i));
+			}
+			
+			for (Pet pet : pets) {
+				for (int i = 0; i < names.size(); i++) {
+					if (pet.getName().equals(names.get(i))) {
+						orderedList.add(pet);
+					}
+				}
+			}
+		}
+		return orderedList;
 	}
 }

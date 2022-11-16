@@ -4,8 +4,6 @@
 
 package menagerie;
 
-import java.util.*;
-
 public class Fish extends Pet {
 
 	public Fish() {																			// default constructor
@@ -32,9 +30,8 @@ public class Fish extends Pet {
 	
 	
 	@Override
-	public String getType() {														// returns type as String
+	public String getType() {																// returns type as String
 		return "fish";
 	}
-
 	
 }
