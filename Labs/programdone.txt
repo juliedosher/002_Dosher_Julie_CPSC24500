@@ -1,0 +1,3 @@
+cat	Carrie	5	18.00
+fish	Phillip	1	0.50
+dog	Princess	12	17.00
