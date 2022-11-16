@@ -181,5 +181,14 @@ public class Menagerie {
 		return fileName;
 	}
 	
+	private ArrayList<Pet> orderPets(ArrayList<Pet> pets) {
+		ArrayList<Pet> orderedList = new ArrayList<Pet>();
+		String currPetName = "";
+		for (Pet pet : pets) {
+			
+		}
+		
+		return orderedList;
+	}
 
 }

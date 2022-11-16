@@ -5,7 +5,7 @@ import java.util.*;
 
 public class PetWriter {
 
-	public static String createFile(Scanner input) {
+	public static String createFile(Scanner input) {								// takes in a String fileName and creates the file
 		boolean validInput = false;
 		String fileName = "";
 		
@@ -31,13 +31,23 @@ public class PetWriter {
 		return fileName;
 	}
 	
-	public static void writeToFile(String fileName, ArrayList<Pet> pets) {
-		for (Pet pet : pets) {
-			// TODO: write to file
+	public static void writeToFile(String fileName, ArrayList<Pet> pets) {			// adds current list of pets to a new file
+		try {
+			FileWriter petWriter = new FileWriter(fileName);
+		     
+			for (Pet pet : pets) {
+				String newLine = pet.getType() + "\t" + pet.getName();
+				newLine += "\t" + pet.getAge() + "\t" + pet.getWeight();
+				petWriter.write(newLine);
+			}
+		     petWriter.close();
+		     
+		} catch (IOException ex) {													// should never happen since this is already
+			Constants.printFileError();												// checked in createFile()
 		}
 	}
 	
-													// TODO: sort by name 
+													
 	public static void printPets(ArrayList<Pet> pets) {								// prints all pets in a neatly formatted list
 		System.out.println("Here is your list of pets:");
 		for (Pet pet : pets) {
