@@ -175,15 +175,7 @@ public class Menagerie {
 		return fileName;
 	}
 	
-	private String nameFile(Scanner input) {											// TODO: add try block to test if file name is valid
-		String fileName = "";
-		System.out.print("Enter name of file to save: ");
-		
-		System.out.println("The pets were saved to the file.");
-		return fileName;
-	}
-	
-	private ArrayList<Pet> orderPets(ArrayList<Pet> pets) {
+	private ArrayList<Pet> orderPets(ArrayList<Pet> pets) {							// TODO
 		ArrayList<Pet> orderedList = new ArrayList<Pet>();
 		String currPetName = "";
 		for (Pet pet : pets) {
@@ -192,5 +184,4 @@ public class Menagerie {
 		
 		return orderedList;
 	}
-
 }
