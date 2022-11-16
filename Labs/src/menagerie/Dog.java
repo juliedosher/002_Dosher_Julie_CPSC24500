@@ -44,12 +44,15 @@ public class Dog extends Pet {
 
 	@Override
 	public String act(int brain) {													// chooses an action and returns it as a String
+		String action = "The dog, " + this.getName() + ", "
+				+ " ";
+		
 		Random rand = new Random();
-		
-		if (this.needsSleep(brain)) {
-			
-		}
-		return "";
-		
+		int min = 0;
+		int max = actions.length;		
+		int choice = rand.nextInt(max);
+
+		action += actions[choice];
+		return action;
 	}
 }

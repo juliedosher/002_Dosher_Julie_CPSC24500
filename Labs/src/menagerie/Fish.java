@@ -37,8 +37,16 @@ public class Fish extends Pet {
 	}
 
 	@Override
-	public String act(int brain) {												// TODO
+	public String act(int brain) {													// chooses an action and returns it as a String
+		String action = "The fish, " + this.getName() + ", "
+				+ " ";
 		
-		return "";
+		Random rand = new Random();
+		int min = 0;
+		int max = actions.length;		
+		int choice = rand.nextInt(max);
+
+		action += actions[choice];
+		return action;
 	}
 }
