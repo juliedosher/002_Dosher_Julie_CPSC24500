@@ -13,16 +13,6 @@ public abstract class Pet {
 	public abstract String getType();
 	public abstract String act();
 	
-	public void setFoodCutoff(int cutoff) {
-		this.foodCutoff = cutoff;
-	}
-	public void setAttentionCutoff(int cutoff) {
-		this.attentionCutoff = cutoff;
-	}
-	public void setSleepCutoff(int cutoff) {
-		this.sleepCutoff = cutoff;
-	}
-	
 	public String toString() {														// returns String of pet's info
 		String output = this.getType() + "\t" + name + "\t" + age + "\t" 		
 				+ String.format(".2f", weight);
