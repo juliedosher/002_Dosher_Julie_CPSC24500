@@ -31,5 +31,4 @@ public class Cat extends Pet {
 		
 		return "";
 	}
-
 }
