@@ -36,8 +36,8 @@ public class PetWriter {
 			FileWriter petWriter = new FileWriter(fileName);
 		     
 			for (Pet pet : pets) {
-				String newLine = pet.getType() + "\t" + pet.getName();
-				newLine += "\t" + pet.getAge() + "\t" + pet.getWeight();
+				String newLine = pet.getType() + "\t" + pet.getName() + "\t";
+				newLine += pet.getAge() + "\t" + String.format(".2f", pet.getWeight());
 				petWriter.write(newLine);
 			}
 		     petWriter.close();
