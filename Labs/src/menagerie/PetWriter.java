@@ -18,7 +18,7 @@ public class PetWriter {
 			fileName = input.nextLine();
 			
 			try {
-			      File newFile = new File("filename.txt");
+			      File newFile = new File(fileName);
 			      if (newFile.createNewFile()) {
 			        validInput = true;
 			     
@@ -39,18 +39,16 @@ public class PetWriter {
 			FileWriter petWriter = new FileWriter(fileName);
 		     
 			for (Pet pet : pets) {
-				String newLine = pet.getType() + "\t" + pet.getName() + "\t";
-				newLine += pet.getAge() + "\t" + String.format(".2f", pet.getWeight());
-				petWriter.write(newLine);
+				petWriter.write(pet.toString());
 			}
-		     petWriter.close();
+		     petWriter.close();														// closes file
 		     System.out.println("The pets were saved to the file.");
+		     System.out.println();
 		     
 		} catch (IOException ex) {													// should never happen since this is already
 			Constants.printFileError();												// checked in createFile()
 		}
 	}
-	
 													
 	public static void printPets(ArrayList<Pet> pets) {								// prints all pets in a neatly formatted list
 		System.out.println("Here is your list of pets:");

@@ -22,7 +22,7 @@ public abstract class Pet {
 	
 	public String toString() {														// returns String of pet's info
 		String output = this.getType() + "\t" + name + "\t" + age + "\t" 		
-				+ String.format(".2f", weight);
+				+ String.format("%.2f", weight);
 		return output;
 	}
 	
