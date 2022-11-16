@@ -14,8 +14,8 @@ public class Constants {
 	public static final String ATTENTION = "sought your attention.";
 	public static final String SLEEP = "was sleepy and took a nap.";
 	
-	public static final int BRAIN_MIN = 1;
-	public static final int BRAIN_MAX = 24;
+	public static final int HOUR_MIN = 1;
+	public static final int HOUR_MAX = 24;
 	
 	public static void printHeading() {																	
 		String asterisks = "*".repeat(60);

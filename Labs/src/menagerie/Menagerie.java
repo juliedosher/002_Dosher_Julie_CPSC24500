@@ -49,7 +49,7 @@ public class Menagerie {
 						
 					case 5:
 						validInput = true;
-						// TODO: act()
+						
 						break;
 						
 					case 6:

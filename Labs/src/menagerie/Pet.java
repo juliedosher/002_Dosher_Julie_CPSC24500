@@ -32,7 +32,7 @@ public abstract class Pet {
 	public boolean needsFood(int food) {
 		boolean doesNeed = false;
 		
-		if (food > Constants.BRAIN_MIN && food <= (foodCutoff + Constants.BRAIN_MIN)) {
+		if (food > Constants.HOUR_MIN && food <= (foodCutoff + Constants.HOUR_MIN)) {
 			doesNeed = true;
 		}
 		return doesNeed;
