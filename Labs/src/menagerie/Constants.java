@@ -10,6 +10,8 @@ public class Constants {
 	public static final String CAT = "c";
 	public static final String FISH = "f";
 	
+	public static final int BRAIN_MIN = 1;
+	public static final int BRAIN_MAX = 24;
 	
 	public static void printHeading() {																	
 		String asterisks = "*".repeat(60);
