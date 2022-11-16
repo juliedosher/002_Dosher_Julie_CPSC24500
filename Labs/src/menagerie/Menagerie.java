@@ -171,6 +171,14 @@ public class Menagerie {
 		System.out.println();
 		return fileName;
 	}
+	
+	private String nameFile(Scanner input) {											// TODO: add try block to test if file name is valid
+		String fileName = "";
+		System.out.print("Enter name of file to save: ");
+		
+		System.out.println("The pets were saved to the file.");
+		return fileName;
+	}
 																						// TODO: sort by name lol
 	private void printPets() {																			// prints all pets in a neatly formatted list
 		System.out.println("Here is your list of pets:");
