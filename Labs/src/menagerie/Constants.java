@@ -53,4 +53,9 @@ public class Constants {
 		System.out.println("ERROR: That file was not found.");
 		System.out.println();
 	}
+	
+	public static void printNewFileError() {
+		System.out.println("ERROR: That file name is not valid.");
+		System.out.println();
+	}
 }
