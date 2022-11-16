@@ -15,7 +15,6 @@ public class Constants {
 		String asterisks = "*".repeat(60);
 		String mainHeading = "Menagerie V1.0: The Pet Simulator";
 		String space = " ".repeat((asterisks.length() - mainHeading.length()) / 2);
-		
 		System.out.println(asterisks);
 		System.out.print(space);
 		System.out.print(mainHeading);

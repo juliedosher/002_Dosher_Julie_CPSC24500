@@ -1,4 +1,4 @@
-dog	Duke	9	11.75
+dog	Duke	7	11.75
 cat	Cody	4	17.5
 fish	Felipe	1	0.5
-dog	Doug	7	27
+dog	Doug	11	27

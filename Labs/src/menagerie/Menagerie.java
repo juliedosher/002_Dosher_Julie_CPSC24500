@@ -88,6 +88,7 @@ public class Menagerie {
 		}
 		
 		input.nextLine();
+		System.out.println();
 		return choice;
 	}
 	
@@ -144,11 +145,12 @@ public class Menagerie {
 				break;
 		}
 		
+		System.out.println();
 		return pet;
 	}
 	
-	private String getFile(Scanner input) {
-		String fileName = "";
+	private String getFile(Scanner input) {																// asks user for file name and returns 
+		String fileName = "";																			// it as a String
 		
 		boolean validInput = false;
 		while (!validInput) {
@@ -166,17 +168,19 @@ public class Menagerie {
 			}
 		}
 		
+		System.out.println();
 		return fileName;
 	}
 	
-	private void printPets() {																			// TODO: add spacing
+	private void printPets() {																			// prints all pets in a neatly formatted list
 		System.out.println("Here is your list of pets:");
 		for (Pet pet : pets) {
-			System.out.print(pet.getType());
-			System.out.print(pet.getName());
-			System.out.print(pet.getAge());
-			System.out.println(pet.getWeight());
+			System.out.print(String.format("%-10s", pet.getType()));
+			System.out.print(String.format("%-12s", pet.getName()));
+			System.out.print(String.format("%3s", pet.getAge()));
+			System.out.println(String.format("%10.2f", pet.getWeight()));
 		}
+		System.out.println();
 	}
 
 }
