@@ -49,9 +49,7 @@ public class Menagerie {
 						
 					case 5:
 						validInput = true;
-						for (Pet pet : pets) {
-							System.out.println(pet.act());
-						}
+						simulateDay(pets);
 						break;
 						
 					case 6:
@@ -175,6 +173,17 @@ public class Menagerie {
 		
 		System.out.println();
 		return fileName;
+	}
+	
+	private void simulateDay(ArrayList<Pet> pets) {
+		for (int i = Constants.HOUR_MIN; i <= Constants.HOUR_MAX; i++) {
+			System.out.println("HOUR " + i);
+			System.out.println("-------");
+			for (Pet pet : pets) {
+				System.out.println(pet.act());
+			}
+			System.out.println();
+		}
 	}
 	
 	private ArrayList<Pet> orderPets(ArrayList<Pet> pets) {							// TODO

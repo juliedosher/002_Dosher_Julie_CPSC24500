@@ -13,7 +13,7 @@ public class Dog extends Pet {
 		this.age = 0;
 		this.weight = 0;
 		this.foodCutoff = 4;
-		this.attentionCutoff = 8;
+		this.attentionCutoff = 6;
 		this.sleepCutoff = 8;
 		this.actions = new String[] {"barked at the window.", "whimpered.",
 				"tore the squeaker out of its toy.", "played fetch.", 

@@ -31,38 +31,39 @@ public abstract class Pet {
 		String action = "The " + this.getType() + ", " 
 				+ this.getName() + ", ";
 		
-		Random rand = new Random();
+		Random rand = new Random();													// determines which action the pet will do
 		int max = actions.length;		
-		int choice = rand.nextInt(max);
+		int actionChoice = rand.nextInt(max);
+		
+		Random brain = new Random();												// determines if pet needs to eat, sleep, or seek attention
+		int needsChoice = brain.nextInt(Constants.HOUR_MAX) + Constants.HOUR_MIN;
 
-		if (needsFood(choice)) {
+		if (needsFood(needsChoice)) {
 			action += Constants.FOOD;
 			action += "\n" + "The " + this.getType() 
 				+ ", " + this.getName() + ", "; 
 		}
 		
-		if (needsAttention(choice)) {
+		if (needsAttention(needsChoice)) {
 			action += Constants.ATTENTION;
 			action += "\n" + "The " + this.getType() 
 				+ ", " + this.getName() + ", "; 
 		}
 		
-		if (needsSleep(choice)) {
+		if (needsSleep(needsChoice)) {
 			action += Constants.SLEEP;
 			action += "\n" + "The " + this.getType() 
 				+ ", " + this.getName() + ", "; 
 		}
 		
-		System.out.println("RNG: " + choice);
-		
-		action += actions[choice];
+		action += actions[actionChoice];
 		return action;
 	}
 	
 	public boolean needsFood(int choice) {
 		boolean doesNeed = false;
 		
-		if (choice > Constants.HOUR_MIN && choice <= (foodCutoff + Constants.HOUR_MIN)) {
+		if (choice > Constants.HOUR_MIN && choice <= (foodCutoff)) {
 			doesNeed = true;
 		}
 		return doesNeed;
@@ -80,7 +81,7 @@ public abstract class Pet {
 	public boolean needsSleep(int choice) {
 		boolean doesNeed = false;
 		
-		if (choice > attentionCutoff && choice <= (sleepCutoff + attentionCutoff)) {
+		if (choice > attentionCutoff && choice <= (sleepCutoff + attentionCutoff + foodCutoff)) {
 			doesNeed = true;
 		}
 		return doesNeed;
