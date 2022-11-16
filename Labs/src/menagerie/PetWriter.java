@@ -16,7 +16,6 @@ public class PetWriter {
 			try {
 			      File newFile = new File("filename.txt");
 			      if (newFile.createNewFile()) {
-			        System.out.println("The pets were saved to the file.");
 			        validInput = true;
 			     
 			      } else {
@@ -41,6 +40,7 @@ public class PetWriter {
 				petWriter.write(newLine);
 			}
 		     petWriter.close();
+		     System.out.println("The pets were saved to the file.");
 		     
 		} catch (IOException ex) {													// should never happen since this is already
 			Constants.printFileError();												// checked in createFile()

@@ -38,8 +38,7 @@ public class Menagerie {
 						
 					case 3: 
 						validInput = true;
-						String fileName = nameFile(input);
-						// TODO: write pets to file
+						PetWriter.writeToFile(PetWriter.createFile(input), pets);
 						break;
 						
 					case 4:
@@ -50,6 +49,7 @@ public class Menagerie {
 						
 					case 5:
 						validInput = true;
+						// TODO: act()
 						break;
 						
 					case 6:
@@ -65,7 +65,9 @@ public class Menagerie {
 					default:
 						Constants.printInvalidInput();		
 				}
-			}
+				
+				pets = orderPets(pets);														// orders ArrayList of pets at end of the while 
+			}																				// loop to prepare for next command
 		}
 		
 		Constants.printExit();
