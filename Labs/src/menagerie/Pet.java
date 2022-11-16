@@ -1,3 +1,7 @@
+/*
+ * The abstract class defining Pet
+ */
+
 package menagerie;
 
 public abstract class Pet {
