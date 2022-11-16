@@ -13,6 +13,7 @@ public class Cat extends Pet {
 		this.foodCutoff = 3;
 		this.attentionCutoff = 2;
 		this.sleepCutoff = 8;
+		this.actions = new String[] {""};
 	}
 	
 	public Cat(String name, int age, double weight) {								// constructor

@@ -10,9 +10,9 @@ public class Constants {
 	public static final String CAT = "c";
 	public static final String FISH = "f";
 	
-	public static final String FOOD = " was hungry and ate.";
-	public static final String ATTENTION = " sought your attention.";
-	public static final String SLEEP = " was sleepy and took a nap.";
+	public static final String FOOD = "was hungry and ate.";
+	public static final String ATTENTION = "sought your attention.";
+	public static final String SLEEP = "was sleepy and took a nap.";
 	
 	public static final int BRAIN_MIN = 1;
 	public static final int BRAIN_MAX = 24;

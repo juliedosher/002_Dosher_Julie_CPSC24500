@@ -4,6 +4,8 @@
 
 package menagerie;
 
+import java.util.*;
+
 public abstract class Pet {
 																					// add random number generator
 	protected String name;
@@ -13,6 +15,8 @@ public abstract class Pet {
 	protected int foodCutoff;
 	protected int attentionCutoff;
 	protected int sleepCutoff;
+	
+	public String actions[];
 	
 	public abstract String getType();
 	public abstract String act();
