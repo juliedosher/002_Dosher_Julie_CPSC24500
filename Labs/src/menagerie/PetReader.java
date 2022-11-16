@@ -52,5 +52,4 @@ public class PetReader {
 	
 		return pets;
 	}
-	
 }
