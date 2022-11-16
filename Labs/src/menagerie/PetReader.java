@@ -1,5 +1,5 @@
 /*
- * Class that reads a file of Pets 
+ * Class that reads a .txt file of Pets 
  */
 
 package menagerie;

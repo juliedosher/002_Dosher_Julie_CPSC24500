@@ -1,3 +1,7 @@
+/*
+ * Class that creates a .txt file and writes to it
+ */
+
 package menagerie;
 
 import java.io.*;
