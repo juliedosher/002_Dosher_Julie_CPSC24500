@@ -40,6 +40,7 @@ public class PetWriter {
 		     
 			for (Pet pet : pets) {
 				petWriter.write(pet.toString());
+				petWriter.write("\n");
 			}
 		     petWriter.close();														// closes file
 		     System.out.println("The pets were saved to the file.");
