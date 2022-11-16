@@ -1,3 +1,7 @@
+/*
+ * The class that defines Dog, inherited from Pet
+ */
+
 package menagerie;
 
 public class Dog extends Pet {

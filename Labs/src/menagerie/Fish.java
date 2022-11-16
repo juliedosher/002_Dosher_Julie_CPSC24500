@@ -1,3 +1,7 @@
+/*
+ * The class that defines Fish, inherited from Pet
+ */
+
 package menagerie;
 
 public class Fish extends Pet {
