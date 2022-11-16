@@ -42,17 +42,5 @@ public class Cat extends Pet {
 		return "cat";
 	}
 
-	@Override
-	public String act(int brain) {													// chooses an action and returns it as a String
-		String action = "The cat, " + this.getName() + ", "
-				+ " ";
-		
-		Random rand = new Random();
-		int min = 0;
-		int max = actions.length;		
-		int choice = rand.nextInt(max);
 
-		action += actions[choice];
-		return action;
-	}
 }

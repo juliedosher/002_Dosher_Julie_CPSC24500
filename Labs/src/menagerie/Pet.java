@@ -18,10 +18,8 @@ public abstract class Pet {
 	
 	public String actions[];
 	
-	Random brain = new Random();
-	
 	public abstract String getType();
-	public abstract String act(int brain);
+	//public abstract String act(int brain);
 	
 	public String toString() {														// returns String of pet's info
 		String output = this.getType() + "\t" + name + "\t" + age + "\t" 		
@@ -29,28 +27,60 @@ public abstract class Pet {
 		return output;
 	}
 	
-	public boolean needsFood(int food) {
+	public String act() {															// chooses an action and returns it as a String
+		String action = "The " + this.getType() + ", " 
+				+ this.getName() + ", ";
+		
+		Random rand = new Random();
+		int max = actions.length;		
+		int choice = rand.nextInt(max);
+
+		if (needsFood(choice)) {
+			action += Constants.FOOD;
+			action += "\n" + "The " + this.getType() 
+				+ ", " + this.getName() + ", "; 
+		}
+		
+		if (needsAttention(choice)) {
+			action += Constants.ATTENTION;
+			action += "\n" + "The " + this.getType() 
+				+ ", " + this.getName() + ", "; 
+		}
+		
+		if (needsSleep(choice)) {
+			action += Constants.SLEEP;
+			action += "\n" + "The " + this.getType() 
+				+ ", " + this.getName() + ", "; 
+		}
+		
+		System.out.println("RNG: " + choice);
+		
+		action += actions[choice];
+		return action;
+	}
+	
+	public boolean needsFood(int choice) {
 		boolean doesNeed = false;
 		
-		if (food > Constants.HOUR_MIN && food <= (foodCutoff + Constants.HOUR_MIN)) {
+		if (choice > Constants.HOUR_MIN && choice <= (foodCutoff + Constants.HOUR_MIN)) {
 			doesNeed = true;
 		}
 		return doesNeed;
 	}
 	
-	public boolean needsAttention(int attention) {
+	public boolean needsAttention(int choice) {
 		boolean doesNeed = false;
 		
-		if (attention > foodCutoff && attention <= (attentionCutoff + foodCutoff)) {
+		if (choice > foodCutoff && choice <= (attentionCutoff + foodCutoff)) {
 			doesNeed = true;
 		}
 		return doesNeed;
 	}
 	
-	public boolean needsSleep(int sleep) {
+	public boolean needsSleep(int choice) {
 		boolean doesNeed = false;
 		
-		if (sleep > attentionCutoff && sleep <= (sleepCutoff + attentionCutoff)) {
+		if (choice > attentionCutoff && choice <= (sleepCutoff + attentionCutoff)) {
 			doesNeed = true;
 		}
 		return doesNeed;

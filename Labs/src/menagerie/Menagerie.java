@@ -49,7 +49,9 @@ public class Menagerie {
 						
 					case 5:
 						validInput = true;
-						
+						for (Pet pet : pets) {
+							System.out.println(pet.act());
+						}
 						break;
 						
 					case 6:
@@ -182,6 +184,6 @@ public class Menagerie {
 			
 		}
 		
-		return orderedList;
+		return pets;
 	}
 }

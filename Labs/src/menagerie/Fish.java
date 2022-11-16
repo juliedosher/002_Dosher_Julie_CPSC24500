@@ -16,7 +16,7 @@ public class Fish extends Pet {
 		this.attentionCutoff = 1;
 		this.sleepCutoff = 12;
 		this.actions = new String[] {"swam up to the surface.", "hung out in the castle.", 
-				"swam in circles.", "hid behind a plant", "swam laps in its tank."};
+				"swam in circles.", "hid behind a plant.", "swam laps in its tank."};
 	}
 	
 	public Fish(String name, int age, double weight) {										// constructor
@@ -27,7 +27,7 @@ public class Fish extends Pet {
 		this.attentionCutoff = 1;
 		this.sleepCutoff = 12;
 		this.actions = new String[] {"swam up to the surface.", "hung out in the castle.", 
-				"swam in circles.", "hid behind a plant", "swam laps in its tank."};
+				"swam in circles.", "hid behind a plant.", "swam laps in its tank."};
 	}
 	
 	
@@ -36,17 +36,5 @@ public class Fish extends Pet {
 		return "fish";
 	}
 
-	@Override
-	public String act(int brain) {													// chooses an action and returns it as a String
-		String action = "The fish, " + this.getName() + ", "
-				+ " ";
-		
-		Random rand = new Random();
-		int min = 0;
-		int max = actions.length;		
-		int choice = rand.nextInt(max);
-
-		action += actions[choice];
-		return action;
-	}
+	
 }
