@@ -37,7 +37,7 @@ public class Fish extends Pet {
 	}
 
 	@Override
-	public String act() {												// TODO
+	public String act(int brain) {												// TODO
 		
 		return "";
 	}

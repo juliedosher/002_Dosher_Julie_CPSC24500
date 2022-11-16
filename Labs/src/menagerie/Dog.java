@@ -43,8 +43,13 @@ public class Dog extends Pet {
 	}
 
 	@Override
-	public String act() {												// TODO
+	public String act(int brain) {													// chooses an action and returns it as a String
 		Random rand = new Random();
+		
+		if (this.needsSleep(brain)) {
+			
+		}
 		return "";
+		
 	}
 }

@@ -21,7 +21,7 @@ public abstract class Pet {
 	Random brain = new Random();
 	
 	public abstract String getType();
-	public abstract String act();
+	public abstract String act(int brain);
 	
 	public String toString() {														// returns String of pet's info
 		String output = this.getType() + "\t" + name + "\t" + age + "\t" 		

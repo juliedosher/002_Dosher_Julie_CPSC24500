@@ -43,7 +43,7 @@ public class Cat extends Pet {
 	}
 
 	@Override
-	public String act() {												// TODO
+	public String act(int brain) {												// TODO
 		
 		return "";
 	}
