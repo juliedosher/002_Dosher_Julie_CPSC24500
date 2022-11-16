@@ -171,7 +171,7 @@ public class Menagerie {
 		System.out.println();
 		return fileName;
 	}
-	
+																						// TODO: sort by name lol
 	private void printPets() {																			// prints all pets in a neatly formatted list
 		System.out.println("Here is your list of pets:");
 		for (Pet pet : pets) {
