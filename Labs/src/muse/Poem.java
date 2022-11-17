@@ -12,7 +12,7 @@ public class Poem extends WrittenArtisticWork {
     public String getMeter() {
         return meter;
     }
-    public void setMeter(String meter) {											// getters and setters:
+    public void setMeter(String meter) {											// setter
         this.meter = meter;
     }
     public Poem() {																	// default constructor

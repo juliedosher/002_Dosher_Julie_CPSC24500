@@ -1,3 +1,8 @@
+/*
+ * The class that defines ShortStory, inherited from WrittenArtisticWork
+ */
+
+
 package muse;
 
 import java.util.LinkedHashMap;
@@ -7,27 +12,27 @@ public class ShortStory extends WrittenArtisticWork {
     public String getSetting() {
         return setting;
     }
-    public void setSetting(String setting) {
+    public void setSetting(String setting) {											// setter
         this.setting = setting;
     }
-    public ShortStory() {
+    public ShortStory() {																// default constructor
         setting = "";
     }
-    public ShortStory(String creator, String date, String title, String description,
+    public ShortStory(String creator, String date, String title, String description,	// constructor using individual data members
             String language, String text, String setting) {
         super(creator,date,title,description,language,text);
         setSetting(setting);
     }
-    public ShortStory(LinkedHashMap<String,String> settings) {
+    public ShortStory(LinkedHashMap<String,String> settings) {							// constructor using Linked Hash Map of data
         super(settings);
         setSetting(settings.get("setting"));
     }
     @Override
-    public String getType() {
+    public String getType() {															// returns media type as a String
         return "short story";
     }
     @Override
-    public String getSpecificInfoString() {
+    public String getSpecificInfoString() {												// returns data as nicely formatted String
         return String.format("Setting: %s\n%s", setting, super.getSpecificInfoString());
     }
 }
