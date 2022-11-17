@@ -20,7 +20,11 @@ public class App {
         System.out.println("\nWhat would you like to do?");
         System.out.println("1. Create a new post");
         System.out.println("2. Comment on a post");
-        System.out.println("3. Quit");
+        System.out.println("3. Read posts from a text, binary, xml, or json file");
+        System.out.println("4. Write post to a text, binary, xml, or json file");
+        System.out.println("5. List all posts and comments to screen");
+        System.out.println("6. Clear posts");
+        System.out.println("7. Quit");
         System.out.print("Enter the number of your choice: ");
     }
     public static void showNewPostMenu() {
@@ -138,7 +142,7 @@ public class App {
                 System.out.println("The new comment has been added. Here is the updated post:\n ");
                 System.out.println(theWork);
             }
-        } while (choice != 3);
+        } while (choice != 7);
         System.out.println();
         System.out.println("Thank you for using MUSE. Be inspired to inspire everyone everywhere always.");
     }
