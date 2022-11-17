@@ -1,3 +1,7 @@
+/*
+ * The class that contains the main() function and basic App functionality
+ */
+
 package muse;
 
 import java.util.ArrayList;
