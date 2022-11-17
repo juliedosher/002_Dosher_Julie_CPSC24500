@@ -141,7 +141,17 @@ public class App {
                 theWork.addComment(comment);
                 System.out.println("The new comment has been added. Here is the updated post:\n ");
                 System.out.println(theWork);
+            
+            } else if (choice == 6) {
+            	System.out.print("Are you sure (y or n)? ");
+            	if (sc.nextLine().equals("y")) {
+            		works.clear();
+            		System.out.println("All posts have been cleared.");
+            	} else {
+            		System.out.println("Canceled. Posts were not cleared.");
+            	}
             }
+            
         } while (choice != 7);
         System.out.println();
         System.out.println("Thank you for using MUSE. Be inspired to inspire everyone everywhere always.");
