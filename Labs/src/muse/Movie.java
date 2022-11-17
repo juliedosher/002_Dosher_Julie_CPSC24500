@@ -29,7 +29,7 @@ public class Movie extends RecordedArtisticWork {
         frameRate = 30;
         resolution = "720p";
     }
-    public Movie(String creator, String date, String title, String description,						// constructor using individual data parts
+    public Movie(String creator, String date, String title, String description,						// constructor using individual data members
             int duration, String fileName, double fileSize, int frameRate, String resolution) {
         super(creator,date,title,description,duration,fileName,fileSize);
         setFrameRate(frameRate);

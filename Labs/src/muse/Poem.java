@@ -1,3 +1,8 @@
+/*
+ * The class that defines Poem, inherited from WrittenArtisticWork
+ */
+
+
 package muse;
 
 import java.util.LinkedHashMap;
@@ -7,27 +12,27 @@ public class Poem extends WrittenArtisticWork {
     public String getMeter() {
         return meter;
     }
-    public void setMeter(String meter) {
+    public void setMeter(String meter) {											// getters and setters:
         this.meter = meter;
     }
-    public Poem() {
+    public Poem() {																	// default constructor
         meter = "N/A";
     }
-    public Poem(String creator, String date, String title, String description,
+    public Poem(String creator, String date, String title, String description,		// constructor using individual data members
             String language, String text, String meter) {
         super(creator,date,title,description,language,text);
         setMeter(meter);
     }
-    public Poem(LinkedHashMap<String,String> settings) {
+    public Poem(LinkedHashMap<String,String> settings) {							// constructor using Linked Hash Map of data
         super(settings);
         setMeter(settings.get("meter"));
     }
     @Override
-    public String getType() {
+    public String getType() {														// returns media type as a String
         return "poem";
     }
     @Override
-    public String getSpecificInfoString() {
+    public String getSpecificInfoString() {											// returns info as nicely formatted String
         return String.format("Meter: %s\n%s", meter, super.getSpecificInfoString());
     }
 }
