@@ -1,3 +1,8 @@
+/*
+ * The abstract class that defines ArtisticWork
+ */
+
+
 package muse;
 
 import java.util.ArrayList;
@@ -12,7 +17,7 @@ public abstract class ArtisticWork {
     public String getCreator() {
         return creator;
     }
-    public void setCreator(String creator) {
+    public void setCreator(String creator) {										// getters and setters
         this.creator = creator;
     }
     public String getDate() {
@@ -33,21 +38,21 @@ public abstract class ArtisticWork {
     public void setDescription(String description) {
         this.description = description;
     }
-    public ArtisticWork() {
+    public ArtisticWork() {																	// default constructor
         date = "1/1/1900";
         title = "title";
         creator = "anonymous";
         description = "description";
         comments = new ArrayList<Comment>();
     }
-    public ArtisticWork(String creator, String date, String title, String description) {
-        setCreator(creator);
+    public ArtisticWork(String creator, String date, String title, String description) {	// constructor using individual data members
+        setCreator(creator);																
         setDate(date);
         setTitle(title);
         setDescription(description);
         comments = new ArrayList<Comment>();
     }
-    public ArtisticWork(LinkedHashMap<String,String> settings) {
+    public ArtisticWork(LinkedHashMap<String,String> settings) {							// constructor using Linked Hash Map of data
         this(settings.get("creator"),settings.get("date"),settings.get("title"),settings.get("description"));
     }
     public abstract String getType();
@@ -69,11 +74,11 @@ public abstract class ArtisticWork {
     public String toString() {
         return getGeneralInfoString() + "\n" + getSpecificInfoString() + "\nComments: \n" + getCommentsAsString();
     }
-    public void addComment(String postedBy, String date, String content) {
+    public void addComment(String postedBy, String date, String content) {					// adds comment to work
         Comment comment = new Comment(postedBy, date, content);
         comments.add(comment);
     }
-    public void addComment(Comment comment) {
+    public void addComment(Comment comment) {												// adds just a comment without author and date info
         comments.add(comment);
     }
     public String getShortString() {
