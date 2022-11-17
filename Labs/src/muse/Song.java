@@ -1,3 +1,8 @@
+/*
+ * The class that defines Song, inherited from RecordedArtisticWork
+ */
+
+
 package muse;
 
 import java.util.LinkedHashMap;
@@ -8,7 +13,7 @@ public class Song extends RecordedArtisticWork {
     public int getBPM() {
         return bpm;
     }
-    public void setBPM(int bpm) {
+    public void setBPM(int bpm) {													// getters and setters:
         if (bpm < 0) {
             this.bpm = 0;
         } else {
@@ -21,27 +26,27 @@ public class Song extends RecordedArtisticWork {
     public void setKey(String key) {
         this.key = key;   // could add checking for valid key
     }
-    public Song() {
+    public Song() {																	// default constructor
         key = "Cmaj";
         bpm = 120;
     }
-    public Song(String creator, String date, String title, String description,
+    public Song(String creator, String date, String title, String description,		// constructor using individual data members
             int duration, String fileName, double fileSize, int bpm, String key) {
         super(creator,date,title,description,duration,fileName,fileSize);
         setBPM(bpm);
         setKey(key);
     }
-    public Song(LinkedHashMap<String,String> settings) {
+    public Song(LinkedHashMap<String,String> settings) {							// constructor using Linked Hash Map of data
         super(settings);
         setBPM(Integer.parseInt(settings.get("bpm")));
         setKey(settings.get("key"));
     }
     @Override
-    public String getType() {
+    public String getType() {														// returns media type as a String
         return "song";
     }
     @Override
-    public String getSpecificInfoString() {
+    public String getSpecificInfoString() {											// returns data as nicely formatted String
         return String.format("%d bpm, key of %s", bpm,key);
     }
 }
