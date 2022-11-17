@@ -12,7 +12,7 @@ public class Movie extends RecordedArtisticWork {
     public int getFrameRate() {
         return frameRate;
     }
-    public void setFrameRate(int frameRate) {
+    public void setFrameRate(int frameRate) {														// getters and setters:
         if (frameRate < 0) {
             frameRate = 0;
         } else {
