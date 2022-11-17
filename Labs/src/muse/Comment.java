@@ -11,19 +11,19 @@ public class Comment {
     public String getPostedBy() {
         return postedBy;
     }
-    public void setPostedBy(String postedBy) {										// sets author of post
+    public void setPostedBy(String postedBy) {										// getters and setters:
         this.postedBy = postedBy;
     }
-    public String getDateTime() {													// gets date/time post was made
+    public String getDateTime() {													
         return dateTime;
     }
-    public void setDateTime(String dateTime) {										// sets date/time post was made
+    public void setDateTime(String dateTime) {										
         this.dateTime = dateTime;
     }
-    public String getContent() {													// gets content of comment
+    public String getContent() {												
         return content;
     }
-    public void setContent(String content) {										// sets content of comment
+    public void setContent(String content) {										
         this.content = content;
     }
     public Comment() {																// default constructor
