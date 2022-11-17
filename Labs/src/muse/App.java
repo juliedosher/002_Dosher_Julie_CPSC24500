@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class App {
 	
-    public static void printHeading() {
+    public static void printHeading() {																			// prints nicely formatted heading
         System.out.println("********************************************************************************");
         System.out.println("                        MUSE Social Media Platform, v1.0");
         System.out.println("********************************************************************************");
@@ -16,7 +16,7 @@ public class App {
         System.out.println("ideas. Post your own original works and comment on what others are doing. Only");
         System.out.println("one rule: be kind!");
     }
-    public static void showMainMenu() {
+    public static void showMainMenu() {																			// prints menu for user
         System.out.println("\nWhat would you like to do?");
         System.out.println("1. Create a new post");
         System.out.println("2. Comment on a post");
@@ -27,7 +27,7 @@ public class App {
         System.out.println("7. Quit");
         System.out.print("Enter the number of your choice: ");
     }
-    public static void showNewPostMenu() {
+    public static void showNewPostMenu() {																		// prints menu for making a new post
         System.out.println("\nWhat would you like to a post?");
         System.out.println("1. Song");
         System.out.println("2. Movie");
@@ -35,8 +35,8 @@ public class App {
         System.out.println("4. Short story");
         System.out.print("Enter the number of your choice: ");
     }
-    public static LinkedHashMap<String,String> getCommonInputs(Scanner sc) {
-        LinkedHashMap<String,String> result = new LinkedHashMap<String,String>();
+    public static LinkedHashMap<String,String> getCommonInputs(Scanner sc) {									// gets aspects of ArtisticWork from user 
+        LinkedHashMap<String,String> result = new LinkedHashMap<String,String>();								// and returns them as a Linked Hash Map
         System.out.print("Enter the name of the creator: ");
         result.put("creator", sc.nextLine());
         System.out.print("Enter the date: ");
@@ -47,8 +47,8 @@ public class App {
         result.put("description", sc.nextLine()); 
         return result;
     }
-    public static LinkedHashMap<String,String> getCommonRecordedInputs(Scanner sc) {
-        LinkedHashMap<String,String> result = getCommonInputs(sc);
+    public static LinkedHashMap<String,String> getCommonRecordedInputs(Scanner sc) {							// gets aspects of recorded works from user
+        LinkedHashMap<String,String> result = getCommonInputs(sc);												// and returns them as a Linked Hash Map
         System.out.print("Enter duration: ");
         result.put("duration", sc.nextLine());
         System.out.print("Enter filename: ");
@@ -57,15 +57,15 @@ public class App {
         result.put("filesize", sc.nextLine());
         return result;
     }
-    public static LinkedHashMap<String,String> getCommonWrittenInputs(Scanner sc) {
-        LinkedHashMap<String,String> result = getCommonInputs(sc);
+    public static LinkedHashMap<String,String> getCommonWrittenInputs(Scanner sc) {								// gets aspects of written works from user
+        LinkedHashMap<String,String> result = getCommonInputs(sc);												// and returns them as a Linked Hash Map
         System.out.print("Enter language: ");
         result.put("language", sc.nextLine());
         System.out.print("Enter text: ");
         result.put("text", sc.nextLine());
         return result;
     }
-    public static void listWorks(ArrayList<ArtisticWork> works) {
+    public static void listWorks(ArrayList<ArtisticWork> works) {												// prints current posts to console
         System.out.println("Here is what has been posted to MUSE: ");
         int count = 1;
         for (ArtisticWork work : works) {
@@ -90,11 +90,11 @@ public class App {
         do {
             showMainMenu();
             choice = sc.nextInt();
-            if (choice == 1) {
+            if (choice == 1) {																					// 1: create a new post
                 showNewPostMenu();
                 artType = sc.nextInt();
                 sc.nextLine();
-                if (artType == 1) {
+                if (artType == 1) {																				// new song post
                     responses = getCommonRecordedInputs(sc);
                     System.out.print("Enter beats per minute: ");
                     responses.put("bpm",sc.nextLine());
@@ -102,7 +102,7 @@ public class App {
                     responses.put("key", sc.nextLine());
                     song = new Song(responses);
                     works.add(song);
-                } else if (artType == 2) {
+                } else if (artType == 2) {																		// new movie post	
                     responses = getCommonRecordedInputs(sc);
                     System.out.print("Enter framerate: ");
                     responses.put("framerate", sc.nextLine());
@@ -110,20 +110,20 @@ public class App {
                     responses.put("resolution", sc.nextLine());
                     movie = new Movie(responses);
                     works.add(movie);
-                } else if (artType == 3) {
+                } else if (artType == 3) {																		// new poem post	
                     responses = getCommonWrittenInputs(sc);
                     System.out.print("Enter meter: ");
                     responses.put("meter",sc.nextLine());
                     poem = new Poem(responses);
                     works.add(poem);
-                } else if (artType == 4) {
-                    responses = getCommonWrittenInputs(sc);
+                } else if (artType == 4) {																		// new story post
+                    responses = getCommonWrittenInputs(sc);	
                     System.out.print("Describe the setting: ");
                     responses.put("setting", sc.nextLine());
                     story = new ShortStory(responses);
                     works.add(story);
                 }
-            } else if (choice == 2) {
+            } else if (choice == 2) {																			// 2: comment on a post
                 listWorks(works);
                 System.out.print("Which one do you want to comment on? ");
                 workNum = sc.nextInt() - 1;
@@ -142,7 +142,7 @@ public class App {
                 System.out.println("The new comment has been added. Here is the updated post:\n ");
                 System.out.println(theWork);
             
-            } else if (choice == 6) {
+            } else if (choice == 6) {																			// 6: clear posts
             	System.out.print("Are you sure (y or n)? ");
             	if (sc.nextLine().equals("y")) {
             		works.clear();
@@ -152,7 +152,7 @@ public class App {
             	}
             }
             
-        } while (choice != 7);
+        } while (choice != 7);																					// 7: exit program
         System.out.println();
         System.out.println("Thank you for using MUSE. Be inspired to inspire everyone everywhere always.");
     }
