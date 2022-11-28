@@ -146,6 +146,10 @@ public class App {
                 System.out.println("The new comment has been added. Here is the updated post:\n ");
                 System.out.println(theWork);
             
+                
+            } else if (choice == 5) {																			// 5: print posts and comments
+            	
+                
             } else if (choice == 6) {																			// 6: clear posts
             	System.out.print("Are you sure (y or n)? ");
             	if (sc.nextLine().equals("y")) {
