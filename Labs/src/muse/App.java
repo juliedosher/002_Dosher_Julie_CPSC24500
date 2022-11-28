@@ -127,6 +127,7 @@ public class App {
                     story = new ShortStory(responses);
                     works.add(story);
                 }
+                
             } else if (choice == 2) {																			// 2: comment on a post
                 listWorks(works);
                 System.out.print("Which one do you want to comment on? ");
@@ -148,8 +149,15 @@ public class App {
             
                 
             } else if (choice == 5) {																			// 5: print posts and comments
+            	for (ArtisticWork work : works) {
+            		System.out.println(work.toString());
+            		if (!work.getCommentsAsString().equals("")) {
+            			System.out.println("Comments:");
+            			System.out.println(work.getCommentsAsString());
+            		}
+            	}
             	
-                
+            	
             } else if (choice == 6) {																			// 6: clear posts
             	System.out.print("Are you sure (y or n)? ");
             	if (sc.nextLine().equals("y")) {
@@ -158,7 +166,11 @@ public class App {
             	} else {
             		System.out.println("Canceled. Posts were not cleared.");
             	}
-            }
+            
+            
+        	} else {																							// any input but 1-7
+        		System.out.println("Invalid input.\n");
+        	}
             
         } while (choice != 7);																					// 7: exit program
         System.out.println();
