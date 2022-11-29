@@ -172,7 +172,7 @@ public class App {
                 		break;
                 		
                 	default:
-                		System.out.println("Error. Invalid input.\n");
+                		System.out.println("Error. Invalid input.");
                 }
                 
             	
@@ -201,7 +201,7 @@ public class App {
             			break;
             			
             		default:
-            			System.out.println("Error. Invalid input\n");
+            			System.out.println("Error. Invalid input.");
             	}
                 
             	       
