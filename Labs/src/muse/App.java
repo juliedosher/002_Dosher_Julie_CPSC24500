@@ -82,7 +82,7 @@ public class App {
         int choice, artType;
         Scanner sc = new Scanner(System.in);
         LinkedHashMap<String,String> responses;
-        ArrayList<ArtisticWork> works = new ArrayList<ArtisticWork>();
+        ArrayList<ArtisticWork> works = SampleArtisticWorks.generate();											// initiates with sample posts
         Song song;
         Poem poem;
         ShortStory story;
@@ -149,6 +149,7 @@ public class App {
             
                 
             } else if (choice == 5) {																			// 5: print posts and comments
+            	System.out.println();
             	for (ArtisticWork work : works) {
             		System.out.println(work.toString());
             		if (!work.getCommentsAsString().equals("")) {
@@ -160,6 +161,7 @@ public class App {
             	
             } else if (choice == 6) {																			// 6: clear posts
             	System.out.print("Are you sure (y or n)? ");
+            	sc.nextLine();
             	if (sc.nextLine().equals("y")) {
             		works.clear();
             		System.out.println("All posts have been cleared.");
