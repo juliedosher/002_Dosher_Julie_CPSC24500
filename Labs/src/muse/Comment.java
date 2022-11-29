@@ -4,8 +4,13 @@
 
 package muse;
 
-public class Comment {
-    private String postedBy;
+import java.io.Serializable;
+
+public class Comment implements Serializable {
+    
+	private static final long serialVersionUID = 1L;
+	
+	private String postedBy;
     private String dateTime;
     private String content;
     public String getPostedBy() {
