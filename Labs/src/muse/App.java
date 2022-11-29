@@ -149,13 +149,10 @@ public class App {
             
                 
             } else if (choice == 5) {																			// 5: print posts and comments
-            	System.out.println();
+            	System.out.println("\nHere is a detailed list of all the posts:");
             	for (ArtisticWork work : works) {
+            		System.out.println();
             		System.out.println(work.toString());
-            		if (!work.getCommentsAsString().equals("")) {
-            			System.out.println("Comments:");
-            			System.out.println(work.getCommentsAsString());
-            		}
             	}
             	
             	
