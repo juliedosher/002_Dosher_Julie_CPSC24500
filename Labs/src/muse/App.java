@@ -147,7 +147,39 @@ public class App {
                 System.out.println("The new comment has been added. Here is the updated post:\n ");
                 System.out.println(theWork);
             
+            } else if (choice == 3) {																			// 3: read posts from a file
+                System.out.println("What kind of file?");
+                System.out.println("1. Text");
+                System.out.println("2. Binary");
+                System.out.println("3. XML");
+                System.out.print("Enter the number of your choice: ");
+                int selection = sc.nextInt();
+                sc.nextLine();
+                System.out.print("Enter name of file: ");
+                String fileName = sc.nextLine();
                 
+                switch (selection) {		// TODO
+                	case 1: 
+                		// text file
+                		break;
+                		
+                	case 2:
+                		// binary file
+                		break;
+                		
+                	case 3: 
+                		// XML file
+                		break;
+                		
+                	default:
+                		System.out.println("Error. Invalid input.\n");
+                		
+                }
+                
+            	
+            } else if (choice == 4) {																			// 4: write posts to a file
+                
+            	       
             } else if (choice == 5) {																			// 5: print posts and comments
             	System.out.println("\nHere is a detailed list of all the posts:");
             	for (ArtisticWork work : works) {
