@@ -13,21 +13,45 @@ public class WorkReader {
 				
 			while (fileScan.hasNextLine()) {														// gets info from file one line at
 				String[] split = fileScan.nextLine().split("\t");									// a time
-				String type = split[0];
+				String type = split[0];																// variables for all Artistic Works
 				String creator = split[2];
 				String title = split[1];
 				String date = split[3];
 				String description = split[4];
 				
-				String language = "";
+				String language = "";																// variables for Written Works
 				String text = "";
 				String meter = "";
+				String duration = "";																// variables for Recorded Works
+				String workFileName = "";
+				String fileSize = "";
+				
+				String commentAuthor = "";															// variables for Comments
+				String commentDate = "";
+				String comment = "";
+				int i = 0;
 				
 				switch (type) {																		// creates new ArtisticWork object depending on
 					case "movie":																	// ArtisticWork type
+						duration = split[5];
+						workFileName = split[6];
+						fileSize = split[7];
+						String frameRate = split[8];
+						String resolution = split[9];
 						
+						Movie movie = new Movie(creator, date, title, description, 
+								Integer.parseInt(duration), fileName, Double.parseDouble(fileSize), 
+								Integer.parseInt(frameRate), resolution); 
 						
-						Movie movie = new Movie(); //TODO
+						i = 10;
+						while (i + 3 <= split.length) {
+							commentAuthor = split[i];
+							commentDate = split[i + 1];
+							comment = split[i + 2];
+							movie.addComment(commentAuthor, commentDate, comment);
+							i = i + 3;
+						}
+						
 						works.add(movie);
 						break;
 						
@@ -35,13 +59,19 @@ public class WorkReader {
 						language = split[5];
 						text = split[6];
 						meter = split[7];
-						int i = 7;
-						while (i + 3 <= split.length) {
-							// TODO: comments
-						}
 						
 						Poem poem = new Poem(creator, date, title, description, language,
 								text, meter);
+						
+						i = 8;
+						while (i + 3 <= split.length) {
+							commentAuthor = split[i];
+							commentDate = split[i + 1];
+							comment = split[i + 2];
+							poem.addComment(commentAuthor, commentDate, comment);
+							i = i + 3;
+						}
+						
 						works.add(poem);
 						break;
 						
@@ -52,19 +82,38 @@ public class WorkReader {
 						
 						ShortStory shortStory = new ShortStory(creator, date, title, description, 
 								language, text, setting); 
+						i = 8;
+						while (i + 3 <= split.length) {
+							commentAuthor = split[i];
+							commentDate = split[i + 1];
+							comment = split[i + 2];
+							shortStory.addComment(commentAuthor, commentDate, comment);
+							i = i + 3;
+						}
+						
 						works.add(shortStory);
 						break;
 						
 					case "song":
-						String duration = split[5];
-						String workFileName = split[6];
-						String fileSize = split[7];
+						duration = split[5];
+						workFileName = split[6];
+						fileSize = split[7];
 						String bpm = split[8];
 						String key = split[9];
 						
 						Song song = new Song(creator, date, title, description,	
 								Integer.parseInt(duration), workFileName, Double.parseDouble(fileSize), 
 								Integer.parseInt(bpm), key); 
+						
+						i = 10;
+						while (i + 3 <= split.length) {
+							commentAuthor = split[i];
+							commentDate = split[i + 1];
+							comment = split[i + 2];
+							song.addComment(commentAuthor, commentDate, comment);
+							i = i + 3;
+						}
+						
 						works.add(song);
 						break;
 				}
