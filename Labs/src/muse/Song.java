@@ -52,16 +52,16 @@ public class Song extends RecordedArtisticWork {
     }
     
     public String toTabbedString() {
-    	String tabbedString = getTitle();
-    	tabbedString += "\t" + getType();
+    	String tabbedString = getType();
+    	tabbedString += "\t" + getTitle();
     	tabbedString += "\t" + getCreator();
     	tabbedString += "\t" + getDate();
     	tabbedString += "\t" + getDescription();
     	tabbedString += "\t" + getDuration();
     	tabbedString += "\t" + getFileName();
     	tabbedString += "\t" + getFileSize();
-    	tabbedString += "\t" + bpm;
-    	tabbedString += "\t" + key;
+    	tabbedString += "\t" + getBPM();
+    	tabbedString += "\t" + getKey();
     	
     	for (Comment comment : getComments()) {
     		tabbedString += "\t" + comment;
