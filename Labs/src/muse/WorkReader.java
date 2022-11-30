@@ -4,6 +4,7 @@
 
 package muse;
 
+import java.beans.*;
 import java.io.*;
 import java.util.*;
 
@@ -154,10 +155,15 @@ public class WorkReader {
 	
 	public static ArrayList<ArtisticWork> readXMLFile(String fileName) {							// reads an XML file and returns an
 		ArrayList<ArtisticWork> works = new ArrayList<ArtisticWork>();								// ArrayList of Artistic Works
-		
 		try {
+			XMLDecoder dec = new XMLDecoder(new BufferedInputStream
+					(new FileInputStream(new File(fileName))));
+			works = (ArrayList<ArtisticWork>)dec.readObject();
 			
-		} catch (Exception ex) {
+			dec.close();
+			printRead();
+			
+		} catch (IOException ex) {
 			printError();
 		} 
 		
