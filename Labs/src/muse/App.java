@@ -186,7 +186,6 @@ public class App {
             	System.out.print("Enter the number of your choice: ");
             	int selection = sc.nextInt();
             	sc.nextLine();
-            	System.out.print("Enter name fo file: ");
             	String fileName = WorkWriter.createFile(sc);
             	
             	switch (selection) {	

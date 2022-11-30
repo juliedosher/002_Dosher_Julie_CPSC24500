@@ -44,7 +44,6 @@ public class WorkWriter {
 			}
 		     postWriter.close();															// closes file
 		     printPostsWritten();
-		     System.out.println();
 		     
 		} catch (IOException ex) {															// should never happen since this is already
 			printErrorFileGeneral();														// checked in createFile()
