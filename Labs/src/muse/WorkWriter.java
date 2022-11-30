@@ -23,11 +23,11 @@ public class WorkWriter {
 			        validInput = true;
 			     
 			      } else {
-			        System.out.println("ERROR: That file name is already in use.");
+			        printErrorFileExists();
 			      }
 			      
 			    } catch (IOException ex) {
-			    	System.out.println("ERROR: That file was not found.");
+			    	printErrorFileGeneral();
 			    }
 		}
 		
@@ -43,12 +43,52 @@ public class WorkWriter {
 				postWriter.write("\n");
 			}
 		     postWriter.close();															// closes file
-		     System.out.println("The posts were successfully written.");
+		     printPostsWritten();
 		     System.out.println();
 		     
 		} catch (IOException ex) {															// should never happen since this is already
-			System.out.println("ERROR: That file was not found.");							// checked in createFile()
+			printErrorFileGeneral();														// checked in createFile()
 		}
 	}
 	
+	public static void writeToBinaryFile(String fileName, ArrayList<ArtisticWork> works) {
+		try {
+			FileWriter postWriter = new FileWriter(fileName);
+			//TODO
+			
+			postWriter.close();
+			printErrorFileGeneral();
+			System.out.println();
+			
+		} catch (IOException ex) {
+			printErrorFileGeneral();
+		}
+	}
+	
+	public static void writeToXMLFile(String fileName, ArrayList<ArtisticWork> works) {
+		try {
+			FileWriter postWriter = new FileWriter(fileName);
+			//TODO
+			
+			postWriter.close();
+			printErrorFileGeneral();
+			System.out.println();
+			
+		} catch (IOException ex) {
+			printErrorFileGeneral();
+		}
+	}
+	
+	
+	private static void printPostsWritten() {
+		System.out.println("The posts were successfully written.");
+	}
+	
+	private static void printErrorFileExists() {
+		System.out.println("ERROR: That file name is already in use.");
+	}
+	
+	private static void printErrorFileGeneral() {
+		System.out.println("ERROR: That file was not found.");
+	}
 }

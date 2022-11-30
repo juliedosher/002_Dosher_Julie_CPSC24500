@@ -185,19 +185,19 @@ public class App {
             	int selection = sc.nextInt();
             	sc.nextLine();
             	System.out.print("Enter name fo file: ");
-            	String fileName = sc.nextLine();
+            	String fileName = WorkWriter.createFile(sc);
             	
             	switch (selection) {	// TODO
             		case 1:
-            			// text file
+            			WorkWriter.writeToTextFile(fileName, works);
             			break;
             			
             		case 2:
-            			// binary file
+            			WorkWriter.writeToBinaryFile(fileName, works);
             			break;
             			
             		case 3: 
-            			// XML file
+            			WorkWriter.writeToXMLFile(fileName, works);
             			break;
             			
             		default:
