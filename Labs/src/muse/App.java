@@ -190,15 +190,15 @@ public class App {
             	String fileName = WorkWriter.createFile(sc);
             	
             	switch (selection) {	
-            		case 1:
+            		case 1:																						// writes to tab-delimited file
             			WorkWriter.writeToTextFile(fileName, works);
             			break;
             			
-            		case 2:
+            		case 2:																						// writes to binary file
             			WorkWriter.writeToBinaryFile(fileName, works);
             			break;
             			
-            		case 3: 
+            		case 3: 																					// writes to XML file
             			WorkWriter.writeToXMLFile(fileName, works);
             			break;
             			
