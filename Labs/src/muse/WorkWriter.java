@@ -8,9 +8,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import menagerie.Constants;
-import menagerie.Pet;
-
 public class WorkWriter {
 
 	public static String createFile(Scanner input) {										// takes in a String fileName and creates the file
