@@ -62,7 +62,7 @@ public class Movie extends RecordedArtisticWork {
     	tabbedString += "\t" + getResolution();
     	
     	for (Comment comment : getComments()) {
-    		tabbedString += "\t" + comment;
+    		tabbedString += comment.toTabbedString();
     	}
     	
     	return tabbedString;

@@ -47,7 +47,7 @@ public class ShortStory extends WrittenArtisticWork {
     	tabbedString += "\t" + getSetting();
     	
     	for (Comment comment : getComments()) {
-    		tabbedString += "\t" + comment;
+    		tabbedString += comment.toTabbedString();
     	}
     	
     	return tabbedString;

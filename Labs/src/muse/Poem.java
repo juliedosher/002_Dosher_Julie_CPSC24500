@@ -47,7 +47,7 @@ public class Poem extends WrittenArtisticWork {
     	tabbedString += "\t" + getMeter();
     	
     	for (Comment comment : getComments()) {
-    		tabbedString += "\t" + comment;
+    		tabbedString += comment.toTabbedString();
     	}
     	
     	return tabbedString;

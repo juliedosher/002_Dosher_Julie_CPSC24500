@@ -64,7 +64,7 @@ public class Song extends RecordedArtisticWork {
     	tabbedString += "\t" + getKey();
     	
     	for (Comment comment : getComments()) {
-    		tabbedString += "\t" + comment;
+    		tabbedString += comment.toTabbedString();
     	}
     	
     	return tabbedString;
