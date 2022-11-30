@@ -50,9 +50,21 @@ public class Movie extends RecordedArtisticWork {
     }
     
     public String toTabbedString() {
+    	String tabbedString = getType();
+    	tabbedString += "\t" + getTitle();
+    	tabbedString += "\t" + getCreator();
+    	tabbedString += "\t" + getDate();
+    	tabbedString += "\t" + getDescription();
+    	tabbedString += "\t" + getDuration();
+    	tabbedString += "\t" + getFileName();
+    	tabbedString += "\t" + getFileSize();
+    	tabbedString += "\t" + getFrameRate();
+    	tabbedString += "\t" + getResolution();
     	
+    	for (Comment comment : getComments()) {
+    		tabbedString += "\t" + comment;
+    	}
     	
-    	
-    	return "";
+    	return tabbedString;
     }
 }
