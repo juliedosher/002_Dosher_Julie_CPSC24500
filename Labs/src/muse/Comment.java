@@ -49,7 +49,7 @@ public class Comment implements Serializable {
     }
     
     public String toTabbedString() {
-    	String tabbedString = getPostedBy();
+    	String tabbedString = "\t" + getPostedBy();
     	tabbedString += "\t" + getDateTime();
     	tabbedString += "\t" + getContent();
     	
