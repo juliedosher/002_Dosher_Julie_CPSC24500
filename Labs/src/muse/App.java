@@ -158,17 +158,19 @@ public class App {
                 System.out.print("Enter name of file: ");
                 String fileName = sc.nextLine();
                 
-                switch (selection) {		// TODO
+                works.clear();																					// clears works before reading new ones
+                
+                switch (selection) {		
                 	case 1: 
-                		// text file
+                		works = WorkReader.readTextFile(fileName);												// reads from tab-delimited file
                 		break;
                 		
                 	case 2:
-                		// binary file
+                		works = WorkReader.readBinaryFile(fileName);											// reads from binary file
                 		break;
                 		
                 	case 3: 
-                		// XML file
+                		works = WorkReader.readXMLFile(fileName);												// reads from XML file
                 		break;
                 		
                 	default:

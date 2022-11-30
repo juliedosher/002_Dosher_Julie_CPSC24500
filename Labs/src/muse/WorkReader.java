@@ -126,4 +126,16 @@ public class WorkReader {
 	
 		return works;
 	}
+	
+	public static ArrayList<ArtisticWork> readBinaryFile(String fileName) {							// reads a binary file and returns 
+																									// an ArrayList of Artistic Works
+		return null;
+	}
+	
+	public static ArrayList<ArtisticWork> readXMLFile(String fileName) {							// reads an XML file and returns an
+																									// ArrayList of Artistic Works
+		
+		return null;
+	}
+	
 }
