@@ -44,6 +44,10 @@ public abstract class ArtisticWork {
     	return comments;
     }
     
+    public void setComments(ArrayList<Comment> comments) {
+    	this.comments = comments;
+    }
+    
     public ArtisticWork() {																	// default constructor
         date = "1/1/1900";
         title = "title";
