@@ -187,7 +187,7 @@ public class App {
             	System.out.print("Enter name fo file: ");
             	String fileName = WorkWriter.createFile(sc);
             	
-            	switch (selection) {	// TODO
+            	switch (selection) {	
             		case 1:
             			WorkWriter.writeToTextFile(fileName, works);
             			break;
