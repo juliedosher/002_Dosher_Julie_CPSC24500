@@ -13,6 +13,7 @@ public class Comment implements Serializable {
 	private String postedBy;
     private String dateTime;
     private String content;
+    
     public String getPostedBy() {
         return postedBy;
     }
@@ -48,9 +49,10 @@ public class Comment implements Serializable {
     }
     
     public String toTabbedString() {
+    	String tabbedString = getPostedBy();
+    	tabbedString += "\t" + getDateTime();
+    	tabbedString += "\t" + getContent();
     	
-    	
-    	
-    	return "";
+    	return tabbedString;
     }
 }
