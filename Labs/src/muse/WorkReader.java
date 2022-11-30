@@ -9,14 +9,15 @@ public class WorkReader {
 		ArrayList<ArtisticWork> works = new ArrayList<ArtisticWork>();								// ArrayList of artistic works
 		
 		try {
-			// TODO: class variables
-			String type = "";
-			
 			Scanner fileScan = new Scanner(new File(fileName));
 				
 			while (fileScan.hasNextLine()) {														// gets info from file one line at
 				String[] split = fileScan.nextLine().split("\t");									// a time
-				// TODO: fill generic variables
+				String type = split[0];
+				String creator = split[2];
+				String title = split[1];
+				String date = split[3];
+				String description = split[4];
 				
 				switch (type) {																		// creates new ArtisticWork object depending on
 					case "movie":																	// ArtisticWork type
@@ -26,7 +27,11 @@ public class WorkReader {
 						break;
 						
 					case "poem":
-						// TODO: create specific variables
+						String language = split[5];
+						String text = split[6];
+						String meter = split[7];
+						
+						
 						Poem poem = new Poem(); //TODO
 						works.add(poem);
 						break;
