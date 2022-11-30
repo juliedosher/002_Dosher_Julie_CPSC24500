@@ -165,7 +165,9 @@ public class WorkReader {
 			
 		} catch (IOException ex) {
 			printError();
-		} 
+		} catch (ArrayIndexOutOfBoundsException ex) {
+			printTranslationError();
+		}
 		
 		return works;
 	}
