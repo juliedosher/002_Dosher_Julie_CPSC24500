@@ -4,6 +4,7 @@
 
 package muse;
 
+import java.beans.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -68,14 +69,16 @@ public class WorkWriter {
 	public static void writeToXMLFile(String fileName, ArrayList<ArtisticWork> works) {		// adds current list of works to an XML file
 		try {
 			FileWriter postWriter = new FileWriter(fileName);
-			//TODO
+			XMLEncoder enc = new XMLEncoder(new BufferedOutputStream
+					(new FileOutputStream(new File(fileName))));
+			enc.writeObject(works);
 			
 			postWriter.close();																// closes file
 			printPostsWritten();
 			
 		} catch (IOException ex) {
 			printErrorFileGeneral();
-		}
+		} 
 	}
 	
 	
