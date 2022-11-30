@@ -40,7 +40,7 @@ public class WorkReader {
 						String resolution = split[9];
 						
 						Movie movie = new Movie(creator, date, title, description, 
-								Integer.parseInt(duration), fileName, Double.parseDouble(fileSize), 
+								Integer.parseInt(duration), workFileName, Double.parseDouble(fileSize), 
 								Integer.parseInt(frameRate), resolution); 
 						
 						i = 10;
@@ -120,7 +120,7 @@ public class WorkReader {
 			}
 			fileScan.close();
 			
-		} catch (FileNotFoundException e) {															
+		} catch (FileNotFoundException e) {															// should never happen
 			System.out.println("ERROR: That file was not found.");														
 		}
 	
