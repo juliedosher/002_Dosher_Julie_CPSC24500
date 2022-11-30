@@ -166,7 +166,7 @@ public class WorkReader {
 	
 	
 	private static void printRead() {
-		System.out.println("The posts wer read from the file.");
+		System.out.println("The posts were read from the file.");
 	}
 	
 	private static void printError() {
