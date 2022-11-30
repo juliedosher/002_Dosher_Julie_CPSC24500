@@ -1,3 +1,7 @@
+/*
+ * Class that looks at the current ArrayList of the Artistic Works and writes them to a file
+ */
+
 package muse;
 
 import java.io.*;

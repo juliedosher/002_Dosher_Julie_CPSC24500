@@ -1,3 +1,7 @@
+/*
+ * Class that reads files and creates ArrayLists of the Artistic Works on those files
+ */
+
 package muse;
 
 import java.io.*;
