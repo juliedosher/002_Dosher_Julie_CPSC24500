@@ -25,7 +25,8 @@ public class WorkReader {
 				
 				switch (type) {																		// creates new ArtisticWork object depending on
 					case "movie":																	// ArtisticWork type
-						// TODO: create specific variables
+						
+						
 						Movie movie = new Movie(); //TODO
 						works.add(movie);
 						break;
@@ -48,14 +49,22 @@ public class WorkReader {
 						language = split[5];
 						text = split[6];
 						String setting = split[7];
+						
 						ShortStory shortStory = new ShortStory(creator, date, title, description, 
 								language, text, setting); 
 						works.add(shortStory);
 						break;
 						
 					case "song":
-						// TODO: create specific variables
-						Song song = new Song(); //TODO
+						String duration = split[5];
+						String workFileName = split[6];
+						String fileSize = split[7];
+						String bpm = split[8];
+						String key = split[9];
+						
+						Song song = new Song(creator, date, title, description,	
+								Integer.parseInt(duration), workFileName, Double.parseDouble(fileSize), 
+								Integer.parseInt(bpm), key); 
 						works.add(song);
 						break;
 				}
