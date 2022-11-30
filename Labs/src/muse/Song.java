@@ -49,4 +49,11 @@ public class Song extends RecordedArtisticWork {
     public String getSpecificInfoString() {											// returns data as nicely formatted String
         return String.format("%d bpm, key of %s", bpm,key);
     }
+    
+    public String toTabbedString() {
+    	
+    	
+    	
+    	return "";
+    }
 }

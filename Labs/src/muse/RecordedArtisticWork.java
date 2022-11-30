@@ -60,4 +60,6 @@ public abstract class RecordedArtisticWork extends ArtisticWork {
         return String.format("%s\nDuration: %d sec; Filename: %s (%.2f MB)", super.getGeneralInfoString(),
                 duration, fileName, fileSize);
     }
+    
+    public abstract String toTabbedString();
 }

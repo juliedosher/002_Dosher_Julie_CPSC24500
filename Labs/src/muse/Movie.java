@@ -48,4 +48,11 @@ public class Movie extends RecordedArtisticWork {
     public String getSpecificInfoString() {															// returns data as nicely formatted String
         return String.format("filmed with %s resolution at %d frames per second", resolution, frameRate);
     }
+    
+    public String toTabbedString() {
+    	
+    	
+    	
+    	return "";
+    }
 }

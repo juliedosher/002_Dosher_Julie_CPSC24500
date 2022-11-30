@@ -35,4 +35,11 @@ public class ShortStory extends WrittenArtisticWork {
     public String getSpecificInfoString() {												// returns data as nicely formatted String
         return String.format("Setting: %s\n%s", setting, super.getSpecificInfoString());
     }
+    
+	public String toTabbedString() {
+	    	
+	    	
+	    	
+	    return "";
+	}
 }

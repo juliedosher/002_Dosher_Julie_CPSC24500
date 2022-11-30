@@ -35,4 +35,11 @@ public class Poem extends WrittenArtisticWork {
     public String getSpecificInfoString() {											// returns info as nicely formatted String
         return String.format("Meter: %s\n%s", meter, super.getSpecificInfoString());
     }
+    
+    public String toTabbedString() {
+    	
+    	
+    	
+    	return "";
+    }
 }

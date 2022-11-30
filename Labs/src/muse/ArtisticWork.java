@@ -14,10 +14,12 @@ public abstract class ArtisticWork {
     private String title;
     private String description;
     private ArrayList<Comment> comments;
-    public String getCreator() {
+   
+    
+    public String getCreator() {															// getters and setters
         return creator;
     }
-    public void setCreator(String creator) {										// getters and setters
+    public void setCreator(String creator) {									
         this.creator = creator;
     }
     public String getDate() {
@@ -56,10 +58,13 @@ public abstract class ArtisticWork {
         this(settings.get("creator"),settings.get("date"),settings.get("title"),settings.get("description"));
     }
     public abstract String getType();
+   
     public String getGeneralInfoString() {
         return String.format("%s, a %s by %s, posted on %s",title,getType(),creator,date);
     }
+ 
     public abstract String getSpecificInfoString();
+    
     public String getCommentsAsString() {
         String result = "";
         for (Comment comment : comments) {
@@ -74,13 +79,20 @@ public abstract class ArtisticWork {
     public String toString() {
         return getGeneralInfoString() + "\n" + getSpecificInfoString() + "\nComments: \n" + getCommentsAsString();
     }
+    
+  
+    public abstract String toTabbedString();
+    
+    
     public void addComment(String postedBy, String date, String content) {					// adds comment to work
         Comment comment = new Comment(postedBy, date, content);
         comments.add(comment);
     }
+    
     public void addComment(Comment comment) {												// adds just a comment without author and date info
         comments.add(comment);
     }
+    
     public String getShortString() {
         return String.format("\"%s\", a %s by %s", title, getType(), creator);
     }

@@ -46,4 +46,11 @@ public class Comment implements Serializable {
         return String.format("On %s, %s commented ...\n\t\"%s\"", 	
         		dateTime, postedBy, content);
     }
+    
+    public String toTabbedString() {
+    	
+    	
+    	
+    	return "";
+    }
 }

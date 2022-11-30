@@ -45,4 +45,6 @@ public abstract class WrittenArtisticWork extends ArtisticWork {
     public String getSpecificInfoString() {														// returns text as String
         return text;
     }
+    
+    public abstract String toTabbedString();
 }
