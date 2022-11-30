@@ -26,7 +26,7 @@ public class WorkWriter {
 			        printErrorFileExists();
 			      }
 			      
-			    } catch (IOException ex) {
+			    } catch (IOException ex) {													// shouldn't happen due to the if else block
 			    	printErrorFileGeneral();
 			    }
 		}
