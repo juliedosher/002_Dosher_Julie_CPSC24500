@@ -19,6 +19,10 @@ public class WorkReader {
 				String date = split[3];
 				String description = split[4];
 				
+				String language = "";
+				String text = "";
+				String meter = "";
+				
 				switch (type) {																		// creates new ArtisticWork object depending on
 					case "movie":																	// ArtisticWork type
 						// TODO: create specific variables
@@ -27,9 +31,9 @@ public class WorkReader {
 						break;
 						
 					case "poem":
-						String language = split[5];
-						String text = split[6];
-						String meter = split[7];
+						language = split[5];
+						text = split[6];
+						meter = split[7];
 						int i = 7;
 						while (i + 3 <= split.length) {
 							// TODO: comments
@@ -41,8 +45,11 @@ public class WorkReader {
 						break;
 						
 					case "short story":
-						// TODO: create specific variables
-						ShortStory shortStory = new ShortStory(); //TODO
+						language = split[5];
+						text = split[6];
+						String setting = split[7];
+						ShortStory shortStory = new ShortStory(creator, date, title, description, 
+								language, text, setting); 
 						works.add(shortStory);
 						break;
 						
