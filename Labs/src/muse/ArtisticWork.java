@@ -40,6 +40,11 @@ public abstract class ArtisticWork {
     public void setDescription(String description) {
         this.description = description;
     }
+    
+    public ArrayList<Comment> getComments() {
+    	return comments;
+    }
+    
     public ArtisticWork() {																	// default constructor
         date = "1/1/1900";
         title = "title";

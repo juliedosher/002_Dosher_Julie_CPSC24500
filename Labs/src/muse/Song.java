@@ -10,6 +10,7 @@ import java.util.LinkedHashMap;
 public class Song extends RecordedArtisticWork {
     private int bpm;  // beats per minute
     private String key;
+    
     public int getBPM() {
         return bpm;
     }
@@ -51,9 +52,21 @@ public class Song extends RecordedArtisticWork {
     }
     
     public String toTabbedString() {
+    	String tabbedString = getTitle();
+    	tabbedString += "\t" + getType();
+    	tabbedString += "\t" + getCreator();
+    	tabbedString += "\t" + getDate();
+    	tabbedString += "\t" + getDescription();
+    	tabbedString += "\t" + getDuration();
+    	tabbedString += "\t" + getFileName();
+    	tabbedString += "\t" + getFileSize();
+    	tabbedString += "\t" + bpm;
+    	tabbedString += "\t" + key;
     	
+    	for (Comment comment : getComments()) {
+    		tabbedString += "\t" + comment;
+    	}
     	
-    	
-    	return "";
+    	return tabbedString;
     }
 }
