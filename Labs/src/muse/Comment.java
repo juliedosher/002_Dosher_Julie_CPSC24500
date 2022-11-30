@@ -32,6 +32,7 @@ public class Comment implements Serializable {
     public void setContent(String content) {										
         this.content = content;
     }
+    
     public Comment() {																// default constructor
         postedBy = "";
         dateTime = "";
