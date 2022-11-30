@@ -37,9 +37,13 @@ public class Poem extends WrittenArtisticWork {
     }
     
     public String toTabbedString() {
+    	String tabbedString = getTitle();
+    	tabbedString += "\t" + getType();
+    	tabbedString += "\t" + getCreator();
+    	tabbedString += "\t" + getDate();
+    	tabbedString += "\t" + meter;
+    	tabbedString += "\t" + getText();
     	
-    	
-    	
-    	return "";
+    	return tabbedString;
     }
 }
