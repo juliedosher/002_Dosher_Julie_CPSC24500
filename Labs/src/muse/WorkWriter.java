@@ -34,7 +34,7 @@ public class WorkWriter {
 		return fileName;
 	}
 	
-	public static void writeToTextFile(String fileName, ArrayList<ArtisticWork> works) {	// adds current list of pets to a new file
+	public static void writeToTextFile(String fileName, ArrayList<ArtisticWork> works) {	// adds current list of works to a new file
 		try {
 			FileWriter postWriter = new FileWriter(fileName);
 		     
