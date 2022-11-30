@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="17.0.1" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="muse.Song" id="Song0">
+    <void property="BPM">
+     <int>128</int>
+    </void>
+    <void property="comments">
+     <void method="add">
+      <object class="muse.Comment">
+       <void property="content">
+        <string>This song hits hard.</string>
+       </void>
+       <void property="dateTime">
+        <string>10/13/22</string>
+       </void>
+       <void property="postedBy">
+        <string>Ray Klump</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="muse.Comment">
+       <void property="content">
+        <string>Haunting and raw</string>
+       </void>
+       <void property="dateTime">
+        <string>October 15, 2022</string>
+       </void>
+       <void property="postedBy">
+        <string>Mary Johnson</string>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void property="creator">
+     <string>Joe Johnson</string>
+    </void>
+    <void property="date">
+     <string>October 12, 2022</string>
+    </void>
+    <void property="description">
+     <string>A song about unrequited love</string>
+    </void>
+    <void property="duration">
+     <int>181</int>
+    </void>
+    <void property="fileName">
+     <string>unbearablelikeness.wav</string>
+    </void>
+    <void property="fileSize">
+     <double>12.8</double>
+    </void>
+    <void property="key">
+     <string>C major</string>
+    </void>
+    <void property="title">
+     <string>Unbearable Likeness</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="muse.Poem" id="Poem0">
+    <void property="comments">
+     <void method="add">
+      <object class="muse.Comment">
+       <void property="content">
+        <string>Groundbreaking and real.</string>
+       </void>
+       <void property="dateTime">
+        <string>Nov. 6, 2022</string>
+       </void>
+       <void property="postedBy">
+        <string>Manny Roeper</string>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void property="creator">
+     <string>Phoebe B.</string>
+    </void>
+    <void property="date">
+     <string>2022-11-04</string>
+    </void>
+    <void property="description">
+     <string>A poem about hazy confusion and the meaninglessness of it all.</string>
+    </void>
+    <void property="meter">
+     <string>iambic pentameter</string>
+    </void>
+    <void property="text">
+     <string>This poem is flowin&apos; like phloem // and I be knowin what be stolen from you.</string>
+    </void>
+    <void property="title">
+     <string>Roses Are Blue</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="muse.ShortStory" id="ShortStory0">
+    <void class="muse.ShortStory" method="getField">
+     <string>setting</string>
+     <void method="set">
+      <object idref="ShortStory0"/>
+      <string>Sweden in Springtime</string>
+     </void>
+    </void>
+    <void property="comments">
+     <void method="add">
+      <object class="muse.Comment">
+       <void property="content">
+        <string>I&apos;m not from Sweden, but I sure could connect with this.</string>
+       </void>
+       <void property="dateTime">
+        <string>2022-10-03</string>
+       </void>
+       <void property="postedBy">
+        <string>Jasmine Yobar</string>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void property="creator">
+     <string>Al Johnson</string>
+    </void>
+    <void property="date">
+     <string>Sept. 28, 2022</string>
+    </void>
+    <void property="description">
+     <string>A story about the homeland in spring</string>
+    </void>
+    <void property="text">
+     <string>This is a story about goats. But more importantly, it&apos;s a story about hope.</string>
+    </void>
+    <void property="title">
+     <string>Goats on the Roof</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="muse.Movie" id="Movie0">
+    <void property="comments">
+     <void method="add">
+      <object class="muse.Comment">
+       <void property="content">
+        <string>I&apos;m not sure if this was supposed to be comedy or drama.</string>
+       </void>
+       <void property="dateTime">
+        <string>October 18, 2022</string>
+       </void>
+       <void property="postedBy">
+        <string>Roger Egbert</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="muse.Comment">
+       <void property="content">
+        <string>I laughed, I cried, I vomited because I was sick.</string>
+       </void>
+       <void property="dateTime">
+        <string>Oct. 26, 2022</string>
+       </void>
+       <void property="postedBy">
+        <string>Katie Kline</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="muse.Comment">
+       <void property="content">
+        <string>I don&apos;t know about the bad comments. Haters gonna hate.</string>
+       </void>
+       <void property="dateTime">
+        <string>11-1-22</string>
+       </void>
+       <void property="postedBy">
+        <string>Patrice Mulhaven</string>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void property="creator">
+     <string>Steven Yeats</string>
+    </void>
+    <void property="date">
+     <string>October 15, 2022</string>
+    </void>
+    <void property="description">
+     <string>Seamus takes holiday in Paris and hilarity ensues.</string>
+    </void>
+    <void property="duration">
+     <int>137</int>
+    </void>
+    <void property="fileName">
+     <string>dubliner.mp4</string>
+    </void>
+    <void property="fileSize">
+     <double>182.43</double>
+    </void>
+    <void property="resolution">
+     <string>1080p</string>
+    </void>
+    <void property="title">
+     <string>Dubliner in Paris</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
