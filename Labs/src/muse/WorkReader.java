@@ -30,9 +30,13 @@ public class WorkReader {
 						String language = split[5];
 						String text = split[6];
 						String meter = split[7];
+						int i = 7;
+						while (i + 3 <= split.length) {
+							// TODO: comments
+						}
 						
-						
-						Poem poem = new Poem(); //TODO
+						Poem poem = new Poem(creator, date, title, description, language,
+								text, meter);
 						works.add(poem);
 						break;
 						
