@@ -34,7 +34,7 @@ public class WorkWriter {
 		return fileName;
 	}
 	
-	public static void writeToTextFile(String fileName, ArrayList<ArtisticWork> works) {	// adds current list of works to a new file
+	public static void writeToTextFile(String fileName, ArrayList<ArtisticWork> works) {	// adds current list of works to a text file
 		try {
 			FileWriter postWriter = new FileWriter(fileName);
 		     
@@ -51,12 +51,12 @@ public class WorkWriter {
 		}
 	}
 	
-	public static void writeToBinaryFile(String fileName, ArrayList<ArtisticWork> works) {
+	public static void writeToBinaryFile(String fileName, ArrayList<ArtisticWork> works) {	// adds current list of works to a binary file
 		try {
 			FileWriter postWriter = new FileWriter(fileName);
 			//TODO
 			
-			postWriter.close();
+			postWriter.close();																// closes file
 			printErrorFileGeneral();
 			System.out.println();
 			
@@ -65,12 +65,12 @@ public class WorkWriter {
 		}
 	}
 	
-	public static void writeToXMLFile(String fileName, ArrayList<ArtisticWork> works) {
+	public static void writeToXMLFile(String fileName, ArrayList<ArtisticWork> works) {		// adds current list of works to an XML file
 		try {
 			FileWriter postWriter = new FileWriter(fileName);
 			//TODO
 			
-			postWriter.close();
+			postWriter.close();																// closes file
 			printErrorFileGeneral();
 			System.out.println();
 			
@@ -80,7 +80,7 @@ public class WorkWriter {
 	}
 	
 	
-	private static void printPostsWritten() {
+	private static void printPostsWritten() {												// printing methods
 		System.out.println("The posts were successfully written.");
 	}
 	
