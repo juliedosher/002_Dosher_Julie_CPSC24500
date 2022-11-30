@@ -53,10 +53,11 @@ public class WorkWriter {
 	
 	public static void writeToBinaryFile(String fileName, ArrayList<ArtisticWork> works) {	// adds current list of works to a binary file
 		try {
-			FileWriter postWriter = new FileWriter(fileName);
-			//TODO
+			FileOutputStream fos = new FileOutputStream(new File(fileName));
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(works);
 			
-			postWriter.close();																// closes file
+			oos.close();																	// closes file
 			printErrorFileGeneral();
 			System.out.println();
 			
