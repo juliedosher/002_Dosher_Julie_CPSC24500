@@ -5,7 +5,7 @@ import java.util.*;
 
 public class WorkReader {
 	
-	public static ArrayList<ArtisticWork> readTextFile(String fileName) {							// reads .txt file and returns an
+	public static ArrayList<ArtisticWork> readTextFile(String fileName) {							// reads a text file and returns an
 		ArrayList<ArtisticWork> works = new ArrayList<ArtisticWork>();								// ArrayList of artistic works
 		
 		try {
