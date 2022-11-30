@@ -58,8 +58,7 @@ public class WorkWriter {
 			oos.writeObject(works);
 			
 			oos.close();																	// closes file
-			printErrorFileGeneral();
-			System.out.println();
+			printPostsWritten();
 			
 		} catch (IOException ex) {
 			printErrorFileGeneral();
@@ -72,8 +71,7 @@ public class WorkWriter {
 			//TODO
 			
 			postWriter.close();																// closes file
-			printErrorFileGeneral();
-			System.out.println();
+			printPostsWritten();
 			
 		} catch (IOException ex) {
 			printErrorFileGeneral();
