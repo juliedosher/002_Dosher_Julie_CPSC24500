@@ -2,12 +2,11 @@
  * The abstract class that defines ArtisticWork
  */
 
-
 package muse;
 
 import java.util.ArrayList;
-
 import java.util.LinkedHashMap;
+
 public abstract class ArtisticWork {
     private String creator;
     private String date;

@@ -225,7 +225,7 @@ public class App {
             	}
             
             
-        	} else {																							// any input but 1-7
+        	} else if (choice !=7){																							// any input but 1-7
         		System.out.println("Invalid input.\n");
         	}
             

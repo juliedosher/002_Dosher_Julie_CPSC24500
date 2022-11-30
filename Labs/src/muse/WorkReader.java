@@ -123,23 +123,57 @@ public class WorkReader {
 				}
 			}
 			fileScan.close();
+			printRead();
 			
 		} catch (FileNotFoundException e) {															// should never happen
-			System.out.println("ERROR: That file was not found.");														
+			printError();
 		}
 	
 		return works;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static ArrayList<ArtisticWork> readBinaryFile(String fileName) {							// reads a binary file and returns 
-																									// an ArrayList of Artistic Works
-		return null;
+		ArrayList<ArtisticWork> works = new ArrayList<ArtisticWork>();								// an ArrayList of Artistic Works
+		try {
+			FileInputStream fis = new FileInputStream(new File(fileName));
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			works = (ArrayList<ArtisticWork>)ois.readObject();
+			
+			ois.close();
+			printRead();
+			
+		} catch (IOException ex) {
+			printError();
+		} catch (ClassNotFoundException ex) {
+			printTranslationError();
+		}
+		
+		return works;
 	}
 	
 	public static ArrayList<ArtisticWork> readXMLFile(String fileName) {							// reads an XML file and returns an
-																									// ArrayList of Artistic Works
+		ArrayList<ArtisticWork> works = new ArrayList<ArtisticWork>();								// ArrayList of Artistic Works
 		
-		return null;
+		try {
+			
+		} catch (Exception ex) {
+			printError();
+		} 
+		
+		return works;
 	}
 	
+	
+	private static void printRead() {
+		System.out.println("The posts wer read from the file.");
+	}
+	
+	private static void printError() {
+		System.out.println("ERROR: That file was not found.");		
+	}
+	
+	private static void printTranslationError() {
+		System.out.println("ERROR: Problem translating from file.");
+	}
 }
