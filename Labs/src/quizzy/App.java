@@ -1,12 +1,12 @@
 /*
- * Quiz Answers:
+ * Quiz Answers:							TODO: double check quiz answers and .txt file
  * 1. C
  * 2. C
  * 3. A
  * 4. B
  * 5. B
  * 6. D
- * 7. C
+ * 7. C											
  * 8. A
  * 9. C
  * 10. B
