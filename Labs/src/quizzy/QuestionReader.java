@@ -1,5 +1,5 @@
 /*
- * File that defines the QuestionReader class; reads data from text file and returns an ArrayList of Questions.
+ * QuestionReader class: reads data from file and returns an ArrayList of Questions.
  */
 
 package quizzy;
