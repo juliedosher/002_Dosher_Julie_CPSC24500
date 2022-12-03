@@ -11,7 +11,7 @@ public class Question {
 	Question() {																						// Default constructor
 		this.questionText = "";
 		this.options = new LinkedHashMap<String, String>();
-		this.correctAnswer = "z";
+		this.correctAnswer = "";
 	}
 	
 	Question(String questionText, LinkedHashMap<String, String> options, String correctAnswer) {		// Constructor
