@@ -18,10 +18,15 @@
 
 package quizzy;
 
+import java.util.*;
+
 public class App {
 
 	public static void main(String[] args) {
+		QuestionReader.getQuizFromFile(null);					// TODO
 		
+		ArrayList<Question> questions = QuestionReader.getQuestions();
+		LinkedHashMap<String, String> questionOptions = QuestionReader.getQuestionOptions();
 
 	}
 
