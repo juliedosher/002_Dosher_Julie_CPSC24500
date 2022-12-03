@@ -1,3 +1,7 @@
+/*
+ * File that defines the Question Class
+ */
+
 package quizzy;
 
 import java.util.*;
