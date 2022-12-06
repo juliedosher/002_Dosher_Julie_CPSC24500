@@ -10,7 +10,7 @@ public class Movie {
 		description = "";
 	}
 	
-	Movie(String title, int releaseYear, String director, int runtimeMinutes, String description) {			// constructor
+	Movie(String title, int releaseYear, String director, int runtimeMinutes, String description) {			// primary constructor
 		this.title = title;
 		this.releaseYear = releaseYear;
 		this.director = director;
@@ -25,8 +25,8 @@ public class Movie {
 	private String description;
 	
 	
-	public String runtimeToString() {
-		String output = "";
+	private String runtimeToString() {																		// converts runtime minutes to a String
+		String output = "";																					// containing hours and minutes and returns it
 		if (runtimeMinutes < 60) {
 			output = runtimeMinutes + " min";
 		
@@ -42,8 +42,8 @@ public class Movie {
 		return output;
 	}
 	
-	public String toString() {
-		String output = title + ", " + releaseYear + ", ";
+	public String toString() {																				// converts Movie object to a nicely
+		String output = title + ", " + releaseYear + ", ";													// formatted String and returns it
 		output += "dir. by " + director + ".";
 		output += runtimeToString() + ".\n";
 		output += description + "\n";
