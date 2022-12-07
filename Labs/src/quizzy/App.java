@@ -25,7 +25,7 @@ import java.awt.*;
 public class App {
 
 	public static void main(String[] args) {
-		ArrayList<Question> questions = QuestionReader.getQuizFromFile(null); 	// TODO: get file name
+		//ArrayList<Question> questions = QuestionReader.getQuizFromFile(null); 	// TODO: get file name
 		
 		JFrame frame = new JFrame();
 		frame.setTitle("Object-Oriented Quiz Tool");
