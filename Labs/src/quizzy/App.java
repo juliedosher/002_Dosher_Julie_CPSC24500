@@ -30,6 +30,12 @@ public class App {
 		File file = fc.getSelectedFile();
 		ArrayList<Question> questions = QuestionReader.getQuizFromFile(file); 
 		
+		boolean shouldExit = false;
+		
+		while (!shouldExit) {
+			
+		}
+		
 	}
 	
 }
