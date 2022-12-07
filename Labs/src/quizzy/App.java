@@ -25,6 +25,7 @@ import java.io.*;
 public class App {
 
 	public static void main(String[] args) {
+		GUI app = new GUI();
 		JFileChooser fc = new JFileChooser();
 		File file = fc.getSelectedFile();
 		ArrayList<Question> questions = QuestionReader.getQuizFromFile(file); 
