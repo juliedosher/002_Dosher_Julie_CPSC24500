@@ -74,4 +74,5 @@ public class QuizFrame  extends JFrame {
 		
 		setBounds(100, 100, 900, 350);
 	}
+	
 }
