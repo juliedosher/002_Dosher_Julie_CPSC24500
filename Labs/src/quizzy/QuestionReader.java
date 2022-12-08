@@ -21,16 +21,27 @@ public class QuestionReader {
 				String optionA = split[1];
 				String optionB = split[2];
 				String optionC = split[3];
-				String optionD = split[4];
-				String correctAnswer = split[5];
+				String optionD = "";
+				String correctAnswer = "";
+				
+				if (split.length == 5) {																	// questions with 3 options
+					correctAnswer = split[4];
+					
+				} else if (split.length == 6) {																// questions with 4 options
+					optionD = split[4];
+					correctAnswer = split[5];
+				}
+				
 			
 				LinkedHashMap<String, String> questionOptions = new LinkedHashMap<String, String>();		// creates LinkedHashMap of options
 				questionOptions.put("a", optionA);
 				questionOptions.put("b", optionB);
 				questionOptions.put("c", optionC);
-				questionOptions.put("d", optionD);
+				if (split.length == 6) {
+					questionOptions.put("d", optionD);
+				}
+		
 				Question question = new Question(questionText, questionOptions, correctAnswer); 			// creates new question with data from file
-				
 				questions.add(question);																	// adds new question to ArrayList
 			}
 			fileScan.close();																				// closes file

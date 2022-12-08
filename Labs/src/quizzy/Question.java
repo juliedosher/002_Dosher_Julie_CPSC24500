@@ -38,10 +38,12 @@ public class Question {
 	
 	public String toString() {																			// returns a nicely formatted String to show user
 		String string = questionText + "\n";
-		string += "a." + "\t" + options.get("a") + "\n";
+		string += "a." + "\t" + options.get("a") + "\n";												
 		string += "b." + "\t" + options.get("b") + "\n";
 		string += "c." + "\t" + options.get("c") + "\n";
-		string += "d." + "\t" + options.get("d") + "\n";
+		if (getOptions().size() == 4) {
+			string += "d." + "\t" + options.get("d") + "\n";
+		}
 		
 		return string;
 	}
@@ -51,7 +53,9 @@ public class Question {
 		tabbedString += "a." + "\t" + options.get("a") + "\t";
 		tabbedString += "b." + "\t" + options.get("b") + "\t";
 		tabbedString += "c." + "\t" + options.get("c") + "\t";
-		tabbedString += "d." + "\t" + options.get("d");
+		if (getOptions().size() == 4) {
+			tabbedString += "d." + "\t" + options.get("d");
+		}
 		
 		return tabbedString;
 	}

@@ -35,7 +35,13 @@ public class QuizFrame  extends JFrame {
 	                	JFileChooser fc = new JFileChooser();
 	                	fc.showOpenDialog(null);
 	            		File file = fc.getSelectedFile();
-	            		//ArrayList<Question> questions = QuestionReader.getQuizFromFile(file); 			TODO
+	            		ArrayList<Question> questions = QuestionReader.getQuizFromFile(file); 			// TODO
+	            		//File testFile = new File("quiz.txt");
+	            		//ArrayList<Question> questions = QuestionReader.getQuizFromFile(testFile);
+	            		for (Question question : questions) {
+	            			
+	            			
+	            		}
 	            		JTextArea questionsRead = new JTextArea("The questions have been read. Select Quiz>>Start to begin.");
 	            		c.add(questionsRead, BorderLayout.CENTER);
 	            		c.remove(welcome);			// TODO
