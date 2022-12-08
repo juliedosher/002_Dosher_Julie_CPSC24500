@@ -27,7 +27,9 @@ import java.io.*;
 public class App {
 
 	public static void main(String[] args) {
-		GUI gui = new GUI();
+		QuizFrame frame = new QuizFrame();
+		frame.setVisible(true);
+		
 		
 		//JFileChooser fc = new JFileChooser();
 		//File file = fc.getSelectedFile();
