@@ -14,9 +14,9 @@ public class QuizFrame  extends JFrame {
 		c.setLayout(new BorderLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JTextArea welcome = new JTextArea("Welcome to Quizzy, the object-oriented programming quiz tool.\n"
+		JTextArea textField = new JTextArea("Welcome to Quizzy, the object-oriented programming quiz tool.\n"
 				+ "Select File >> Load Questions to begin.");
-		c.add(welcome, BorderLayout.CENTER);
+		c.add(textField, BorderLayout.CENTER);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -35,16 +35,10 @@ public class QuizFrame  extends JFrame {
 	                	JFileChooser fc = new JFileChooser();
 	                	fc.showOpenDialog(null);
 	            		File file = fc.getSelectedFile();
-	            		ArrayList<Question> questions = QuestionReader.getQuizFromFile(file); 			// TODO
-	            		//File testFile = new File("quiz.txt");
+	            		ArrayList<Question> questions = QuestionReader.getQuizFromFile(file); 			// TODO: move so this can be used
+	            		//File testFile = new File("quiz.txt");											// TODO: remove, just using this for testing purposes
 	            		//ArrayList<Question> questions = QuestionReader.getQuizFromFile(testFile);
-	            		for (Question question : questions) {
-	            			
-	            			
-	            		}
-	            		JTextArea questionsRead = new JTextArea("The questions have been read. Select Quiz>>Start to begin.");
-	            		c.add(questionsRead, BorderLayout.CENTER);
-	            		c.remove(welcome);			// TODO
+	            		textField.setText("The questions have been read. Select Quiz>>Start to begin.");
 	                }
 	            }
 	        );
@@ -53,7 +47,7 @@ public class QuizFrame  extends JFrame {
 	            new ActionListener(){
 	                public void actionPerformed(ActionEvent e)
 	                {
-	                    System.exit(0);				// TODO
+	                    System.exit(0);				// TODO: change so exit statement is not needed
 	                }
 	            }
 	        );
