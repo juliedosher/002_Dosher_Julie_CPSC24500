@@ -31,9 +31,7 @@ public class App {
 		frame.setVisible(true);
 		
 		
-		//JFileChooser fc = new JFileChooser();
-		//File file = fc.getSelectedFile();
-		//ArrayList<Question> questions = QuestionReader.getQuizFromFile(file); 
+		
 		
 		boolean shouldExit = false;
 		

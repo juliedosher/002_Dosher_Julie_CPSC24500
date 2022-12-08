@@ -28,11 +28,26 @@ public class QuizFrame  extends JFrame {
 		fileMenu.add(quitBtn);
 		menuBar.add(fileMenu);
 		
+		getFileMenuBtn.addActionListener(
+	            new ActionListener(){
+	                public void actionPerformed(ActionEvent e)
+	                {
+	                	JFileChooser fc = new JFileChooser();
+	                	fc.showOpenDialog(null);
+	            		File file = fc.getSelectedFile();
+	            		//ArrayList<Question> questions = QuestionReader.getQuizFromFile(file); 			TODO
+	            		JTextArea questionsRead = new JTextArea("The questions have been read. Select Quiz>>Start to begin.");
+	            		c.add(questionsRead, BorderLayout.CENTER);
+	            		c.remove(welcome);			// TODO
+	                }
+	            }
+	        );
+		
 		quitBtn.addActionListener(
 	            new ActionListener(){
 	                public void actionPerformed(ActionEvent e)
 	                {
-	                    System.exit(0);
+	                    System.exit(0);				// TODO
 	                }
 	            }
 	        );
