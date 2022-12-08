@@ -44,11 +44,11 @@ public class QuizFrame  extends JFrame {
 		quizMenu.add(stopQuizBtn);
 		menuBar.add(quizMenu);	
 		
+		
 		JPanel southPanel = new JPanel(new FlowLayout());
 		
 		JLabel labYourAnswer = new JLabel("Your answer: ");
-		JTextField answerBox = new JTextField("");
-		answerBox.setSize(90, answerBox.getHeight());
+		JTextField answerBox = new JTextField(3);
 		JButton btnSubmit = new JButton("Submit answer");
 		JButton btnNext = new JButton("Next question");
 		southPanel.add(labYourAnswer);
