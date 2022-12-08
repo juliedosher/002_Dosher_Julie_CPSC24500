@@ -41,7 +41,7 @@ public class Question {
 		string += "a." + "\t" + options.get("a") + "\n";												
 		string += "b." + "\t" + options.get("b") + "\n";
 		string += "c." + "\t" + options.get("c") + "\n";
-		if (getOptions().size() == 4) {
+		if (getOptions().size() == 4) {																	// if there are 4 options
 			string += "d." + "\t" + options.get("d") + "\n";
 		}
 		
@@ -53,7 +53,7 @@ public class Question {
 		tabbedString += "a." + "\t" + options.get("a") + "\t";
 		tabbedString += "b." + "\t" + options.get("b") + "\t";
 		tabbedString += "c." + "\t" + options.get("c") + "\t";
-		if (getOptions().size() == 4) {
+		if (getOptions().size() == 4) {																	// if there are 4 options
 			tabbedString += "d." + "\t" + options.get("d");
 		}
 		
