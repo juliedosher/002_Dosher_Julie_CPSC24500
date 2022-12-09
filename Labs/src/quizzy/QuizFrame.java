@@ -95,7 +95,7 @@ public class QuizFrame extends JFrame {
 	
 	private JMenuBar setupMenu(JTextArea textArea) {													// creates menu bar with functioning menu items
 		JMenuBar menuBar = new JMenuBar();																// and returns it
-		JMenu fileMenu = new JMenu("File");
+		JMenu fileMenu = new JMenu("File");																// file menu options
 		JMenuItem getFileMenuBtn = new JMenuItem("Load Questions");
 		JMenuItem quitBtn = new JMenuItem("Quit");
 		fileMenu.add(getFileMenuBtn);
@@ -124,7 +124,7 @@ public class QuizFrame extends JFrame {
 	            }
 	        );
 		
-		JMenu quizMenu = new JMenu("Quiz");
+		JMenu quizMenu = new JMenu("Quiz");																// quiz menu options
 		JMenuItem startQuizBtn = new JMenuItem("Start");
 		JMenuItem stopQuizBtn = new JMenuItem("Stop");
 		quizMenu.add(startQuizBtn);
