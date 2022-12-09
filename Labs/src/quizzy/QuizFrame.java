@@ -10,17 +10,20 @@ public class QuizFrame  extends JFrame {
 	
 	private ArrayList<Question> questions = new ArrayList<Question>();
 	private Question currentQuestion = new Question();
-	boolean shouldExit = false;
+	private boolean shouldExit = false;
+	private int totalQuestionsCounter = 5;
+	private int correctQuestionsCounter = 1;
 	
 	public QuizFrame() {
-		setTitle("Object-Oriented Quiz Tool");
+		setupGUI();
+		
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JTextArea textField = new JTextArea("Welcome to Quizzy, the object-oriented programming quiz tool.\n"
+		JTextArea mainTextArea = new JTextArea("Welcome to Quizzy, the object-oriented programming quiz tool.\n"
 				+ "Select File >> Load Questions to begin.");
-		c.add(textField, BorderLayout.CENTER);
+		c.add(mainTextArea, BorderLayout.CENTER);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -32,7 +35,7 @@ public class QuizFrame  extends JFrame {
 		fileMenu.add(quitBtn);
 		menuBar.add(fileMenu);
 		
-		getFileMenuBtn.addActionListener(
+		getFileMenuBtn.addActionListener(																// File>>Load Questions
 	            new ActionListener(){
 	                public void actionPerformed(ActionEvent e)
 	                {
@@ -42,12 +45,12 @@ public class QuizFrame  extends JFrame {
 	            		//questions = QuestionReader.getQuizFromFile(file);
 	            		File testFile = new File("quiz.txt");											// TODO: remove, just using this for testing purposes
 	            		questions = QuestionReader.getQuizFromFile(testFile);
-	            		textField.setText("The questions have been read. Select Quiz>>Start to begin.");
+	            		mainTextArea.setText("The questions have been read. Select Quiz>>Start to begin.");
 	                }
 	            }
 	        );
 		
-		quitBtn.addActionListener(
+		quitBtn.addActionListener(																		// File>>Quit
 	            new ActionListener(){
 	                public void actionPerformed(ActionEvent e)
 	                {
@@ -63,20 +66,20 @@ public class QuizFrame  extends JFrame {
 		quizMenu.add(stopQuizBtn);
 		menuBar.add(quizMenu);	
 		
-		startQuizBtn.addActionListener(
+		startQuizBtn.addActionListener(																	// Quiz>>Start
 	            new ActionListener(){
 	                public void actionPerformed(ActionEvent e)
 	                {
-	                	// TODO: Quiz>>Start
+	                	chooseQuestion(mainTextArea);
 	                }
 	            }
 	        );
 		
-		stopQuizBtn.addActionListener(
+		stopQuizBtn.addActionListener(																	// Quiz>>Stop
 	            new ActionListener(){
 	                public void actionPerformed(ActionEvent e)
 	                {
-	                    // TODO: Quiz>>Stop
+	                	gradeQuiz();
 	                }
 	            }
 	        );
@@ -94,11 +97,32 @@ public class QuizFrame  extends JFrame {
 		southPanel.add(btnNext);
 		c.add(southPanel, BorderLayout.SOUTH);
 		
+		
+	}
+	
+	private void setupGUI() {																			// sets up basic parts of GUI
+		setTitle("Object-Oriented Quiz Tool");
 		setBounds(100, 100, 900, 350);
 	}
 	
-	public boolean getShouldExit() {
+	public boolean getShouldExit() {																	// checks if program should exit 
 		return shouldExit;
+	}
+	
+	private void chooseQuestion(JTextArea textArea) {													// chooses a question based on RNG
+		Random rand = new Random();
+    	int questionNum = rand.nextInt(questions.size());
+    	currentQuestion = questions.get(questionNum);
+    	textArea.setText(currentQuestion.toString());
+    	questions.remove(questionNum);																	// removes chosen question so it can't 
+	}																									// be picked again
+	
+	private void gradeQuiz() {																			// ends quiz and shows a message 
+		double percent = 100 * (double)correctQuestionsCounter / (double)totalQuestionsCounter;			// pop-up with user's score
+		String output = "You answered " + correctQuestionsCounter + " out of " 
+				+ totalQuestionsCounter + " correctly.\n";
+		output += "That is a percent score of " + String.format("%.2f", percent) + ".";
+		JOptionPane.showMessageDialog(this, output);
 	}
 	
 }
