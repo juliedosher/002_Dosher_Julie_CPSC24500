@@ -6,28 +6,54 @@ import java.io.*;
 import java.util.*;
 import javax.swing.*;
 
-public class QuizFrame  extends JFrame {
+public class QuizFrame extends JFrame {
 	
 	private ArrayList<Question> questions = new ArrayList<Question>();
 	private Question currentQuestion = new Question();
 	private boolean shouldExit = false;
-	private int totalQuestionsCounter = 5;
-	private int correctQuestionsCounter = 1;
+	private int totalQuestionsCounter = 0;
+	private int correctQuestionsCounter = 0;
 	
 	public QuizFrame() {
 		setupGUI();
 		
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JTextArea mainTextArea = new JTextArea("Welcome to Quizzy, the object-oriented programming quiz tool.\n"
 				+ "Select File >> Load Questions to begin.");
 		c.add(mainTextArea, BorderLayout.CENTER);
 		
-		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
 		
+		setJMenuBar(setupMenu(mainTextArea));
+		c.add(setupSouthPanel(), BorderLayout.SOUTH);
+		
+		
+	}
+	
+	private void setupGUI() {																			// sets up basic parts of GUI
+		setTitle("Object-Oriented Quiz Tool");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 900, 350);
+	}
+	
+	private JPanel setupSouthPanel() {																	// sets up south panel with buttons and
+		JPanel southPanel = new JPanel(new FlowLayout());												// user's answer text field and returns panel
+																									
+		JLabel labYourAnswer = new JLabel("Your answer: ");
+		JTextField answerBox = new JTextField(3);
+		JButton btnSubmit = new JButton("Submit answer");
+		JButton btnNext = new JButton("Next question");
+		southPanel.add(labYourAnswer);
+		southPanel.add(answerBox);
+		southPanel.add(btnSubmit);
+		southPanel.add(btnNext);
+		
+		return southPanel;
+	}
+	
+	private JMenuBar setupMenu(JTextArea textArea) {
+		JMenuBar menuBar = new JMenuBar();
 		JMenu fileMenu = new JMenu("File");
 		JMenuItem getFileMenuBtn = new JMenuItem("Load Questions");
 		JMenuItem quitBtn = new JMenuItem("Quit");
@@ -45,7 +71,7 @@ public class QuizFrame  extends JFrame {
 	            		//questions = QuestionReader.getQuizFromFile(file);
 	            		File testFile = new File("quiz.txt");											// TODO: remove, just using this for testing purposes
 	            		questions = QuestionReader.getQuizFromFile(testFile);
-	            		mainTextArea.setText("The questions have been read. Select Quiz>>Start to begin.");
+	            		textArea.setText("The questions have been read. Select Quiz>>Start to begin.");
 	                }
 	            }
 	        );
@@ -70,7 +96,7 @@ public class QuizFrame  extends JFrame {
 	            new ActionListener(){
 	                public void actionPerformed(ActionEvent e)
 	                {
-	                	chooseQuestion(mainTextArea);
+	                	chooseQuestion(textArea);
 	                }
 	            }
 	        );
@@ -84,25 +110,7 @@ public class QuizFrame  extends JFrame {
 	            }
 	        );
 		
-		
-		JPanel southPanel = new JPanel(new FlowLayout());
-		
-		JLabel labYourAnswer = new JLabel("Your answer: ");
-		JTextField answerBox = new JTextField(3);
-		JButton btnSubmit = new JButton("Submit answer");
-		JButton btnNext = new JButton("Next question");
-		southPanel.add(labYourAnswer);
-		southPanel.add(answerBox);
-		southPanel.add(btnSubmit);
-		southPanel.add(btnNext);
-		c.add(southPanel, BorderLayout.SOUTH);
-		
-		
-	}
-	
-	private void setupGUI() {																			// sets up basic parts of GUI
-		setTitle("Object-Oriented Quiz Tool");
-		setBounds(100, 100, 900, 350);
+		return menuBar;
 	}
 	
 	public boolean getShouldExit() {																	// checks if program should exit 
