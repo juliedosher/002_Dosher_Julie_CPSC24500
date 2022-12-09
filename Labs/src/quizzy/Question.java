@@ -49,13 +49,14 @@ public class Question {
 	}
 	
 	public String toTabbedString() {																	// returns a tab-delimited String to write to text file
-		String tabbedString = questionText + "\t";
-		tabbedString += "a." + "\t" + options.get("a") + "\t";
-		tabbedString += "b." + "\t" + options.get("b") + "\t";
-		tabbedString += "c." + "\t" + options.get("c") + "\t";
+		String tabbedString = questionText;
+		tabbedString += "\t" + options.get("a");
+		tabbedString += "\t" + options.get("b");
+		tabbedString += "\t" + options.get("c");
 		if (getOptions().size() == 4) {																	// if there are 4 options
-			tabbedString += "d." + "\t" + options.get("d");
+			tabbedString += "\t" + options.get("d");
 		}
+		tabbedString += "\t" + correctAnswer;
 		
 		return tabbedString;
 	}
