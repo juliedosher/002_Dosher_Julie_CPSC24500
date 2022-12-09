@@ -28,8 +28,7 @@ public class Question {
 	public boolean checkIsCorrect(String userAnswer) {													// checks if user's answer is correct
 		boolean isCorrect = false;
 		
-		userAnswer = userAnswer.toLowerCase();
-		if (userAnswer.equals(correctAnswer)) {
+		if (userAnswer.equalsIgnoreCase(correctAnswer)) {
 			isCorrect = true;
 		}
 		
@@ -38,11 +37,11 @@ public class Question {
 	
 	public String toString() {																			// returns a nicely formatted String to show user
 		String string = questionText + "\n";
-		string += "a." + "\t" + options.get("a") + "\n";												
-		string += "b." + "\t" + options.get("b") + "\n";
-		string += "c." + "\t" + options.get("c") + "\n";
+		string += "A." + "\t" + options.get("a") + "\n";												
+		string += "B." + "\t" + options.get("b") + "\n";
+		string += "C." + "\t" + options.get("c") + "\n";
 		if (getOptions().size() == 4) {																	// if there are 4 options
-			string += "d." + "\t" + options.get("d") + "\n";
+			string += "D." + "\t" + options.get("d") + "\n";
 		}
 		
 		return string;
