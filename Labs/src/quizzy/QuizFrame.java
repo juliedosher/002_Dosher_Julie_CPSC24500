@@ -8,7 +8,8 @@ import javax.swing.*;
 
 public class QuizFrame  extends JFrame {
 	
-	ArrayList<Question> questions = new ArrayList<Question>();
+	private ArrayList<Question> questions = new ArrayList<Question>();
+	private Question currentQuestion = new Question();
 	
 	public QuizFrame() {
 		setTitle("Object-Oriented Quiz Tool");
