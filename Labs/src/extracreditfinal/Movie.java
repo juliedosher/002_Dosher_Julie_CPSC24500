@@ -51,6 +51,16 @@ public class Movie {
 		return output;
 	}
 	
+	public String toTabbedString() {
+		String output = title + "\t";
+		output += releaseYear + "\t";
+		output += director + "\t";
+		output += runtimeMinutes + "\t";
+		output += description;
+		
+		return output;
+	}
+	
 	public String getTitle() {																				// getters and setters
 		return title;
 	}
