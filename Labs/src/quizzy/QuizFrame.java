@@ -23,6 +23,7 @@ public class QuizFrame extends JFrame {
 		JTextArea mainTextArea = new JTextArea("Welcome to Quizzy, the object-oriented programming "
 				+ "quiz tool.\nSelect File >> Load Questions to begin.");
 		c.add(mainTextArea, BorderLayout.CENTER);
+		mainTextArea.setEditable(false);																// user cannot edit main text area
 		
 		setJMenuBar(setupMenu(mainTextArea));															// adds menu bar containing File and Quiz
 		c.add(setupSouthPanel(), BorderLayout.SOUTH);													// adds panel containing buttons and text field to south
