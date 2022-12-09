@@ -1,5 +1,5 @@
 /*
- * Quiz Answers:							TODO: double check quiz answers and .txt file
+ * Quiz Answers:							
  * 1. C
  * 2. C
  * 3. A
