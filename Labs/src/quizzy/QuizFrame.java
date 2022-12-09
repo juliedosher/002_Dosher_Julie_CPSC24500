@@ -8,6 +8,8 @@ import javax.swing.*;
 
 public class QuizFrame  extends JFrame {
 	
+	ArrayList<Question> questions = new ArrayList<Question>();
+	
 	public QuizFrame() {
 		setTitle("Object-Oriented Quiz Tool");
 		Container c = getContentPane();
@@ -35,7 +37,7 @@ public class QuizFrame  extends JFrame {
 	                	JFileChooser fc = new JFileChooser();
 	                	fc.showOpenDialog(null);
 	            		File file = fc.getSelectedFile();
-	            		ArrayList<Question> questions = QuestionReader.getQuizFromFile(file); 			// TODO: move so this can be used
+	            		questions = QuestionReader.getQuizFromFile(file);
 	            		//File testFile = new File("quiz.txt");											// TODO: remove, just using this for testing purposes
 	            		//ArrayList<Question> questions = QuestionReader.getQuizFromFile(testFile);
 	            		textField.setText("The questions have been read. Select Quiz>>Start to begin.");
