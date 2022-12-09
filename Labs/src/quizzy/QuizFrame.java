@@ -11,7 +11,6 @@ public class QuizFrame extends JFrame {
 	private ArrayList<Question> questions = new ArrayList<Question>();
 	private Question currentQuestion = new Question();
 	private boolean shouldExit = false;
-	private boolean isInQuiz = false;
 	private int totalQuestionsCounter = 0;
 	private int correctQuestionsCounter = 0;
 	
@@ -107,7 +106,7 @@ public class QuizFrame extends JFrame {
 	            new ActionListener(){
 	                public void actionPerformed(ActionEvent e)
 	                {
-	                	JFileChooser fc = new JFileChooser();
+	                	JFileChooser fc = new JFileChooser();											// asks user to choose quiz file
 	                	fc.showOpenDialog(null);
 	            		File file = fc.getSelectedFile();
 	            		questions = QuestionReader.getQuizFromFile(file);
@@ -136,7 +135,7 @@ public class QuizFrame extends JFrame {
 	            new ActionListener(){
 	                public void actionPerformed(ActionEvent e)
 	                {
-	            		chooseQuestion(textArea);
+	            		chooseQuestion(textArea);														// displays the first question
 	            		btnSubmit.setEnabled(true);
 	            			
 	                }
@@ -147,7 +146,7 @@ public class QuizFrame extends JFrame {
 	            new ActionListener(){
 	                public void actionPerformed(ActionEvent e)
 	                {
-	                	gradeQuiz();
+	                	gradeQuiz();																	// displays pop-up with user's score
 	                }
 	            }
 	        );
