@@ -22,23 +22,18 @@ import java.util.*;
 import javax.swing.*;
 
 import java.awt.*;
+import java.awt.event.*;
 import java.io.*;
 
 public class App {
 
 	public static void main(String[] args) {
 		QuizFrame frame = new QuizFrame();
-		frame.setVisible(true);
-		
-		
-		
-		
-		boolean shouldExit = false;
-		
-		while (!shouldExit) {
-			
+		while (!frame.getShouldExit()) {													// checks if user has selected File>>Quit
+			frame.setVisible(true);
 		}
 		
+		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));			// closes JFrame and ends program
 	}
 	
 }

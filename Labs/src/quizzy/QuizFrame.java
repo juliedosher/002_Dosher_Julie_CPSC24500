@@ -10,6 +10,7 @@ public class QuizFrame  extends JFrame {
 	
 	private ArrayList<Question> questions = new ArrayList<Question>();
 	private Question currentQuestion = new Question();
+	boolean shouldExit = false;
 	
 	public QuizFrame() {
 		setTitle("Object-Oriented Quiz Tool");
@@ -36,11 +37,11 @@ public class QuizFrame  extends JFrame {
 	                public void actionPerformed(ActionEvent e)
 	                {
 	                	JFileChooser fc = new JFileChooser();
-	                	fc.showOpenDialog(null);
-	            		File file = fc.getSelectedFile();
-	            		questions = QuestionReader.getQuizFromFile(file);
-	            		//File testFile = new File("quiz.txt");											// TODO: remove, just using this for testing purposes
-	            		//ArrayList<Question> questions = QuestionReader.getQuizFromFile(testFile);
+	                	//fc.showOpenDialog(null);
+	            		//File file = fc.getSelectedFile();
+	            		//questions = QuestionReader.getQuizFromFile(file);
+	            		File testFile = new File("quiz.txt");											// TODO: remove, just using this for testing purposes
+	            		questions = QuestionReader.getQuizFromFile(testFile);
 	            		textField.setText("The questions have been read. Select Quiz>>Start to begin.");
 	                }
 	            }
@@ -50,7 +51,7 @@ public class QuizFrame  extends JFrame {
 	            new ActionListener(){
 	                public void actionPerformed(ActionEvent e)
 	                {
-	                    System.exit(0);				// TODO: change so exit statement is not needed
+	                	shouldExit = true;
 	                }
 	            }
 	        );
@@ -61,6 +62,24 @@ public class QuizFrame  extends JFrame {
 		quizMenu.add(startQuizBtn);
 		quizMenu.add(stopQuizBtn);
 		menuBar.add(quizMenu);	
+		
+		startQuizBtn.addActionListener(
+	            new ActionListener(){
+	                public void actionPerformed(ActionEvent e)
+	                {
+	                	// TODO: Quiz>>Start
+	                }
+	            }
+	        );
+		
+		stopQuizBtn.addActionListener(
+	            new ActionListener(){
+	                public void actionPerformed(ActionEvent e)
+	                {
+	                    // TODO: Quiz>>Stop
+	                }
+	            }
+	        );
 		
 		
 		JPanel southPanel = new JPanel(new FlowLayout());
@@ -76,6 +95,10 @@ public class QuizFrame  extends JFrame {
 		c.add(southPanel, BorderLayout.SOUTH);
 		
 		setBounds(100, 100, 900, 350);
+	}
+	
+	public boolean getShouldExit() {
+		return shouldExit;
 	}
 	
 }
