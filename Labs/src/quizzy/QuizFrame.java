@@ -20,15 +20,12 @@ public class QuizFrame extends JFrame {
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
 		
-		JTextArea mainTextArea = new JTextArea("Welcome to Quizzy, the object-oriented programming quiz tool.\n"
-				+ "Select File >> Load Questions to begin.");
+		JTextArea mainTextArea = new JTextArea("Welcome to Quizzy, the object-oriented programming "
+				+ "quiz tool.\nSelect File >> Load Questions to begin.");
 		c.add(mainTextArea, BorderLayout.CENTER);
 		
-		
-		setJMenuBar(setupMenu(mainTextArea));
-		c.add(setupSouthPanel(), BorderLayout.SOUTH);
-		
-		
+		setJMenuBar(setupMenu(mainTextArea));															// adds menu bar containing File and Quiz
+		c.add(setupSouthPanel(), BorderLayout.SOUTH);													// adds panel containing buttons and text field to south
 	}
 	
 	private void setupGUI() {																			// sets up basic parts of GUI
