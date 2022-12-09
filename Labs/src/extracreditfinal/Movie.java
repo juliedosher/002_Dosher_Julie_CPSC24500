@@ -44,7 +44,7 @@ public class Movie {
 	
 	public String toString() {																				// converts Movie object to a nicely
 		String output = title + ", " + releaseYear + ", ";													// formatted String and returns it
-		output += "dir. by " + director + ".";
+		output += "dir. by " + director + ". ";
 		output += runtimeToString() + ".\n";
 		output += description + "\n";
 		
