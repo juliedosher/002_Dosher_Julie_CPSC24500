@@ -49,8 +49,8 @@ public class QuizFrame extends JFrame {
 		return southPanel;
 	}
 	
-	private JMenuBar setupMenu(JTextArea textArea) {
-		JMenuBar menuBar = new JMenuBar();
+	private JMenuBar setupMenu(JTextArea textArea) {													// creates menu bar with functioning menu items
+		JMenuBar menuBar = new JMenuBar();																// and returns it
 		JMenu fileMenu = new JMenu("File");
 		JMenuItem getFileMenuBtn = new JMenuItem("Load Questions");
 		JMenuItem quitBtn = new JMenuItem("Quit");
