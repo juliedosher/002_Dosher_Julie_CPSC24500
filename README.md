@@ -1,4 +1,4 @@
-#CPSC 245 Intro to Object-Oriented Programming
+# CPSC 245 Intro to Object-Oriented Programming
 
 Julie Dosher  
 juliegdosher@lewisu.edu  
