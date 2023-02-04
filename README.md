@@ -4,4 +4,4 @@ Author: Julie Dosher
 juliegdosher@lewisu.edu  
 
 CPSC 245 Intro to OOP, Fall 2022  
-All Class Assignments  
+All class assignments  
